@@ -45,11 +45,14 @@ export default function TechnicalExplorer() {
         </div>
 
         <div className="lg:col-span-6">
-          <div className="aspect-[16/10] overflow-hidden border border-[rgba(0,0,0,0.12)] relative group">
+          <div className="aspect-[16/10] overflow-hidden border border-[rgba(0,0,0,0.12)] relative group bg-[#E8E7E3]">
+            <div className="absolute inset-0 skeleton-shimmer-light"></div>
             <img 
               src={activeItem.image} 
               alt={activeItem.title} 
-              className="w-full h-full object-cover filter brightness-[0.85] contrast-110 group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
+              onLoad={(e) => e.currentTarget.classList.remove('opacity-0')}
+              className="w-full h-full object-cover filter brightness-[0.85] contrast-110 group-hover:scale-105 transition-all duration-700 opacity-0 relative z-10"
             />
           </div>
         </div>

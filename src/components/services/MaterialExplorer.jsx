@@ -119,15 +119,18 @@ export default function MaterialExplorer() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#181B1E] border border-[rgba(255,255,255,0.12)] p-6 md:p-10">
         
         {/* Left Macro Media (col-span-6) */}
-        <div className="lg:col-span-6 relative aspect-[4/3] overflow-hidden border border-[rgba(255,255,255,0.12)]">
+        <div className="lg:col-span-6 relative aspect-[4/3] overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#101214]">
+          <div className="absolute inset-0 skeleton-shimmer"></div>
           <img
             src={current.media}
             alt={current.title}
-            className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.15]"
+            loading="lazy"
+            onLoad={(e) => e.currentTarget.classList.remove('opacity-0')}
+            className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.15] opacity-0 transition-opacity duration-500 relative z-10"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-transparent z-10 pointer-events-none"></div>
           
-          <div className="absolute bottom-4 left-4 right-4 bg-[#101214]/95 p-4 border border-[rgba(255,255,255,0.12)]">
+          <div className="absolute bottom-4 left-4 right-4 bg-[#101214]/95 p-4 border border-[rgba(255,255,255,0.12)] z-20">
             <div className="font-mono text-[9px] text-[#D71920] uppercase tracking-widest font-bold">
               ATELIER PROTOCOL
             </div>

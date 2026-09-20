@@ -1,22 +1,35 @@
-import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Upload, Shield, Car, Calendar, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Send, CheckCircle2, AlertCircle, Upload, Shield, Car, Calendar, Sparkles, RotateCcw } from 'lucide-react';
 import { studioCompany } from '../../data/index.js';
 
 export default function MultiStepAssessment() {
   const [step, setStep] = useState(1);
-  const [formData, setFormData] = useState({
-    vehicleMake: '',
-    vehicleModel: '',
-    vehicleYear: '',
-    vehicleType: 'PERFORMANCE_COUPE',
-    condition: 'USED_SWIRLS',
-    primaryGoal: 'CORRECTION_CERAMIC',
-    photoName: '',
-    clientName: '',
-    clientPhone: '',
-    clientEmail: '',
-    notes: ''
+  const [formData, setFormData] = useState(() => {
+    try {
+      const saved = localStorage.getItem('ngt_assessment_draft');
+      if (saved) return JSON.parse(saved);
+    } catch (e) {}
+    return {
+      vehicleMake: '',
+      vehicleModel: '',
+      vehicleYear: '',
+      vehicleType: 'PERFORMANCE_COUPE',
+      condition: 'USED_SWIRLS',
+      primaryGoal: 'CORRECTION_CERAMIC',
+      photoName: '',
+      clientName: '',
+      clientPhone: '',
+      clientEmail: '',
+      notes: ''
+    };
   });
+
+  // Autosave draft
+  useEffect(() => {
+    try {
+      localStorage.setItem('ngt_assessment_draft', JSON.stringify(formData));
+    } catch (e) {}
+  }, [formData]);
 
   const [status, setStatus] = useState({ loading: false, success: false, error: null, refId: null });
 
@@ -84,6 +97,7 @@ export default function MultiStepAssessment() {
 
       const data = await response.json();
       if (response.ok && data.success) {
+        localStorage.removeItem('ngt_assessment_draft');
         setStatus({
           loading: false,
           success: true,
@@ -94,6 +108,7 @@ export default function MultiStepAssessment() {
         throw new Error(data.message || 'Consultation request failed to transmit.');
       }
     } catch (err) {
+      localStorage.removeItem('ngt_assessment_draft');
       setStatus({
         loading: false,
         success: true,
