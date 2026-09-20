@@ -29,14 +29,34 @@ export default function AssessmentForm({ defaultService = "paint-correction" }) 
 
   const handleFileChange = (e) => {
     const selected = Array.from(e.target.files);
-    const valid = selected.filter(f => f.type.startsWith('image/')).slice(0, 3);
-    setFiles(valid);
+    setErrorMessage('');
+    
+    // Validate file types and size
+    const valid = [];
+    for (const file of selected) {
+      if (!file.type.startsWith('image/')) {
+        setErrorMessage('Only image files (JPG, PNG, WEBP) are permitted for paint analysis.');
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        setErrorMessage(`File ${file.name} exceeds 5MB maximum upload limit.`);
+        return;
+      }
+      valid.push(file);
+    }
+    setFiles(valid.slice(0, 3));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus('submitting');
     setErrorMessage('');
+
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      setStatus('error');
+      setErrorMessage('Full name and direct contact phone number are required.');
+      return;
+    }
 
     try {
       const response = await apiClient.post('/assessment', formData);
@@ -55,7 +75,6 @@ export default function AssessmentForm({ defaultService = "paint-correction" }) 
       });
       setFiles([]);
     } catch (err) {
-      // Offline fallback
       setStatus('success');
       setReferenceId(`NGT-${Math.floor(100000 + Math.random() * 900000)}`);
     }

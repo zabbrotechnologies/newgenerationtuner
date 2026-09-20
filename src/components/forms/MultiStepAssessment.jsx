@@ -43,9 +43,21 @@ export default function MultiStepAssessment() {
     { id: 'EXPRESS_CARE', num: '05', label: '90-Min Precision Maintenance Protocol' }
   ];
 
+  const [fileError, setFileError] = useState('');
+
   const handleFileChange = (e) => {
+    setFileError('');
     if (e.target.files && e.target.files[0]) {
-      setFormData({ ...formData, photoName: e.target.files[0].name });
+      const file = e.target.files[0];
+      if (!file.type.startsWith('image/')) {
+        setFileError('Please select a valid image file (JPG, PNG, WEBP).');
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        setFileError('File size exceeds 5MB limit.');
+        return;
+      }
+      setFormData({ ...formData, photoName: file.name });
     }
   };
 
@@ -320,16 +332,23 @@ export default function MultiStepAssessment() {
               <div className="border border-dashed border-[rgba(255,255,255,0.2)] hover:border-[#D71920] bg-[#101214] p-8 text-center cursor-pointer transition-colors relative">
                 <input
                   type="file"
-                  accept="image/*"
+                  accept="image/png, image/jpeg, image/webp"
                   onChange={handleFileChange}
                   className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
                 />
                 <Upload size={28} className="mx-auto text-[#D71920] mb-3" />
                 <div className="font-body text-xs uppercase tracking-wider text-[#FFFFFF] font-semibold">
-                  {formData.photoName ? `Attached: ${formData.photoName}` : 'CLICK OR DRAG INSPECTION PHOTOS (PNG, JPG, HEIC)'}
+                  {formData.photoName ? `Attached: ${formData.photoName}` : 'CLICK OR DRAG INSPECTION PHOTOS (PNG, JPG, WEBP)'}
                 </div>
-                <div className="font-body text-[11px] text-[#8D9398] mt-1 font-normal">Max file size 15MB</div>
+                <div className="font-body text-[11px] text-[#8D9398] mt-1 font-normal">Max file size 5MB</div>
               </div>
+
+              {fileError && (
+                <div className="p-3 bg-red-500/10 border border-red-500/30 flex items-center gap-2 font-body text-xs text-red-400">
+                  <AlertCircle size={15} />
+                  <span>{fileError}</span>
+                </div>
+              )}
 
               <div>
                 <label className="block font-mono text-[10px] tracking-[0.18em] uppercase text-[#8D9398] mb-1.5 font-medium">SPECIAL REQUESTS / HIGH-IMPACT AREAS</label>

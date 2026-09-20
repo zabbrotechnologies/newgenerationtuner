@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('New Generation Tuner\'s — Multi-Screen Responsive & Functional Suite', () => {
+test.describe('New Generation Tuner\'s — Production Suite', () => {
 
   test('01. Home Page loads and all key interactive sections render properly', async ({ page }) => {
     await page.goto('/');
@@ -21,7 +21,7 @@ test.describe('New Generation Tuner\'s — Multi-Screen Responsive & Functional 
     await expect(assessment).toBeVisible();
   });
 
-  test('02. Assessment Form step progression works flawlessly', async ({ page }) => {
+  test('02. Assessment Form step progression & validation works', async ({ page }) => {
     await page.goto('/');
     
     // Fill Step 1
@@ -33,23 +33,66 @@ test.describe('New Generation Tuner\'s — Multi-Screen Responsive & Functional 
     await page.locator('text=Continue to Goal Selection ↗').first().click();
     await expect(page.locator('text=STAGE 02 / 05').first()).toBeVisible();
 
-    // Select goal and advance
+    // Select goal and advance to Step 3
     await page.locator('text=Continue to Surface Condition ↗').first().click();
     await expect(page.locator('text=STAGE 03 / 05').first()).toBeVisible();
+
+    // Advance to Step 4 (Photo)
+    await page.locator('text=Continue to Telemetry Photo ↗').first().click();
+    await expect(page.locator('text=STAGE 04 / 05').first()).toBeVisible();
   });
 
-  test('03. Navigation to all subpages works smoothly', async ({ page }) => {
+  test('03. Navigation across all routes functions reliably', async ({ page, isMobile }) => {
     await page.goto('/');
 
-    // Check direct page navigation
-    await page.goto('/services');
-    await expect(page).toHaveURL(/.*services/);
-    await expect(page.locator('h1').first()).toContainText('THE FINISH');
+    if (isMobile) {
+      // Mobile drawer interaction
+      await page.locator('button[aria-label="Open navigation menu"]').click();
+      await page.locator('div[role="dialog"] a:has-text("SERVICES")').click();
+      await expect(page).toHaveURL(/.*services/);
+      await expect(page.locator('h1').first()).toContainText('THE FINISH');
 
-    // Navigate to Contact
-    await page.goto('/contact');
-    await expect(page).toHaveURL(/.*contact/);
-    await expect(page.locator('h1').first()).toContainText('Contact');
+      await page.locator('button[aria-label="Open navigation menu"]').click();
+      await page.locator('div[role="dialog"] a:has-text("OUR WORK")').click();
+      await expect(page).toHaveURL(/.*gallery/);
+      await expect(page.locator('h1').first()).toContainText('SELECTED WORK');
+    } else {
+      // Desktop navigation
+      await page.locator('header nav a:has-text("SERVICES")').click();
+      await expect(page).toHaveURL(/.*services/);
+      await expect(page.locator('h1').first()).toContainText('THE FINISH');
+
+      await page.locator('header nav a:has-text("OUR WORK")').click();
+      await expect(page).toHaveURL(/.*gallery/);
+      await expect(page.locator('h1').first()).toContainText('SELECTED WORK');
+
+      await page.locator('header nav a:has-text("REVIEWS")').click();
+      await expect(page).toHaveURL(/.*reviews/);
+      await expect(page.locator('h1').first()).toContainText('CLIENT FEEDBACK');
+
+      await page.locator('header nav a:has-text("STUDIO")').click();
+      await expect(page).toHaveURL(/.*about/);
+      await expect(page.locator('h1').first()).toContainText('THE MACHINE');
+
+      await page.locator('header nav a:has-text("CONTACT")').click();
+      await expect(page).toHaveURL(/.*contact/);
+      await expect(page.locator('h1').first()).toContainText('VEHICLE');
+    }
+  });
+
+  test('04. Header scroll interaction hides on downward scroll and reappears on upward scroll', async ({ page }) => {
+    await page.goto('/');
+    const headerContainer = page.locator('header').first();
+    await expect(headerContainer).toBeVisible();
+
+    // Scroll down 400px
+    await page.evaluate(() => window.scrollTo(0, 400));
+    await page.waitForTimeout(300);
+
+    // Scroll up 100px to trigger reveal
+    await page.evaluate(() => window.scrollTo(0, 200));
+    await page.waitForTimeout(300);
+    await expect(headerContainer).toBeVisible();
   });
 
   test('04. No horizontal scrolling overflow exists on any screen width', async ({ page }) => {
