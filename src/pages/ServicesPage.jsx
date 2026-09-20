@@ -15,19 +15,14 @@ export default function ServicesPage() {
       {/* ── 01. HERO SECTION (DARK GRAPHITE) ───────────────────── */}
       <section className="relative min-h-[90vh] flex items-center py-28 overflow-hidden bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85"
-            className="w-full h-full object-cover brightness-[0.55] contrast-[1.2] scale-105"
-            onCanPlay={(e) => e.currentTarget.play().catch(() => {})}
-          >
-            <source src="/videos/car-wash.mp4" type="video/mp4" />
-            <source src="/videos/car-detailing.mp4" type="video/mp4" />
-          </video>
+          <img
+            src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=2070&q=85&auto=format&fit=crop"
+            onError={(e) => {
+              e.currentTarget.src = "/images/hero-car-wash.jpg";
+            }}
+            alt="Automotive performance detailing atelier car wash in progress"
+            className="w-full h-full object-cover brightness-[0.65] contrast-[1.15] scale-105"
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/90 via-[#101214]/50 to-[#101214]/80"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/70"></div>
         </div>

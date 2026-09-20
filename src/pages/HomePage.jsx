@@ -55,26 +55,17 @@ export default function HomePage() {
       
       {/* ── 01. HERO (DARK GRAPHITE CINEMATIC) ──────────────────── */}
       <section className="relative min-h-[94vh] flex items-center overflow-hidden py-24 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        {/* Full Viewport High-End Car Detailing & Wash Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1800&q=80"
-            className="w-full h-full object-cover brightness-[0.70] contrast-[1.15] scale-105"
-            onCanPlay={(e) => {
-              e.currentTarget.muted = true;
-              e.currentTarget.play().catch(() => {});
+          <img
+            src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=2070&q=85&auto=format&fit=crop"
+            onError={(e) => {
+              e.currentTarget.src = "/images/hero-car-wash.jpg";
             }}
-          >
-            <source src="/videos/car-wash.mp4" type="video/mp4" />
-            <source src="/videos/car-detailing.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/90 via-[#101214]/40 to-[#101214]/75"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/60"></div>
+            alt="Automotive performance detailing atelier car wash in progress"
+            className="w-full h-full object-cover brightness-[0.70] contrast-[1.12] scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/50 to-[#101214]/75"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/65"></div>
         </div>
 
         <div className="container relative z-10">
