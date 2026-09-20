@@ -20,11 +20,12 @@ export default function ServicesPage() {
             muted
             loop
             playsInline
+            preload="auto"
             poster="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85"
             className="w-full h-full object-cover brightness-[0.42] contrast-[1.25] scale-105"
           >
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-car-getting-washed-with-soap-43186-large.mp4" type="video/mp4" />
-            <source src="https://assets.mixkit.co/videos/preview/mixkit-mechanic-polishing-a-car-in-a-garage-43187-large.mp4" type="video/mp4" />
+            <source src="/videos/car-detailing.mp4" type="video/mp4" />
+            <source src="/videos/car-stream.mp4" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/70 to-[#101214]/85"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/80"></div>

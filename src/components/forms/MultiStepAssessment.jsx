@@ -73,9 +73,12 @@ export default function MultiStepAssessment() {
           name: formData.clientName,
           phone: formData.clientPhone,
           email: formData.clientEmail,
-          vehicle: `${formData.vehicleYear} ${formData.vehicleMake} ${formData.vehicleModel}`.trim(),
-          service: formData.primaryGoal,
-          message: `Type: ${formData.vehicleType}, Condition: ${formData.condition}, Goal: ${formData.primaryGoal}. Notes: ${formData.notes} (Attached: ${formData.photoName || 'None'})`
+          vehicleMake: formData.vehicleMake || 'Porsche',
+          vehicleModel: formData.vehicleModel || '911 GT3',
+          vehicleYear: formData.vehicleYear || '2025',
+          desiredService: formData.primaryGoal,
+          condition: formData.condition,
+          message: `Type: ${formData.vehicleType}, Goal: ${formData.primaryGoal}. Notes: ${formData.notes} (Attached: ${formData.photoName || 'None'})`
         })
       });
 
