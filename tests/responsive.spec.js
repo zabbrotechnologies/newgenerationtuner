@@ -16,8 +16,8 @@ test.describe('New Generation Tuner\'s — Production Suite', () => {
     const beforeAfter = page.locator('text=SEE THE DIFFERENCE').first();
     await expect(beforeAfter).toBeVisible();
 
-    // Verify 5-Step Assessment Wizard is present
-    const assessment = page.locator('text=STAGE 01 / 05').first();
+    // Verify 4-Step Assessment Wizard is present
+    const assessment = page.locator('text=STAGE 01 / 04').first();
     await expect(assessment).toBeVisible();
   });
 
@@ -31,15 +31,15 @@ test.describe('New Generation Tuner\'s — Production Suite', () => {
     
     // Click Continue to Step 2
     await page.locator('text=Continue to Goal Selection ↗').first().click();
-    await expect(page.locator('text=STAGE 02 / 05').first()).toBeVisible();
+    await expect(page.locator('text=STAGE 02 / 04').first()).toBeVisible();
 
     // Select goal and advance to Step 3
     await page.locator('text=Continue to Surface Condition ↗').first().click();
-    await expect(page.locator('text=STAGE 03 / 05').first()).toBeVisible();
+    await expect(page.locator('text=STAGE 03 / 04').first()).toBeVisible();
 
-    // Advance to Step 4 (Photo)
-    await page.locator('text=Continue to Telemetry Photo ↗').first().click();
-    await expect(page.locator('text=STAGE 04 / 05').first()).toBeVisible();
+    // Advance to Step 4 (Contact Details)
+    await page.locator('text=Continue to Contact Details ↗').first().click();
+    await expect(page.locator('text=STAGE 04 / 04').first()).toBeVisible();
   });
 
   test('03. Navigation across all routes functions reliably', async ({ page, isMobile }) => {

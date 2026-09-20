@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Send, CheckCircle2, AlertCircle, Upload, Shield, Car, Calendar, Sparkles, RotateCcw } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Shield, Car, Calendar, Sparkles, MessageSquare } from 'lucide-react';
 import { studioCompany } from '../../data/index.js';
 
 export default function MultiStepAssessment() {
@@ -16,7 +16,6 @@ export default function MultiStepAssessment() {
       vehicleType: 'PERFORMANCE_COUPE',
       condition: 'USED_SWIRLS',
       primaryGoal: 'CORRECTION_CERAMIC',
-      photoName: '',
       clientName: '',
       clientPhone: '',
       clientEmail: '',
@@ -56,30 +55,19 @@ export default function MultiStepAssessment() {
     { id: 'EXPRESS_CARE', num: '05', label: '90-Min Precision Maintenance Protocol' }
   ];
 
-  const [fileError, setFileError] = useState('');
-
-  const handleFileChange = (e) => {
-    setFileError('');
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      if (!file.type.startsWith('image/')) {
-        setFileError('Please select a valid image file (JPG, PNG, WEBP).');
-        return;
-      }
-      if (file.size > 5 * 1024 * 1024) {
-        setFileError('File size exceeds 5MB limit.');
-        return;
-      }
-      setFormData({ ...formData, photoName: file.name });
-    }
-  };
+  const getGoalLabel = (id) => goals.find(g => g.id === id)?.label || id;
+  const getConditionLabel = (id) => conditions.find(c => c.id === id)?.label || id;
+  const getTypeLabel = (id) => vehicleTypes.find(t => t.id === id)?.label || id;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStatus({ loading: true, success: false, error: null, refId: null });
 
+    const refId = 'NGT-' + Math.floor(100000 + Math.random() * 900000);
+
+    // Save to internal backend API
     try {
-      const response = await fetch('/api/assessment', {
+      await fetch('/api/assessment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -91,31 +79,46 @@ export default function MultiStepAssessment() {
           vehicleYear: formData.vehicleYear || '2025',
           desiredService: formData.primaryGoal,
           condition: formData.condition,
-          message: `Type: ${formData.vehicleType}, Goal: ${formData.primaryGoal}. Notes: ${formData.notes} (Attached: ${formData.photoName || 'None'})`
+          message: `Type: ${getTypeLabel(formData.vehicleType)}, Goal: ${getGoalLabel(formData.primaryGoal)}. Notes: ${formData.notes || 'None'}`
         })
       });
-
-      const data = await response.json();
-      if (response.ok && data.success) {
-        localStorage.removeItem('ngt_assessment_draft');
-        setStatus({
-          loading: false,
-          success: true,
-          error: null,
-          refId: data.data?.referenceId || 'NGT-' + Math.floor(100000 + Math.random() * 900000)
-        });
-      } else {
-        throw new Error(data.message || 'Consultation request failed to transmit.');
-      }
     } catch (err) {
-      localStorage.removeItem('ngt_assessment_draft');
-      setStatus({
-        loading: false,
-        success: true,
-        error: null,
-        refId: 'NGT-' + Math.floor(100000 + Math.random() * 900000)
-      });
+      // Continue to WhatsApp redirect regardless of backend network state
     }
+
+    localStorage.removeItem('ngt_assessment_draft');
+    setStatus({
+      loading: false,
+      success: true,
+      error: null,
+      refId: refId
+    });
+
+    // Construct formatted WhatsApp message
+    const waText = `*NEW GENERATION TUNERS — VEHICLE BOOKING INQUIRY*
+━━━━━━━━━━━━━━━━━━━━
+📁 *Ref Code:* ${refId}
+👤 *Client Name:* ${formData.clientName}
+📱 *Phone:* ${formData.clientPhone}
+📧 *Email:* ${formData.clientEmail || 'Not Provided'}
+
+🚗 *Vehicle Details:*
+• *Make & Model:* ${formData.vehicleYear} ${formData.vehicleMake} ${formData.vehicleModel}
+• *Body Type:* ${getTypeLabel(formData.vehicleType)}
+
+🎯 *Service Required:*
+• *Goal:* ${getGoalLabel(formData.primaryGoal)}
+• *Current Condition:* ${getConditionLabel(formData.condition)}
+📝 *Special Notes:* ${formData.notes || 'None'}
+━━━━━━━━━━━━━━━━━━━━`;
+
+    const cleanPhone = (studioCompany.phones?.primary || '919159944902').replace(/[^0-9]/g, '');
+    const waUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(waText)}`;
+
+    // Open WhatsApp in new tab after tiny delay for smooth UI feedback
+    setTimeout(() => {
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+    }, 400);
   };
 
   return (
@@ -127,16 +130,16 @@ export default function MultiStepAssessment() {
             DIAGNOSTIC ASSESSMENT PROTOCOL
           </div>
           <div className="font-display text-2xl text-[#FFFFFF] font-bold mt-1">
-            STAGE 0{step} / 05
+            STAGE 0{step} / 04
           </div>
         </div>
 
         {/* Progress Bar */}
         <div className="flex gap-1.5">
-          {[1, 2, 3, 4, 5].map((s) => (
+          {[1, 2, 3, 4].map((s) => (
             <div
               key={s}
-              className={`h-1.5 w-6 transition-all ${
+              className={`h-1.5 w-8 transition-all ${
                 s <= step ? 'bg-[#D71920]' : 'bg-white/10'
               }`}
             />
@@ -151,15 +154,23 @@ export default function MultiStepAssessment() {
             <CheckCircle2 size={32} />
           </div>
           <div className="font-mono text-xs text-[#D71920] uppercase tracking-widest font-medium">
-            DIAGNOSTIC FILE RECORDED · REF #{status.refId}
+            BOOKING GENERATED · REF #{status.refId}
           </div>
           <h3 className="font-display text-3xl sm:text-4xl text-[#FFFFFF] font-bold tracking-tight">
-            REQUEST RECEIVED.
+            REDIRECTING TO WHATSAPP...
           </h3>
           <p className="font-body text-sm text-[#8D9398] max-w-md mx-auto leading-relaxed font-normal">
-            Our senior technicians at the Dindigul Atelier have received your vehicle profile. We will review paint specs and contact you at <span className="text-[#FFFFFF] font-body font-semibold">{formData.clientPhone || 'your provided number'}</span> within 90 minutes.
+            Your vehicle diagnostic profile has been compiled. You are being redirected to our official Atelier WhatsApp channel (<span className="text-[#FFFFFF] font-body font-semibold">{studioCompany.phones?.primary}</span>) to confirm your slot.
           </p>
-          <div className="pt-4">
+          <div className="pt-4 flex flex-wrap gap-4 justify-center">
+            <a
+              href={`https://wa.me/${(studioCompany.phones?.primary || '919159944902').replace(/[^0-9]/g, '')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-red inline-flex items-center gap-2"
+            >
+              <MessageSquare size={16} /> Open WhatsApp Direct ↗
+            </a>
             <button
               onClick={() => {
                 setStatus({ loading: false, success: false, error: null, refId: null });
@@ -186,7 +197,7 @@ export default function MultiStepAssessment() {
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div>
-                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Year</label>
+                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Year *</label>
                   <input
                     type="text"
                     required
@@ -197,7 +208,7 @@ export default function MultiStepAssessment() {
                   />
                 </div>
                 <div>
-                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Make</label>
+                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Make *</label>
                   <input
                     type="text"
                     required
@@ -208,7 +219,7 @@ export default function MultiStepAssessment() {
                   />
                 </div>
                 <div>
-                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Model</label>
+                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Model *</label>
                   <input
                     type="text"
                     required
@@ -295,13 +306,13 @@ export default function MultiStepAssessment() {
             </div>
           )}
 
-          {/* STEP 3: VEHICLE CONDITION */}
+          {/* STEP 3: VEHICLE CONDITION & SPECIAL REQUESTS */}
           {step === 3 && (
             <div className="space-y-6 animate-fadeIn">
               <div className="space-y-1">
-                <h4 className="font-display text-xl text-[#FFFFFF] font-bold">03 · Surface Condition</h4>
+                <h4 className="font-display text-xl text-[#FFFFFF] font-bold">03 · Surface Condition &amp; Requests</h4>
                 <p className="font-body text-xs text-[#8D9398] font-normal">
-                  Estimate of existing scratch density and clear coat oxidation.
+                  Estimate existing clear coat oxidation or mention any specific preferences.
                 </p>
               </div>
 
@@ -326,53 +337,13 @@ export default function MultiStepAssessment() {
                 ))}
               </div>
 
-              <div className="pt-4 flex justify-between">
-                <button type="button" onClick={() => setStep(2)} className="btn-ghost-dark">
-                  ← Back
-                </button>
-                <button type="button" onClick={() => setStep(4)} className="btn-red">
-                  Continue to Telemetry Photo ↗
-                </button>
-              </div>
-            </div>
-          )}
-
-          {/* STEP 4: PHOTO UPLOAD */}
-          {step === 4 && (
-            <div className="space-y-6 animate-fadeIn">
-              <div className="space-y-1">
-                <h4 className="font-display text-xl text-[#FFFFFF] font-bold">04 · Attach Photos (Optional)</h4>
-                <p className="font-body text-xs text-[#8D9398] font-normal">
-                  Attach close-up inspection photos under sunlight or flash to accelerate diagnosis.
-                </p>
-              </div>
-
-              <div className="border border-dashed border-[rgba(255,255,255,0.2)] hover:border-[#D71920] bg-[#101214] p-8 text-center cursor-pointer transition-colors relative">
-                <input
-                  type="file"
-                  accept="image/png, image/jpeg, image/webp"
-                  onChange={handleFileChange}
-                  className="absolute inset-0 opacity-0 cursor-pointer w-full h-full"
-                />
-                <Upload size={28} className="mx-auto text-[#D71920] mb-3" />
-                <div className="font-body text-xs uppercase tracking-wider text-[#FFFFFF] font-semibold">
-                  {formData.photoName ? `Attached: ${formData.photoName}` : 'CLICK OR DRAG INSPECTION PHOTOS (PNG, JPG, WEBP)'}
-                </div>
-                <div className="font-body text-[11px] text-[#8D9398] mt-1 font-normal">Max file size 5MB</div>
-              </div>
-
-              {fileError && (
-                <div className="p-3 bg-red-500/10 border border-red-500/30 flex items-center gap-2 font-body text-xs text-red-400">
-                  <AlertCircle size={15} />
-                  <span>{fileError}</span>
-                </div>
-              )}
-
               <div>
-                <label className="block font-mono text-[10px] tracking-[0.18em] uppercase text-[#8D9398] mb-1.5 font-medium">SPECIAL REQUESTS / HIGH-IMPACT AREAS</label>
+                <label className="block font-mono text-[10px] tracking-[0.18em] uppercase text-[#8D9398] mb-1.5 font-medium">
+                  SPECIAL REQUESTS / TIMELINE REQUIREMENTS (OPTIONAL)
+                </label>
                 <textarea
                   rows={3}
-                  placeholder="Describe visible swirl marks, rock chips, previous coatings, or timeline requirements..."
+                  placeholder="Describe visible swirl marks, rock chips, preferred booking dates, or custom requests..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                   className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] p-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
@@ -380,23 +351,23 @@ export default function MultiStepAssessment() {
               </div>
 
               <div className="pt-4 flex justify-between">
-                <button type="button" onClick={() => setStep(3)} className="btn-ghost-dark">
+                <button type="button" onClick={() => setStep(2)} className="btn-ghost-dark">
                   ← Back
                 </button>
-                <button type="button" onClick={() => setStep(5)} className="btn-red">
+                <button type="button" onClick={() => setStep(4)} className="btn-red">
                   Continue to Contact Details ↗
                 </button>
               </div>
             </div>
           )}
 
-          {/* STEP 5: CONTACT DETAILS & SUBMISSION */}
-          {step === 5 && (
+          {/* STEP 4: CONTACT DETAILS & ONE-CLICK WHATSAPP BOOKING */}
+          {step === 4 && (
             <div className="space-y-6 animate-fadeIn">
               <div className="space-y-1">
-                <h4 className="font-display text-xl text-[#FFFFFF] font-bold">05 · Contact Information</h4>
+                <h4 className="font-display text-xl text-[#FFFFFF] font-bold">04 · Contact Information</h4>
                 <p className="font-body text-xs text-[#8D9398] font-normal">
-                  Where should we send your vehicle assessment file &amp; slot reservation?
+                  Your booking details will be sent directly to our studio team on WhatsApp.
                 </p>
               </div>
 
@@ -406,7 +377,7 @@ export default function MultiStepAssessment() {
                   <input
                     type="text"
                     required
-                    placeholder="Marcus Vance"
+                    placeholder="e.g. Marcus Vance"
                     value={formData.clientName}
                     onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
                     className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
@@ -424,7 +395,7 @@ export default function MultiStepAssessment() {
                   />
                 </div>
                 <div>
-                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Email Address</label>
+                  <label className="block font-body text-xs text-[#8D9398] mb-1.5 font-medium">Email Address (Optional)</label>
                   <input
                     type="email"
                     placeholder="client@domain.com"
@@ -435,16 +406,24 @@ export default function MultiStepAssessment() {
                 </div>
               </div>
 
+              <div className="p-3.5 bg-[#101214] border border-[rgba(255,255,255,0.08)] flex items-center gap-3">
+                <MessageSquare className="text-[#25D366] shrink-0" size={18} />
+                <span className="font-body text-xs text-[#8D9398]">
+                  Submitting will instantly open WhatsApp pre-filled with all your vehicle details.
+                </span>
+              </div>
+
               <div className="pt-4 flex justify-between items-center">
-                <button type="button" onClick={() => setStep(4)} className="btn-ghost-dark">
+                <button type="button" onClick={() => setStep(3)} className="btn-ghost-dark">
                   ← Back
                 </button>
                 <button
                   type="submit"
                   disabled={status.loading}
-                  className="btn-red"
+                  className="btn-red inline-flex items-center gap-2"
                 >
-                  {status.loading ? 'Transmitting File...' : 'Submit Diagnostic File ↗'}
+                  <MessageSquare size={16} />
+                  {status.loading ? 'Generating Booking...' : 'Book via WhatsApp ↗'}
                 </button>
               </div>
             </div>
@@ -455,3 +434,4 @@ export default function MultiStepAssessment() {
     </div>
   );
 }
+
