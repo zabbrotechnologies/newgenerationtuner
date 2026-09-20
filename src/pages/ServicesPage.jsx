@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BeforeAfterSlider from '../components/media/BeforeAfterSlider.jsx';
 import ServiceSelector from '../components/services/ServiceSelector.jsx';
 import TechnicalExplorer from '../components/services/TechnicalExplorer.jsx';
@@ -9,35 +9,51 @@ import MultiStepAssessment from '../components/forms/MultiStepAssessment.jsx';
 import { studioServices, PROCESS_TIMELINE, studioCompany } from '../data/index.js';
 
 export default function ServicesPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="space-y-0 text-[#F2F1ED] selection:bg-[#D71920] selection:text-[#FFFFFF]">
       
       {/* ── 01. HERO SECTION (DARK GRAPHITE) ───────────────────── */}
       <section className="relative min-h-[90vh] flex items-center py-28 overflow-hidden bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 z-0 overflow-hidden"
+          style={{ transform: `translateY(${Math.min(scrollY * 0.35, 200)}px)` }}
+        >
           <img
             src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=2070&q=85&auto=format&fit=crop"
             onError={(e) => {
               e.currentTarget.src = "/images/hero-car-wash.jpg";
             }}
             alt="Automotive performance detailing atelier car wash in progress"
-            className="w-full h-full object-cover brightness-[0.65] contrast-[1.15] scale-105"
+            className="w-full h-full object-cover brightness-[0.65] contrast-[1.15] scale-110 animate-hero-float"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/90 via-[#101214]/50 to-[#101214]/80"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/70"></div>
         </div>
 
-        <div className="container relative z-10">
+        <div 
+          className="container relative z-10 animate-content-float"
+          style={{ transform: `translateY(${Math.min(-scrollY * 0.12, 0)}px)` }}
+        >
           <div className="max-w-4xl space-y-8">
             
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md">
-              <span className="w-2 h-2 bg-[#D71920]"></span>
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md shadow-2xl transition-transform hover:-translate-y-0.5">
+              <span className="w-2 h-2 bg-[#D71920] animate-pulse"></span>
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
                 DISCIPLINES &amp; SYSTEMS / NEW GENERATION TUNERS
               </span>
             </div>
 
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF]">
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF] drop-shadow-lg">
               THE FINISH<br />
               <span className="text-[#D71920]">IS ONLY THE</span><br />
               BEGINNING.
@@ -48,10 +64,10 @@ export default function ServicesPage() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#assessment-section" className="btn-red text-sm py-3.5 px-7">
+              <a href="#assessment-section" className="btn-red text-sm py-3.5 px-7 shadow-xl shadow-red-950/30">
                 Request Vehicle Assessment ↗
               </a>
-              <a href="#service-index-sec" className="btn-ghost-dark text-sm py-3.5 px-7">
+              <a href="#service-index-sec" className="btn-ghost-dark text-sm py-3.5 px-7 backdrop-blur-sm">
                 Explore Services ↓
               </a>
             </div>

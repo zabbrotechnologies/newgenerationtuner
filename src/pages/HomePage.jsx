@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import BeforeAfterSlider from '../components/media/BeforeAfterSlider.jsx';
 import ServiceSelector from '../components/services/ServiceSelector.jsx';
@@ -10,6 +10,15 @@ import { studioServices, studioCompany } from '../data/index.js';
 
 export default function HomePage() {
   const [activeServiceIdx, setActiveServiceIdx] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const serviceImages = [
     {
@@ -55,24 +64,30 @@ export default function HomePage() {
       
       {/* ── 01. HERO (DARK GRAPHITE CINEMATIC) ──────────────────── */}
       <section className="relative min-h-[94vh] flex items-center overflow-hidden py-24 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <div 
+          className="absolute inset-0 z-0 overflow-hidden"
+          style={{ transform: `translateY(${Math.min(scrollY * 0.35, 200)}px)` }}
+        >
           <img
             src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=2070&q=85&auto=format&fit=crop"
             onError={(e) => {
               e.currentTarget.src = "/images/hero-car-wash.jpg";
             }}
             alt="Automotive performance detailing atelier car wash in progress"
-            className="w-full h-full object-cover brightness-[0.70] contrast-[1.12] scale-105"
+            className="w-full h-full object-cover brightness-[0.70] contrast-[1.12] scale-110 animate-hero-float"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/50 to-[#101214]/75"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/65"></div>
         </div>
 
-        <div className="container relative z-10">
+        <div 
+          className="container relative z-10 animate-content-float"
+          style={{ transform: `translateY(${Math.min(-scrollY * 0.12, 0)}px)` }}
+        >
           <div className="max-w-4xl space-y-8">
             
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md">
-              <span className="w-2 h-2 bg-[#D71920]"></span>
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md shadow-2xl transition-transform hover:-translate-y-0.5">
+              <span className="w-2 h-2 bg-[#D71920] animate-pulse"></span>
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
                 AUTOMOTIVE PERFORMANCE DETAILING ATELIER
               </span>
@@ -88,7 +103,7 @@ export default function HomePage() {
                 <span>REFINE.</span>
               </div>
 
-              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF]">
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF] drop-shadow-lg">
                 SURFACE.<br />
                 <span className="text-[#D71920]">PERFECTED.</span>
               </h1>
@@ -99,10 +114,10 @@ export default function HomePage() {
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#assessment-section" className="btn-red text-sm py-3.5 px-7">
+              <a href="#assessment-section" className="btn-red text-sm py-3.5 px-7 shadow-xl shadow-red-950/30">
                 Book Your Detail ↗
               </a>
-              <a href="#service-discovery" className="btn-ghost-dark text-sm py-3.5 px-7">
+              <a href="#service-discovery" className="btn-ghost-dark text-sm py-3.5 px-7 backdrop-blur-sm">
                 Explore The Work ↓
               </a>
             </div>
