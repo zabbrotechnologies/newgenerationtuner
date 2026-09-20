@@ -54,93 +54,63 @@ export default function HomePage() {
     <div className="space-y-0 text-[#F2F1ED] selection:bg-[#D71920] selection:text-[#FFFFFF]">
       
       {/* ── 01. HERO (DARK GRAPHITE CINEMATIC) ──────────────────── */}
-      <section className="relative min-h-[94vh] flex items-center overflow-hidden py-20 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        {/* Full Viewport High-End Vehicle Video Background */}
-        <div className="absolute inset-0 z-0">
+      <section className="relative min-h-[94vh] flex items-center overflow-hidden py-24 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+        {/* Full Viewport High-End Car Washing / Detailing Video Background */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
             muted
             loop
             playsInline
-            poster="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=80"
-            className="w-full h-full object-cover brightness-[0.45] contrast-[1.2] scale-105"
+            poster="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1800&q=80"
+            className="w-full h-full object-cover brightness-[0.42] contrast-[1.25] scale-105"
           >
+            {/* High-quality active car wash foam / snow foam pressure rinse video */}
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-car-getting-washed-with-soap-43186-large.mp4" type="video/mp4" />
             <source src="https://assets.mixkit.co/videos/preview/mixkit-mechanic-polishing-a-car-in-a-garage-43187-large.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/75 to-[#101214]/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/70 to-[#101214]/85"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/80"></div>
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
         </div>
 
         <div className="container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="max-w-4xl space-y-8">
             
-            {/* Left Headline */}
-            <div className="lg:col-span-8 space-y-8">
-              <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E] border border-[rgba(255,255,255,0.12)]">
-                <span className="w-2 h-2 bg-[#D71920]"></span>
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
-                  AUTOMOTIVE PERFORMANCE DETAILING ATELIER
-                </span>
-              </div>
-
-              {/* Bold Grotesk Headline */}
-              <div className="space-y-1">
-                <div className="font-mono text-xs text-[#D71920] tracking-[0.25em] uppercase font-medium flex items-center gap-3">
-                  <span>PROTECT.</span>
-                  <span className="text-[#8D9398]">/</span>
-                  <span>CORRECT.</span>
-                  <span className="text-[#8D9398]">/</span>
-                  <span>REFINE.</span>
-                </div>
-
-                <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF]">
-                  SURFACE.<br />
-                  <span className="text-[#D71920]">PERFECTED.</span>
-                </h1>
-              </div>
-
-              <p className="font-body text-[#8D9398] text-base md:text-lg max-w-xl leading-relaxed font-normal">
-                Precision paint correction, 9H+ SiO₂ ceramic coatings, and self-healing PPF engineered around your vehicle's physical clear coat substrate.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a href="#assessment-section" className="btn-red">
-                  Book Your Detail ↗
-                </a>
-                <a href="#service-discovery" className="btn-ghost-dark">
-                  Explore The Work ↓
-                </a>
-              </div>
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md">
+              <span className="w-2 h-2 bg-[#D71920]"></span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
+                AUTOMOTIVE PERFORMANCE DETAILING ATELIER
+              </span>
             </div>
 
-            {/* Right Technical Rail (lg:col-span-4) */}
-            <div className="lg:col-span-4 hidden lg:block">
-              <div className="bg-[#181B1E]/95 border border-[rgba(255,255,255,0.12)] p-6 space-y-6">
-                <div className="flex justify-between items-center border-b border-[rgba(255,255,255,0.12)] pb-3 font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-medium">
-                  <span>ATELIER STATUS</span>
-                  <span className="text-[#8D9398]">DINDIGUL STUDIO</span>
-                </div>
-
-                <div className="space-y-3 font-body text-xs text-[#8D9398]">
-                  <div className="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-2">
-                    <span className="font-mono text-[11px] uppercase text-[#8D9398]">SURFACE TOLERANCE</span>
-                    <span className="font-display text-[#FFFFFF] font-bold">0.1 MICRON</span>
-                  </div>
-                  <div className="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-2">
-                    <span className="font-mono text-[11px] uppercase text-[#8D9398]">CERAMIC HARDNESS</span>
-                    <span className="font-display text-[#D71920] font-bold">9H+ COVALENT</span>
-                  </div>
-                  <div className="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-2">
-                    <span className="font-mono text-[11px] uppercase text-[#8D9398]">FAST CARE PROTOCOL</span>
-                    <span className="font-display text-[#FFFFFF] font-bold">90-MIN TURNAROUND</span>
-                  </div>
-                </div>
-
-                <div className="p-3 bg-[#101214] border border-[rgba(255,255,255,0.08)] font-mono text-[10px] text-[#8D9398] font-medium">
-                  NGT / 001 · PERFORMANCE ENGINEERING ARCHITECTURE
-                </div>
+            {/* Bold Grotesk Headline */}
+            <div className="space-y-2">
+              <div className="font-mono text-xs text-[#D71920] tracking-[0.25em] uppercase font-bold flex items-center gap-3">
+                <span>PROTECT.</span>
+                <span className="text-[#8D9398]">/</span>
+                <span>CORRECT.</span>
+                <span className="text-[#8D9398]">/</span>
+                <span>REFINE.</span>
               </div>
+
+              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF]">
+                SURFACE.<br />
+                <span className="text-[#D71920]">PERFECTED.</span>
+              </h1>
+            </div>
+
+            <p className="font-body text-[#8D9398] text-base md:text-lg max-w-2xl leading-relaxed font-normal">
+              Precision paint correction, 9H+ SiO₂ ceramic coatings, and self-healing PPF engineered around your vehicle's physical clear coat substrate.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#assessment-section" className="btn-red text-sm py-3.5 px-7">
+                Book Your Detail ↗
+              </a>
+              <a href="#service-discovery" className="btn-ghost-dark text-sm py-3.5 px-7">
+                Explore The Work ↓
+              </a>
             </div>
 
           </div>

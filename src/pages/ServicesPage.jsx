@@ -13,66 +13,51 @@ export default function ServicesPage() {
     <div className="space-y-0 text-[#F2F1ED] selection:bg-[#D71920] selection:text-[#FFFFFF]">
       
       {/* ── 01. HERO SECTION (DARK GRAPHITE) ───────────────────── */}
-      <section className="relative min-h-[90vh] flex items-end pb-24 pt-36 overflow-hidden bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85" 
-            alt="Paint correction macro light reflection" 
-            className="w-full h-full object-cover filter brightness-[0.45] contrast-125 saturate-[0.85] scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/65 to-[#101214]/85"></div>
+      <section className="relative min-h-[90vh] flex items-center py-28 overflow-hidden bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85"
+            className="w-full h-full object-cover brightness-[0.42] contrast-[1.25] scale-105"
+          >
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-car-getting-washed-with-soap-43186-large.mp4" type="video/mp4" />
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-mechanic-polishing-a-car-in-a-garage-43187-large.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/70 to-[#101214]/85"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/80"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
         </div>
 
         <div className="container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+          <div className="max-w-4xl space-y-8">
             
-            <div className="lg:col-span-8 space-y-8">
-              <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E] border border-[rgba(255,255,255,0.12)]">
-                <span className="w-2 h-2 bg-[#D71920]"></span>
-                <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
-                  DISCIPLINES &amp; SYSTEMS / NEW GENERATION TUNERS
-                </span>
-              </div>
-
-              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF]">
-                THE FINISH<br />
-                <span className="text-[#D71920]">IS ONLY THE</span><br />
-                BEGINNING.
-              </h1>
-
-              <p className="font-body text-[#8D9398] text-base md:text-lg max-w-xl leading-relaxed font-normal">
-                Detailing is not cleaning. It is the surgical discipline of defect correction, paint refinement, and permanent molecular protection engineered around the physical chemistry of modern clear coats.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a href="#assessment-section" className="btn-red">
-                  Request Vehicle Assessment ↗
-                </a>
-                <a href="#service-index-sec" className="btn-ghost-dark">
-                  Explore Services ↓
-                </a>
-              </div>
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md">
+              <span className="w-2 h-2 bg-[#D71920]"></span>
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
+                DISCIPLINES &amp; SYSTEMS / NEW GENERATION TUNERS
+              </span>
             </div>
 
-            <div className="lg:col-span-4 hidden lg:block border-l border-[rgba(255,255,255,0.12)] pl-8 space-y-6">
-              <div className="font-mono text-[10px] tracking-widest text-[#D71920] uppercase font-medium">
-                01 — SERVICES / TELEMETRY OVERVIEW ↓
-              </div>
-              <div className="space-y-3 font-body text-xs text-[#8D9398]">
-                <div className="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-2">
-                  <span className="font-mono text-[11px] uppercase text-[#8D9398]">SURFACE DEFECT LEVEL</span>
-                  <span className="font-display text-[#FFFFFF] font-bold">0.1 MICRON</span>
-                </div>
-                <div className="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-2">
-                  <span className="font-mono text-[11px] uppercase text-[#8D9398]">CERAMIC HARDNESS</span>
-                  <span className="font-display text-[#D71920] font-bold">9H+ COVALENT</span>
-                </div>
-                <div className="flex justify-between border-b border-[rgba(255,255,255,0.06)] pb-2">
-                  <span className="font-mono text-[11px] uppercase text-[#8D9398]">PPF SELF-HEALING</span>
-                  <span className="font-display text-[#FFFFFF] font-bold">THERMAL MEMORY</span>
-                </div>
-              </div>
+            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF]">
+              THE FINISH<br />
+              <span className="text-[#D71920]">IS ONLY THE</span><br />
+              BEGINNING.
+            </h1>
+
+            <p className="font-body text-[#8D9398] text-base md:text-lg max-w-2xl leading-relaxed font-normal">
+              Detailing is not cleaning. It is the surgical discipline of defect correction, paint refinement, and permanent molecular protection engineered around the physical chemistry of modern clear coats.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#assessment-section" className="btn-red text-sm py-3.5 px-7">
+                Request Vehicle Assessment ↗
+              </a>
+              <a href="#service-index-sec" className="btn-ghost-dark text-sm py-3.5 px-7">
+                Explore Services ↓
+              </a>
             </div>
 
           </div>
