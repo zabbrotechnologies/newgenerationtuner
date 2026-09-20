@@ -17,8 +17,8 @@ export default function TechnicalExplorer() {
               onClick={() => setActiveId(item.id)}
               className={`font-mono text-[10px] tracking-widest uppercase px-5 py-3 border transition-all cursor-pointer ${
                 isActive 
-                  ? 'border-[#C6A03A] text-[#C6A03A] bg-[#C6A03A]/10' 
-                  : 'border-white/10 text-[#AAA59B] hover:border-white/30 hover:text-[#F1EEE7]'
+                  ? 'border-[#D71920] text-white bg-[#D71920] font-bold' 
+                  : 'border-[rgba(0,0,0,0.15)] text-[#555A60] hover:border-[rgba(0,0,0,0.4)] hover:text-[#101214]'
               }`}
             >
               {item.label}
@@ -28,28 +28,28 @@ export default function TechnicalExplorer() {
       </div>
 
       {/* Detail Screen */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-[#171714] border border-white/10 p-8 md:p-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-[#FFFFFF] border border-[rgba(0,0,0,0.12)] p-8 md:p-12 shadow-sm">
         <div className="lg:col-span-6 space-y-4">
-          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#C6A03A]">
+          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#D71920] font-medium">
             {activeItem.category}
           </div>
-          <h3 className="font-serif text-3xl md:text-4xl text-[#F1EEE7] font-light leading-tight">
+          <h3 className="font-display text-3xl md:text-4xl text-[#101214] font-bold uppercase leading-tight tracking-tight">
             {activeItem.title}
           </h3>
-          <p className="text-sm text-[#AAA59B] leading-relaxed font-light">
+          <p className="font-body text-sm text-[#555A60] leading-relaxed font-normal">
             {activeItem.description}
           </p>
-          <div className="pt-4 border-t border-white/5 font-mono text-[11px] text-[#C6A03A]">
+          <div className="pt-4 border-t border-[rgba(0,0,0,0.08)] font-mono text-[11px] text-[#D71920] font-medium">
             SPECIFICATION: {activeItem.spec}
           </div>
         </div>
 
         <div className="lg:col-span-6">
-          <div className="aspect-[16/10] overflow-hidden border border-white/10 relative group">
+          <div className="aspect-[16/10] overflow-hidden border border-[rgba(0,0,0,0.12)] relative group">
             <img 
               src={activeItem.image} 
               alt={activeItem.title} 
-              className="w-full h-full object-cover filter brightness-[0.75] group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-cover filter brightness-[0.85] contrast-110 group-hover:scale-105 transition-transform duration-700"
             />
           </div>
         </div>
