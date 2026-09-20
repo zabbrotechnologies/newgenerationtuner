@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect width="64" height="64" rx="14" fill="#FFFFFF" />
+  
+  <!-- Aerodynamic Car Silhouette Flow Line in Red & Black -->
+  <path d="M 8 28 C 22 10, 36 9, 50 18 C 55 22, 59 26, 60 30 C 52 26, 43 21, 36 20 C 26 18, 18 19, 8 28 Z" fill="#D71920" />
+  <path d="M 22 19 C 29 12, 36 12, 42 19 C 36 16, 29 16, 22 19 Z" fill="#101214" />
+  
+  <!-- NGT Bold Monogram -->
+  <text x="32" y="47" font-family="'Space Grotesk', sans-serif" font-weight="900" font-size="20" letter-spacing="-1" text-anchor="middle" fill="#101214">
+    NGT
+  </text>
+  
+  <!-- Precision Bottom Indicator Strip -->
+  <rect x="18" y="52" width="28" height="2.5" fill="#D71920" rx="1" />
+</svg>

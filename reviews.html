@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Client reviews — New Generation Tuners. Real testimonials from car owners about paint correction, ceramic coating, PPF and detailing services in Chennai."/>
+  <title>Reviews — New Generation Tuners</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    #reviews-section {
+      background: var(--black);
+      padding: 60px 0 120px;
+    }
+
+    /* Rating summary */
+    .rating-summary {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 56px 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 80px;
+    }
+    @media (max-width:700px) { .rating-summary { grid-template-columns:1fr; gap:36px; } }
+    .rating-big {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--cream);
+    }
+    .rating-big span {
+      font-size: 36px;
+      color: var(--mid);
+      vertical-align: super;
+    }
+    .rating-label { font-size: 13px; color: var(--mid); margin-top: 8px; }
+    .rating-bars { display: flex; flex-direction: column; gap: 10px; }
+    .rating-bar-row { display: flex; align-items: center; gap: 16px; }
+    .rating-bar-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.12em; color: var(--smoke); width: 16px; text-align: right; }
+    .rating-bar-track { flex: 1; height: 2px; background: var(--charcoal); position: relative; }
+    .rating-bar-fill { height: 100%; background: var(--accent); }
+    .rating-bar-count { font-size: 12px; color: var(--mid); width: 28px; }
+
+    /* Featured quote */
+    .featured-quote {
+      padding: 64px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      margin-bottom: 80px;
+    }
+    .fq-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 52px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.25;
+      color: var(--cream);
+      max-width: 860px;
+      margin-bottom: 40px;
+    }
+    .fq-text::before { content: '\201C'; color: var(--accent); }
+    .fq-text::after  { content: '\201D'; color: var(--accent); }
+    .fq-meta { display: flex; align-items: center; gap: 18px; }
+    .fq-rule { width: 28px; height: 1px; background: var(--carbon); }
+    .fq-name { font-size: 14px; font-weight: 500; color: var(--off-white); }
+    .fq-car  { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--smoke); margin-top: 2px; }
+
+    /* Review grid */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.04);
+      margin-bottom: 80px;
+    }
+    @media (max-width: 960px) { .reviews-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .reviews-grid { grid-template-columns: 1fr; } }
+
+    .review-card {
+      background: var(--black);
+      padding: 40px 36px;
+      transition: background 0.3s;
+    }
+    .review-card:hover { background: var(--ink); }
+    .review-card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .review-stars { display: flex; gap: 3px; }
+    .review-star { color: var(--accent); font-size: 13px; }
+    .review-service {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--smoke);
+    }
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; font-weight: 400; font-style: italic;
+      line-height: 1.55; color: var(--off-white);
+      margin-bottom: 28px;
+    }
+    .review-text::before { content: '\201C'; color: var(--accent-dim); }
+    .review-text::after  { content: '\201D'; color: var(--accent-dim); }
+    .review-meta { border-top: 1px solid rgba(255,255,255,0.04); padding-top: 20px; display: flex; align-items: center; gap: 12px; }
+    .review-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--charcoal); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .review-avatar span { font-family: 'Cormorant Garamond', serif; font-size: 14px; color: var(--accent); font-weight: 600; }
+    .review-name { font-size: 13px; font-weight: 500; color: var(--cream); }
+    .review-vehicle { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--smoke); margin-top: 1px; }
+
+    /* Leave review CTA */
+    .leave-review {
+      background: var(--ink);
+      border: 1px solid rgba(255,255,255,0.05);
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width:700px) { .leave-review { grid-template-columns:1fr; padding:40px 28px; } }
+    .lr-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; color: var(--cream); margin-bottom: 8px; }
+    .lr-body  { font-size: 13px; color: var(--silver); }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">New Generation <em>Tuners</em></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html" class="active">Reviews</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-overlay">
+  <nav class="mob-links">
+    <a href="index.html" class="mob-close">Home</a>
+    <a href="services.html" class="mob-close">Services</a>
+    <a href="gallery.html" class="mob-close">Gallery</a>
+    <a href="reviews.html" class="mob-close">Reviews</a>
+    <a href="about.html" class="mob-close">About</a>
+    <a href="contact.html" class="mob-close">Contact</a>
+  </nav>
+  <div class="mob-contact"><p>Call Us</p><a href="tel:+919159944902">+91 91599 44902</a></div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="label-row reveal"><div class="label-rule"></div><span class="t-label">Client Testimonials</span></div>
+    <h1 class="t-display-md reveal d1">Reviews</h1>
+    <p class="t-body-lg reveal d2" style="max-width:480px;margin-top:20px;">What our clients say about working with New Generation Tuners.</p>
+  </div>
+</div>
+
+<section id="reviews-section">
+  <div class="container">
+
+    <!-- Rating Summary -->
+    <div class="rating-summary reveal">
+      <div>
+        <div class="rating-big">4.9<span>/ 5</span></div>
+        <div class="rating-label">Based on 200+ verified reviews</div>
+      </div>
+      <div class="rating-bars">
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">5</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:88%"></div></div>
+          <span class="rating-bar-count">176</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">4</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:9%"></div></div>
+          <span class="rating-bar-count">18</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">3</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:2%"></div></div>
+          <span class="rating-bar-count">4</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">2</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:1%"></div></div>
+          <span class="rating-bar-count">2</span>
+        </div>
+        <div class="rating-bar-row">
+          <span class="rating-bar-label">1</span>
+          <div class="rating-bar-track"><div class="rating-bar-fill" style="width:0%"></div></div>
+          <span class="rating-bar-count">0</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured quote -->
+    <div class="featured-quote reveal">
+      <p class="fq-text">After the two-stage correction, my car looked better than the day I collected it from the showroom. The ceramic coating has maintained that clarity for over eighteen months without a single swirl mark. The team's attention to detail is extraordinary.</p>
+      <div class="fq-meta">
+        <div class="fq-rule"></div>
+        <div>
+          <div class="fq-name">Arjun Krishnamurthy</div>
+          <div class="fq-car">Porsche Macan · Paint Correction + 5-Year Ceramic</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews Grid -->
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Ceramic Coating</span>
+        </div>
+        <p class="review-text">The team spent two full days on my car. The attention to detail was unlike anything I had experienced before. Every panel was inspected under lamps before they applied a single drop of ceramic.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>RK</span></div>
+          <div>
+            <div class="review-name">Rajesh Kumar</div>
+            <div class="review-vehicle">BMW 3 Series · 3-Year Ceramic</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d1">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Paint Correction</span>
+        </div>
+        <p class="review-text">I had tried two other detailers before coming here. Neither could match what New Generation Tuners achieved. The swirl marks that had bothered me for years are completely gone.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>PS</span></div>
+          <div>
+            <div class="review-name">Priya Shankar</div>
+            <div class="review-vehicle">Mercedes C-Class · Two-Stage Correction</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d2">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">PPF Installation</span>
+        </div>
+        <p class="review-text">Had the full front PPF installed on my new Fortuner. The film is genuinely invisible and the installation was flawless — not a single bubble, lift or visible edge anywhere.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>VM</span></div>
+          <div>
+            <div class="review-name">Vikram Murugan</div>
+            <div class="review-vehicle">Toyota Fortuner · Full Front PPF</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Interior Detailing</span>
+        </div>
+        <p class="review-text">The interior deep clean removed seven years of embedded odour and staining that I assumed was permanent. The leather conditioning made the seats feel completely new.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>SR</span></div>
+          <div>
+            <div class="review-name">Sunita Rajendran</div>
+            <div class="review-vehicle">Audi Q7 · Full Interior Restoration</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d1">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Full Valet</span>
+        </div>
+        <p class="review-text">I have been on their monthly maintenance plan for over a year. The consistency is remarkable — every wash is performed to the same standard. My paint has never looked better.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>KP</span></div>
+          <div>
+            <div class="review-name">Karthik Pillai</div>
+            <div class="review-vehicle">Hyundai Creta · Monthly Maintenance</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d2">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Paint Correction + Ceramic</span>
+        </div>
+        <p class="review-text">The Signature package was absolutely worth it. Two-stage correction followed by ceramic has transformed the car. Paint maintenance is now effortless — water just sheets off perfectly.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>MR</span></div>
+          <div>
+            <div class="review-name">Mohammed Rafiq</div>
+            <div class="review-vehicle">Kia Carnival · Signature Package</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Decontamination</span>
+        </div>
+        <p class="review-text">Brought my car in after 18 months of neglect. The iron fallout treatment alone changed the colour of the rinse water. Excellent honest advice about what the paint actually needed.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>AN</span></div>
+          <div>
+            <div class="review-name">Anand Natarajan</div>
+            <div class="review-vehicle">Maruti Suzuki Brezza · Decontamination + Polish</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d1">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Ultimate Package</span>
+        </div>
+        <p class="review-text">Commissioned the Ultimate package for my Range Rover. Multi-stage correction, full-body PPF, lifetime ceramic. The result is genuinely concours-grade. Could not recommend more highly.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>GV</span></div>
+          <div>
+            <div class="review-name">Ganesan Venkatesh</div>
+            <div class="review-vehicle">Range Rover Sport · Ultimate Package</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card reveal d2">
+        <div class="review-card-top">
+          <div class="review-stars"><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span><span class="review-star">★</span></div>
+          <span class="review-service">Paint Correction</span>
+        </div>
+        <p class="review-text">Brought a nearly new car that had already developed wash swirls from careless garage washes. NGT corrected everything and explained how to avoid it in future. Great education alongside the work.</p>
+        <div class="review-meta">
+          <div class="review-avatar"><span>LA</span></div>
+          <div>
+            <div class="review-name">Lakshmi Anand</div>
+            <div class="review-vehicle">Volkswagen Virtus · Paint Correction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leave a review CTA -->
+    <div class="leave-review reveal">
+      <div>
+        <div class="lr-title">Had your vehicle detailed with us?</div>
+        <p class="lr-body">We'd love to hear about your experience. Every review helps future clients understand what to expect from the studio.</p>
+      </div>
+      <div>
+        <a href="contact.html" class="btn-primary" style="white-space:nowrap;">Leave a Review →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">New Generation <em>Tuners</em></div>
+        <p class="footer-desc">Specialist Automobile Electronics, Remapping, Diagnostics &amp; Car Care Studio. 10+ years of professional excellence.</p>
+        <p style="font-size:12px; color:var(--mid); margin-top:8px; line-height:1.5;">37, AM Complex, Opp. Velu Mahal, Trichy Bypass Road, Rajakkapatti, Dindigul - 624004</p>
+        <span class="t-label" style="color:var(--smoke); margin-top:8px; display:inline-block;">Mon – Sat · 09:30 AM – 08:30 PM</span>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="services.html">Automotive Diagnostics</a>
+          <a href="services.html">Remapping &amp; Race Tuning</a>
+          <a href="services.html">ECM &amp; BCM Programming</a>
+          <a href="services.html">Smart Key Programming</a>
+          <a href="services.html">Immo Unlock &amp; Airbag Reset</a>
+          <a href="services.html">GPS &amp; Security Systems</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-row"><span class="t-label">Primary</span><a href="tel:+919159944902">+91 91599 44902</a></div>
+        <div class="footer-contact-row"><span class="t-label">Direct</span><a href="tel:+919659898206">+91 96598 98206</a></div>
+        <div class="footer-contact-row"><span class="t-label">Support</span><a href="tel:+916382184080">+91 63821 84080</a></div>
+        <div class="footer-contact-row"><span class="t-label">Email</span><a href="mailto:info@newgenerationtuners.com">info@newgenerationtuners.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 New Generation Tuners. All rights reserved.</p>
+      <div style="display:flex;gap:20px;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="About New Generation Tuners — 10+ years of premium car detailing, paint correction, ceramic coating and protection services in Chennai, India."/>
+  <title>About — New Generation Tuners</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Story section */
+    #story {
+      background: var(--black);
+      padding: 60px 0 120px;
+    }
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: start;
+      margin-bottom: 120px;
+    }
+    @media (max-width:860px) { .story-grid { grid-template-columns:1fr; gap:56px; margin-bottom:80px; } }
+
+    .story-img { position: relative; aspect-ratio: 3/4; overflow: hidden; }
+    .story-img img {
+      width:100%; height:100%; object-fit:cover;
+      filter: brightness(0.65) contrast(1.1) saturate(0.85);
+      transition: transform 0.9s var(--ease);
+    }
+    .story-img:hover img { transform: scale(1.04); }
+    .story-img-tag { position: absolute; bottom: 20px; left: 20px; }
+
+    .story-text {}
+    .story-text .label-row { margin-bottom: 20px; }
+    .story-text .t-h1 { margin-bottom: 32px; }
+    .story-text .t-body-lg { margin-bottom: 24px; }
+    .story-text .t-body { margin-bottom: 24px; }
+
+    /* Values / philosophy */
+    #values {
+      background: var(--ink);
+      padding: 120px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .values-hd { margin-bottom: 80px; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.04);
+    }
+    @media (max-width:860px) { .values-grid { grid-template-columns:1fr; } }
+    .value-block {
+      background: var(--ink);
+      padding: 48px 40px;
+      transition: background 0.3s;
+    }
+    .value-block:hover { background: var(--charcoal); }
+    .value-num {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 10px; letter-spacing: 0.2em;
+      color: var(--accent); margin-bottom: 20px; display: block;
+    }
+    .value-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px; font-weight: 400;
+      color: var(--cream); margin-bottom: 16px;
+    }
+    .value-desc { font-size: 14px; color: var(--silver); line-height: 1.7; }
+
+    /* Stats */
+    #stats {
+      background: var(--black);
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-left: 1px solid rgba(255,255,255,0.05);
+    }
+    @media (max-width:860px) { .stats-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:500px) { .stats-grid { grid-template-columns:1fr; } }
+    .stat-block {
+      padding: 48px 36px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+    }
+    .stat-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6vw, 80px);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .stat-val .stat-unit { font-size: 0.5em; color: var(--accent); }
+    .stat-label { font-size: 13px; color: var(--mid); }
+
+    /* Team / craftsmanship */
+    #craft {
+      background: var(--ink);
+      padding: 120px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .craft-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    @media (max-width:860px) { .craft-grid { grid-template-columns:1fr; gap:48px; } }
+    .craft-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 8px;
+    }
+    .craft-img { overflow: hidden; }
+    .craft-img img {
+      width:100%; height:100%; object-fit:cover;
+      filter: brightness(0.65) saturate(0.8);
+      transition: transform 0.7s var(--ease), filter 0.5s;
+      display:block;
+    }
+    .craft-img:hover img { transform: scale(1.05); filter: brightness(0.8) saturate(0.9); }
+    .craft-img:nth-child(1) { aspect-ratio: 4/3; }
+    .craft-img:nth-child(2) { aspect-ratio: 4/5; }
+    .craft-img:nth-child(3) { aspect-ratio: 4/5; }
+    .craft-img:nth-child(4) { aspect-ratio: 4/3; }
+
+    .craft-text .label-row { margin-bottom: 20px; }
+    .craft-text .t-h2 { margin-bottom: 28px; }
+    .craft-text .t-body-lg { margin-bottom: 20px; }
+    .craft-text .t-body { margin-bottom: 36px; }
+
+    /* CTA row */
+    .about-cta-row {
+      background: var(--black);
+      padding: 100px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+    }
+    .about-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+    .about-cta-text .t-h2 { margin-bottom: 12px; }
+    .about-cta-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">New Generation <em>Tuners</em></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html" class="active">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="contact.html" class="nav-cta">Book Now</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-overlay">
+  <nav class="mob-links">
+    <a href="index.html" class="mob-close">Home</a>
+    <a href="services.html" class="mob-close">Services</a>
+    <a href="gallery.html" class="mob-close">Gallery</a>
+    <a href="reviews.html" class="mob-close">Reviews</a>
+    <a href="about.html" class="mob-close">About</a>
+    <a href="contact.html" class="mob-close">Contact</a>
+  </nav>
+  <div class="mob-contact"><p>Call Us</p><a href="tel:+919159944902">+91 91599 44902</a></div>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="container">
+    <div class="label-row reveal"><div class="label-rule"></div><span class="t-label">The Studio</span></div>
+    <h1 class="t-display-md reveal d1">About Us</h1>
+    <p class="t-body-lg reveal d2" style="max-width:520px;margin-top:20px;">Ten years of precision. A discipline built on trust, patience and an obsessive respect for paint.</p>
+  </div>
+</div>
+
+<!-- STORY -->
+<section id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="reveal">
+        <div class="story-img">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Studio work"/>
+          <div class="story-img-tag"><span class="t-label" style="color:rgba(232,228,221,0.45)">Est. 2014 — Chennai</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="label-row reveal"><div class="label-rule"></div><span class="t-label">Our Story</span></div>
+        <h2 class="t-h1 reveal" style="margin-bottom:32px;">Built on a<br><em style="font-family:'Cormorant Garamond',serif;font-weight:300;font-style:italic;">singular obsession</em><br>with paint.</h2>
+        <p class="t-body-lg reveal d1">New Generation Tuners was founded in 2014 with a single purpose: to deliver detailing results that most commercial garages simply cannot achieve — because they don't have the patience, the equipment or the discipline.</p>
+        <p class="t-body reveal d2" style="max-width:440px;">In ten years we have worked on everything from daily-driven hatchbacks to concours-presented European performance cars. The approach is identical regardless of vehicle value — inspect first, work methodically, never cut corners.</p>
+        <p class="t-body reveal d3" style="max-width:440px;">Every product we use is selected for a reason. Every technique is tested. Every result is verified under inspection lighting before the vehicle leaves the studio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values">
+  <div class="container">
+    <div class="values-hd reveal">
+      <div class="label-row" style="margin-bottom:12px;"><div class="label-rule"></div><span class="t-label">What We Stand For</span></div>
+      <h2 class="t-h1">Precision Is the Difference</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-block reveal">
+        <span class="value-num">01</span>
+        <div class="value-name">Inspect Before You Touch</div>
+        <p class="value-desc">Every vehicle is assessed under raking light and measured with a paint thickness gauge before any product is selected or any pad is mounted. We understand what we are working with before we begin.</p>
+      </div>
+      <div class="value-block reveal d1">
+        <span class="value-num">02</span>
+        <div class="value-name">No Shortcuts</div>
+        <p class="value-desc">A proper decontamination before correction. A proper correction before coating. A proper cure before delivery. Each step matters. Skipping any of them compromises the result of every step that follows.</p>
+      </div>
+      <div class="value-block reveal d2">
+        <span class="value-num">03</span>
+        <div class="value-name">Honest Advice</div>
+        <p class="value-desc">If a vehicle needs a two-stage correction, we say so. If a single stage will suffice, we recommend that instead. We will never sell a service the vehicle doesn't require — or undersell a service it genuinely needs.</p>
+      </div>
+      <div class="value-block reveal">
+        <span class="value-num">04</span>
+        <div class="value-name">Verified Results</div>
+        <p class="value-desc">Every vehicle is inspected under multiple light sources before handover. We do not sign off a job unless every panel meets our standard. The result is documented. The client sees exactly what was achieved.</p>
+      </div>
+      <div class="value-block reveal d1">
+        <span class="value-num">05</span>
+        <div class="value-name">Ongoing Support</div>
+        <p class="value-desc">Our relationship with a vehicle doesn't end at delivery. We provide care instructions, follow-up checks, and maintenance services to ensure protection stays effective long after the initial treatment.</p>
+      </div>
+      <div class="value-block reveal d2">
+        <span class="value-num">06</span>
+        <div class="value-name">Continuous Learning</div>
+        <p class="value-desc">The chemistry, the equipment and the techniques in professional detailing continue to evolve. We invest in training, testing and the best available tools to ensure our methods remain current and effective.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-block reveal">
+        <div class="stat-val">10<span class="stat-unit">+</span></div>
+        <div class="stat-label">Years in operation</div>
+      </div>
+      <div class="stat-block reveal d1">
+        <div class="stat-val">5,000<span class="stat-unit">+</span></div>
+        <div class="stat-label">Vehicles completed</div>
+      </div>
+      <div class="stat-block reveal d2">
+        <div class="stat-val">4.9<span class="stat-unit">/5</span></div>
+        <div class="stat-label">Average client rating</div>
+      </div>
+      <div class="stat-block reveal d3">
+        <div class="stat-val">24<span class="stat-unit">/7</span></div>
+        <div class="stat-label">Client support available</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section id="craft">
+  <div class="container">
+    <div class="craft-grid">
+      <div class="craft-images reveal">
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=75" alt="Paint correction work"/></div>
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=700&q=75" alt="Ceramic application"/></div>
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=700&q=75" alt="PPF installation"/></div>
+        <div class="craft-img"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=700&q=75" alt="Interior detailing"/></div>
+      </div>
+      <div class="craft-text">
+        <div class="label-row reveal"><div class="label-rule"></div><span class="t-label">The Work</span></div>
+        <h2 class="t-h2 reveal">Real people.<br>Real craftsmanship.</h2>
+        <p class="t-body-lg reveal d1">Behind every result is a technician who spent hours in specific light conditions, working a panel at a time, evaluating each pass before moving on. There is no machine that does this work. There is no shortcut.</p>
+        <p class="t-body reveal d2">Our team has worked on vehicles ranging from standard hatchbacks to high-value European sports cars and concours show vehicles. The discipline remains the same regardless of what arrives at the studio.</p>
+        <div class="reveal d3">
+          <a href="gallery.html" class="btn-ghost">View Our Work →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="about-cta-row">
+  <div class="container">
+    <div class="about-cta-inner">
+      <div class="about-cta-text reveal">
+        <h2 class="t-h2">Your vehicle is ready<br>when you are.</h2>
+        <p class="t-body" style="margin-top:12px;max-width:440px;">Book a detail, request a quote, or simply call to talk through what your vehicle needs.</p>
+      </div>
+      <div class="about-cta-actions reveal d1">
+        <a href="contact.html" class="btn-primary">Book a Detail →</a>
+        <a href="tel:+919159944902" class="btn-ghost">+91 91599 44902</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">New Generation <em>Tuners</em></div>
+        <p class="footer-desc">Specialist Automobile Electronics, Remapping, Diagnostics &amp; Car Care Studio. 10+ years of professional excellence.</p>
+        <p style="font-size:12px; color:var(--mid); margin-top:8px; line-height:1.5;">37, AM Complex, Opp. Velu Mahal, Trichy Bypass Road, Rajakkapatti, Dindigul - 624004</p>
+        <span class="t-label" style="color:var(--smoke); margin-top:8px; display:inline-block;">Mon – Sat · 09:30 AM – 08:30 PM</span>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <div class="footer-links">
+          <a href="services.html">Automotive Diagnostics</a>
+          <a href="services.html">Remapping &amp; Race Tuning</a>
+          <a href="services.html">ECM &amp; BCM Programming</a>
+          <a href="services.html">Smart Key Programming</a>
+          <a href="services.html">Immo Unlock &amp; Airbag Reset</a>
+          <a href="services.html">GPS &amp; Security Systems</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-row"><span class="t-label">Primary</span><a href="tel:+919159944902">+91 91599 44902</a></div>
+        <div class="footer-contact-row"><span class="t-label">Direct</span><a href="tel:+919659898206">+91 96598 98206</a></div>
+        <div class="footer-contact-row"><span class="t-label">Support</span><a href="tel:+916382184080">+91 63821 84080</a></div>
+        <div class="footer-contact-row"><span class="t-label">Email</span><a href="mailto:info@newgenerationtuners.com">info@newgenerationtuners.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 New Generation Tuners. All rights reserved.</p>
+      <div style="display:flex;gap:20px;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+</body>
+</html>

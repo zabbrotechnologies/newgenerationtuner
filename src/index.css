@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  /* PERFORMANCE BRAND PALETTE */
+  --graphite: #101214;
+  --carbon: #181B1E;
+  --carbon-subtle: #22262B;
+  --warm-white: #F2F1ED;
+  --pure-white: #FFFFFF;
+  --performance-red: #D71920;
+  --red-dark: #8F1015;
+  --metallic: #8D9398;
+  --soft-grey: #C7C9C8;
+  --border-dark: rgba(255, 255, 255, 0.12);
+  --border-light: rgba(0, 0, 0, 0.12);
+
+  /* TYPOGRAPHY SYSTEM */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--graphite);
+  color: var(--warm-white);
+  font-family: var(--font-body);
+}
+
+body {
+  background-color: var(--graphite);
+  color: var(--warm-white);
+  line-height: 1.6;
+  font-weight: 400;
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Minimal Engineered Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--graphite);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--carbon-subtle);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--performance-red);
+}
+
+/* Base Container */
+.container {
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Typography Classes */
+.font-display { 
+  font-family: var(--font-display); 
+  letter-spacing: -0.02em;
+}
+
+.font-body { 
+  font-family: var(--font-body); 
+}
+
+.font-mono { 
+  font-family: var(--font-mono); 
+}
+
+/* Nav Link Typography: Manrope 600 */
+.nav-link {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Micro Labels & Technical Telemetry */
+.micro-label {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.technical-data {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+/* Buttons: Primary CTA Space Grotesk 600, Standard Manrope 600 */
+.btn-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--performance-red);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border-radius: 0px;
+  border: 1px solid var(--performance-red);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  text-decoration: none;
+}
+.btn-red:hover {
+  background-color: var(--red-dark);
+  border-color: var(--red-dark);
+  transform: translateY(-1px);
+}
+
+.btn-ghost-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--warm-white);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  border-radius: 0px;
+  border: 1px solid var(--border-dark);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  text-decoration: none;
+}
+.btn-ghost-dark:hover {
+  border-color: var(--performance-red);
+  color: #FFFFFF;
+  background-color: rgba(215, 25, 32, 0.08);
+}
+
+.btn-ghost-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: transparent;
+  color: var(--graphite);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 14px 26px;
+  border-radius: 0px;
+  border: 1px solid var(--border-light);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+  text-decoration: none;
+}
+.btn-ghost-light:hover {
+  border-color: var(--performance-red);
+  color: var(--performance-red);
+  background-color: rgba(215, 25, 32, 0.04);
+}
+
+/* Engineered Section Themes */
+.theme-dark {
+  background-color: var(--graphite);
+  color: var(--warm-white);
+}
+.theme-carbon {
+  background-color: var(--carbon);
+  color: var(--warm-white);
+}
+.theme-light {
+  background-color: var(--warm-white);
+  color: var(--graphite);
+}
+.theme-white {
+  background-color: var(--pure-white);
+  color: var(--graphite);
+}
+
+/* Precision Rules */
+.border-subtle-dark {
+  border-color: var(--border-dark);
+}
+.border-subtle-light {
+  border-color: var(--border-light);
+}
+
+/* ── LIQUID WHITE GLASS NAVBAR SYSTEM ───────────────────────── */
+.navbar-liquid-white {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-liquid-white::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.95), rgba(242, 241, 237, 0.4) 60%, transparent 80%);
+  pointer-events: none;
+  z-index: -1;
+  animation: liquidShimmer 12s ease-in-out infinite alternate;
+}
+
+@keyframes liquidShimmer {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(4px) scale(0.98);
+    opacity: 0.85;
+  }
+}

@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="New Generation Tuners — Premium automotive detailing, paint correction, ceramic coatings, paint protection film, and vehicle preservation atelier."/>
+  <title>Services — New Generation Tuners · Automotive Detailing Atelier</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css"/>
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       EDITORIAL SERVICES PAGE STYLING — LUXURY AUTOMOTIVE ATELIER
+       ═══════════════════════════════════════════════════════════════ */
+    
+    :root {
+      --bg-dark: #0a0a09;
+      --bg-warm: #11110f;
+      --bg-elevated: #161613;
+      --gold-accent: #b8973a;
+      --gold-light: #d4af5a;
+      --border-subtle: rgba(255, 255, 255, 0.05);
+      --border-medium: rgba(255, 255, 255, 0.1);
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--off-white);
+    }
+
+    /* ── 04. HERO SECTION ────────────────────────────────────────── */
+    #svc-hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 96px;
+      padding-top: 140px;
+      overflow: hidden;
+      background: var(--bg-dark);
+    }
+    .svc-hero-media {
+      position: absolute; inset: 0; z-index: 1;
+      overflow: hidden;
+    }
+    .svc-hero-media img, .svc-hero-media video {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 45%;
+      filter: brightness(0.45) contrast(1.18) saturate(0.9);
+      transform: scale(1.05);
+      transition: transform 1.8s var(--ease);
+    }
+    .svc-hero-gradient {
+      position: absolute; inset: 0; z-index: 2;
+      background: linear-gradient(to right, rgba(10,10,9,0.92) 0%, rgba(10,10,9,0.65) 50%, rgba(10,10,9,0.3) 100%),
+                  linear-gradient(to top, rgba(10,10,9,0.98) 0%, transparent 60%);
+    }
+    .svc-hero-grid {
+      position: relative; z-index: 3;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: flex-end;
+      gap: 60px;
+    }
+    .svc-hero-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light);
+      margin-bottom: 24px;
+    }
+    .svc-hero-tag::before {
+      content: ''; width: 24px; height: 1px; background: var(--gold-accent);
+    }
+    .svc-hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 6.5vw, 100px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.015em;
+      color: var(--cream);
+      margin-bottom: 32px;
+      text-transform: uppercase;
+    }
+    .svc-hero-title em {
+      font-style: italic; font-weight: 400; color: var(--gold-light);
+    }
+    .svc-hero-desc {
+      font-size: 16px; line-height: 1.75; color: var(--silver);
+      max-width: 500px; margin-bottom: 40px; font-weight: 300;
+    }
+    .svc-hero-actions {
+      display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+    }
+    .svc-hero-sidebar {
+      border-left: 1px solid var(--border-subtle);
+      padding-left: 48px;
+      display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+    }
+    .svc-tech-marker {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .svc-tech-list {
+      display: flex; flex-direction: column; gap: 12px; margin-top: 16px;
+    }
+    .svc-tech-item {
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+      color: var(--fog); padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .svc-tech-item span:last-child { color: var(--gold-accent); }
+    @media (max-width: 960px) {
+      .svc-hero-grid { grid-template-columns: 1fr; }
+      .svc-hero-sidebar { display: none; }
+      #svc-hero { padding-bottom: 60px; min-height: 85vh; }
+    }
+
+    /* ── 05. EDITORIAL SERVICE INDEX ─────────────────────────────── */
+    #svc-index {
+      background: var(--bg-warm);
+      padding: 100px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .index-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 56px; border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 24px;
+    }
+    .index-list {
+      display: flex; flex-direction: column;
+    }
+    .index-row {
+      display: grid;
+      grid-template-columns: 80px 1.2fr 1fr auto;
+      align-items: center;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.4s var(--ease);
+    }
+    .index-row:first-child { border-top: 1px solid var(--border-subtle); }
+    .index-row::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(255, 255, 255, 0.015);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .index-row:hover::before { opacity: 1; }
+    .index-num {
+      font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+      color: var(--smoke); transition: color 0.3s, transform 0.3s;
+    }
+    .index-row:hover .index-num {
+      color: var(--gold-accent); transform: translateX(4px);
+    }
+    .index-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3vw, 42px);
+      font-weight: 400; color: var(--cream);
+      letter-spacing: -0.01em; transition: color 0.3s;
+    }
+    .index-row:hover .index-title { color: var(--gold-light); }
+    .index-summary {
+      font-size: 13px; color: var(--silver); line-height: 1.6; max-width: 420px;
+    }
+    .index-arrow {
+      font-family: 'IBM Plex Mono', monospace; font-size: 18px;
+      color: var(--smoke); transition: transform 0.3s, color 0.3s;
+    }
+    .index-row:hover .index-arrow {
+      color: var(--gold-accent); transform: translate(4px, -4px);
+    }
+    @media (max-width: 900px) {
+      .index-row { grid-template-columns: 48px 1fr auto; }
+      .index-summary { display: none; }
+    }
+
+    /* ── 06 & 07. INDIVIDUAL EDITORIAL CHAPTERS ─────────────────── */
+    .chapter {
+      padding: 140px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+    .chapter-eyebrow {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-accent);
+      margin-bottom: 16px; display: block;
+    }
+    .chapter-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 4.5vw, 68px);
+      font-weight: 300; line-height: 1.05; color: var(--cream);
+      margin-bottom: 24px;
+    }
+    .chapter-desc {
+      font-size: 15px; line-height: 1.8; color: var(--silver);
+      margin-bottom: 36px; font-weight: 300;
+    }
+    .spec-block {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-subtle);
+      padding: 32px;
+      margin-top: 36px;
+    }
+    .spec-header {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke);
+      margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 8px;
+    }
+    .spec-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .spec-item {
+      font-size: 12px; color: var(--fog); display: flex; align-items: center; gap: 8px;
+    }
+    .spec-item::before {
+      content: '—'; color: var(--gold-accent);
+    }
+
+    /* Layout Chapter 01: Large Left Image / Right Editorial */
+    .chap-01-grid {
+      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center;
+    }
+    .chap-media-wrap {
+      position: relative; overflow: hidden; aspect-ratio: 4/5;
+      border: 1px solid var(--border-subtle);
+    }
+    .chap-media-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.7) contrast(1.1);
+      transition: transform 0.9s var(--ease);
+    }
+    .chap-media-wrap:hover img { transform: scale(1.03); }
+
+    /* Layout Chapter 02: Typography Left / Giant Image Right */
+    .chap-02-grid {
+      display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: center;
+    }
+
+    /* Layout Chapter 03: Full-Width Cinematic Banner */
+    .chap-03-full {
+      position: relative; width: 100%; aspect-ratio: 21/9; overflow: hidden;
+      border: 1px solid var(--border-subtle); margin-top: 48px;
+    }
+    .chap-03-full img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.55) contrast(1.15);
+    }
+    .chap-03-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,10,9,0.9) 0%, transparent 60%);
+      display: flex; align-items: flex-end; padding: 48px;
+    }
+
+    /* Layout Chapter 04: Split Screen */
+    .chap-04-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    }
+    .split-box {
+      background: var(--bg-warm); border: 1px solid var(--border-subtle);
+      padding: 48px; display: flex; flex-direction: column; justify-content: space-between;
+    }
+
+    /* Layout Chapter 05: Asymmetric Collage */
+    .chap-05-grid {
+      display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center;
+    }
+    .collage-wrap {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .collage-img-1 { aspect-ratio: 3/4; overflow: hidden; }
+    .collage-img-2 { aspect-ratio: 1/1; overflow: hidden; margin-top: 32px; }
+    .collage-wrap img {
+      width: 100%; height: 100%; object-fit: cover; filter: brightness(0.65);
+    }
+
+    @media (max-width: 960px) {
+      .chap-01-grid, .chap-02-grid, .chap-04-grid, .chap-05-grid {
+        grid-template-columns: 1fr; gap: 48px;
+      }
+      .chap-03-full { aspect-ratio: 16/9; }
+      .chapter { padding: 90px 0; }
+    }
+
+    /* ── 08. INTERACTIVE BEFORE / AFTER ──────────────────────────── */
+    #svc-comparison {
+      background: var(--bg-dark);
+      padding: 120px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .ba-slider-container {
+      position: relative; width: 100%; aspect-ratio: 21/9; overflow: hidden;
+      user-select: none; cursor: ew-resize; border: 1px solid var(--border-subtle);
+    }
+    @media (max-width: 768px) { .ba-slider-container { aspect-ratio: 4/3; } }
+    .ba-img-before, .ba-img-after {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+    }
+    .ba-img-before img, .ba-img-after img {
+      width: 100%; height: 100%; object-fit: cover; pointer-events: none;
+    }
+    .ba-img-before img { filter: brightness(0.4) saturate(0.4) contrast(1.25); }
+    .ba-img-after img  { filter: brightness(0.85) saturate(1.1) contrast(1.05); }
+    .ba-img-after { clip-path: inset(0 50% 0 0); }
+    .ba-handle-line {
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
+      background: var(--cream); transform: translateX(-50%); z-index: 10;
+    }
+    .ba-handle-button {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: rgba(10,10,9,0.85); border: 1px solid var(--cream);
+      backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+      color: var(--cream); font-size: 14px;
+    }
+
+    /* ── 09. PAINT CORRECTION EDUCATION ─────────────────────────── */
+    #paint-education {
+      background: var(--bg-warm);
+      padding: 140px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .edu-step-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      border-left: 1px solid var(--border-subtle);
+      margin-top: 64px;
+    }
+    .edu-step-card {
+      padding: 40px 28px;
+      border-right: 1px solid var(--border-subtle);
+      background: transparent;
+      transition: background 0.3s;
+    }
+    .edu-step-card:hover { background: rgba(255,255,255,0.015); }
+    .edu-step-num {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      letter-spacing: 0.2em; color: var(--gold-accent); margin-bottom: 24px; display: block;
+    }
+    .edu-step-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 24px;
+      font-weight: 400; color: var(--cream); margin-bottom: 12px;
+    }
+    .edu-step-text {
+      font-size: 13px; color: var(--silver); line-height: 1.7; font-weight: 300;
+    }
+    @media (max-width: 1024px) {
+      .edu-step-grid { grid-template-columns: repeat(2, 1fr); border-left: none; }
+      .edu-step-card { border: 1px solid var(--border-subtle); margin-bottom: -1px; }
+    }
+
+    /* ── 11. PPF LAYER ANIMATION / DIAGRAM ───────────────────────── */
+    #ppf-diagram-sec {
+      padding: 120px 0;
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .layer-stack {
+      display: flex; flex-direction: column; gap: 12px;
+      max-width: 680px; margin: 40px 0;
+    }
+    .layer-item {
+      padding: 24px 32px; border: 1px solid var(--border-subtle);
+      background: var(--bg-elevated); display: flex; justify-content: space-between;
+      align-items: center; transition: border-color 0.3s, transform 0.3s;
+    }
+    .layer-item:hover {
+      border-color: var(--gold-accent); transform: translateX(8px);
+    }
+    .layer-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--cream);
+    }
+    .layer-badge {
+      font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-accent);
+    }
+
+    /* ── 12. VEHICLE NEED SELECTOR (CONSULTATION TOOL) ───────────── */
+    #selector-sec {
+      background: var(--bg-warm);
+      padding: 140px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .selector-box {
+      border: 1px solid var(--border-medium);
+      background: rgba(17,17,15,0.85);
+      backdrop-filter: blur(20px);
+      padding: 64px;
+    }
+    .selector-options {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin: 40px 0;
+    }
+    .opt-btn {
+      padding: 20px 24px; border: 1px solid var(--border-subtle);
+      background: rgba(255,255,255,0.02); text-align: left;
+      cursor: pointer; transition: all 0.3s;
+    }
+    .opt-btn:hover, .opt-btn.active {
+      border-color: var(--gold-accent); background: rgba(184,151,58,0.06);
+    }
+    .opt-btn.active .opt-title { color: var(--gold-light); }
+    .opt-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 20px;
+      color: var(--cream); margin-bottom: 4px; display: block;
+    }
+    .opt-desc {
+      font-size: 12px; color: var(--silver); line-height: 1.5; font-weight: 300;
+    }
+    .rec-box {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 36px; margin-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;
+    }
+    @media (max-width: 900px) {
+      .selector-options { grid-template-columns: 1fr; }
+      .selector-box { padding: 36px 24px; }
+    }
+
+    /* ── 15. TECHNICAL MATERIALS / LAB ───────────────────────────── */
+    #materials-sec {
+      background: var(--bg-dark);
+      padding: 120px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .mat-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .mat-tab-btn {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--smoke);
+      padding: 10px 20px; border: 1px solid var(--border-subtle);
+      transition: all 0.25s; cursor: pointer;
+    }
+    .mat-tab-btn:hover, .mat-tab-btn.active {
+      border-color: var(--gold-accent); color: var(--gold-light);
+      background: rgba(184,151,58,0.05);
+    }
+    .mat-display {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      background: var(--bg-elevated); border: 1px solid var(--border-subtle); padding: 48px;
+    }
+    .mat-img { aspect-ratio: 16/10; overflow: hidden; border: 1px solid var(--border-subtle); }
+    .mat-img img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 860px) {
+      .mat-display { grid-template-columns: 1fr; padding: 24px; }
+    }
+
+    /* ── 16. SERVICE COMPARISON MATRIX ───────────────────────────── */
+    #comparison-matrix {
+      background: var(--bg-warm);
+      padding: 120px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .matrix-table {
+      width: 100%; border-collapse: collapse; margin-top: 48px;
+    }
+    .matrix-table th {
+      font-family: 'IBM Plex Mono', monospace; font-size: 10px;
+      letter-spacing: 0.2em; text-transform: uppercase; color: var(--smoke);
+      text-align: left; padding: 20px 24px; border-bottom: 1px solid var(--border-medium);
+    }
+    .matrix-table td {
+      padding: 28px 24px; border-bottom: 1px solid var(--border-subtle);
+      font-size: 14px; color: var(--silver); vertical-align: top;
+    }
+    .matrix-table tr:hover td {
+      background: rgba(255,255,255,0.015);
+    }
+    .matrix-svc-name {
+      font-family: 'Cormorant Garamond', serif; font-size: 22px;
+      color: var(--cream); font-weight: 400;
+    }
+    @media (max-width: 768px) {
+      .matrix-table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+
+    /* ── 18 & 19. FINAL CONVERSION & ASSESSMENT FORM ─────────────── */
+    #assessment-sec {
+      background: var(--bg-dark);
+      padding: 140px 0;
+      position: relative;
+    }
+    .assess-grid {
+      display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 80px; align-items: start;
+    }
+    .assess-form-card {
+      background: var(--bg-elevated); border: 1px solid var(--border-medium);
+      padding: 56px 48px;
+    }
+    .assess-form-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .assess-field { margin-bottom: 24px; }
+    .assess-label {
+      display: block; font-family: 'IBM Plex Mono', monospace;
+      font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--smoke); margin-bottom: 8px;
+    }
+    .assess-input, .assess-select, .assess-textarea {
+      width: 100%; background: var(--bg-dark); border: 1px solid var(--border-subtle);
+      color: var(--cream); font-family: 'DM Sans', sans-serif; font-size: 14px;
+      padding: 14px 18px; outline: none; transition: border-color 0.25s;
+    }
+    .assess-input:focus, .assess-select:focus, .assess-textarea:focus {
+      border-color: var(--gold-accent);
+    }
+    .assess-textarea { resize: vertical; min-height: 120px; }
+    @media (max-width: 860px) {
+      .assess-grid { grid-template-columns: 1fr; gap: 48px; }
+      .assess-form-row { grid-template-columns: 1fr; }
+      .assess-form-card { padding: 36px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── SHARED NAVIGATION ──────────────────────────────────────── -->
+<nav id="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">New Generation <em>Tuners</em></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a href="#assessment-sec" class="nav-cta">Book Assessment</a>
+      <button class="nav-burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div id="mobile-overlay">
+  <nav class="mob-links">
+    <a href="index.html" class="mob-close">Home</a>
+    <a href="services.html" class="mob-close">Services</a>
+    <a href="gallery.html" class="mob-close">Gallery</a>
+    <a href="reviews.html" class="mob-close">Reviews</a>
+    <a href="about.html" class="mob-close">About</a>
+    <a href="contact.html" class="mob-close">Contact</a>
+  </nav>
+  <div class="mob-contact">
+    <p>Studio Desk</p>
+    <a href="tel:+919159944902">+91 91599 44902</a>
+  </div>
+</div>
+
+<!-- ── 04. EDITORIAL SERVICES HERO ────────────────────────────── -->
+<section id="svc-hero">
+  <div class="svc-hero-media">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=85" alt="Macro paint correction and polishing reflection"/>
+  </div>
+  <div class="svc-hero-gradient"></div>
+
+  <div class="container">
+    <div class="svc-hero-grid">
+      <!-- Left Column -->
+      <div>
+        <div class="svc-hero-tag reveal">SERVICES / NEW GENERATION TUNERS</div>
+        <h1 class="svc-hero-title reveal d1">
+          THE FINISH<br>
+          <em>IS ONLY THE</em><br>
+          BEGINNING.
+        </h1>
+        <p class="svc-hero-desc reveal d2">
+          Detailing is not mere washing. It is the surgical discipline of defect correction, paint refinement, and permanent molecular protection engineered around the physical chemistry of modern clear coats.
+        </p>
+        <div class="svc-hero-actions reveal d3">
+          <a href="#assessment-sec" class="btn-primary">Request a Vehicle Assessment →</a>
+          <a href="#svc-index" class="btn-ghost">Explore Services ↓</a>
+        </div>
+      </div>
+
+      <!-- Right Column: Technical Telemetry -->
+      <div class="svc-hero-sidebar reveal d2">
+        <div>
+          <div class="svc-tech-marker">
+            <span>DISCIPLINE SPECIFICATION</span>
+            <span>ATELIER VERIFIED</span>
+          </div>
+          <div class="svc-tech-list">
+            <div class="svc-tech-item"><span>01 · SURFACE RESTORATION</span><span>MICRON LEVEL</span></div>
+            <div class="svc-tech-item"><span>02 · CERAMIC HARDNESS</span><span>9H SiO₂ MATRIX</span></div>
+            <div class="svc-tech-item"><span>03 · PPF BARRIER</span><span>SELF-HEALING</span></div>
+            <div class="svc-tech-item"><span>04 · DIAGNOSTIC TURN</span><span>90-MIN PLEDGE</span></div>
+          </div>
+        </div>
+
+        <div style="font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--smoke); letter-spacing:0.18em; text-transform:uppercase;">
+          01 — SERVICES / SCROLL TO EXPLORE ↓
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 05. EDITORIAL SERVICE INDEX ────────────────────────────── -->
+<section id="svc-index">
+  <div class="container">
+    <div class="index-header reveal">
+      <div>
+        <div class="label-row" style="margin-bottom:8px;"><div class="label-rule"></div><span class="t-label">Service Directory</span></div>
+        <h2 class="t-h2">Disciplines &amp; Protection Systems</h2>
+      </div>
+      <span class="t-label" style="color:var(--smoke)">06 CORE SPECIALTIES</span>
+    </div>
+
+    <div class="index-list">
+      <a href="#chap-correction" class="index-row reveal">
+        <span class="index-num">01</span>
+        <h3 class="index-title">Paint Correction</h3>
+        <p class="index-summary">Multi-stage machine polishing removing swirl marks, scratches, and oxidation to restore optical depth.</p>
+        <span class="index-arrow">↗</span>
+      </a>
+
+      <a href="#chap-ceramic" class="index-row reveal">
+        <span class="index-num">02</span>
+        <h3 class="index-title">Ceramic Protection</h3>
+        <p class="index-summary">Permanent SiO₂ molecular bonding providing intense hydrophobic gloss and chemical UV resistance.</p>
+        <span class="index-arrow">↗</span>
+      </a>
+
+      <a href="#chap-ppf" class="index-row reveal">
+        <span class="index-num">03</span>
+        <h3 class="index-title">Paint Protection Film</h3>
+        <p class="index-summary">Self-healing thermoplastic urethane barrier engineered to absorb rock chips, road debris, and physical impacts.</p>
+        <span class="index-arrow">↗</span>
+      </a>
+
+      <a href="#chap-interior" class="index-row reveal">
+        <span class="index-num">04</span>
+        <h3 class="index-title">Interior Detailing</h3>
+        <p class="index-summary">Deep steam extraction, leather pore conditioning, and interior trim restoration for cabin preservation.</p>
+        <span class="index-arrow">↗</span>
+      </a>
+
+      <a href="#chap-decon" class="index-row reveal">
+        <span class="index-num">05</span>
+        <h3 class="index-title">Decontamination &amp; Polish</h3>
+        <p class="index-summary">Iron fallout dissolution, clay-bar defect purging, and single-stage jewelling polish.</p>
+        <span class="index-arrow">↗</span>
+      </a>
+
+      <a href="#chap-maintenance" class="index-row reveal">
+        <span class="index-num">06</span>
+        <h3 class="index-title">Maintenance Programs</h3>
+        <p class="index-summary">Bespoke recurring care schedules to preserve ceramic coatings and PPF gloss between annual details.</p>
+        <span class="index-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── 06 & 07. ART-DIRECTED INDIVIDUAL SERVICE CHAPTERS ──────── -->
+
+<!-- CHAPTER 01: PAINT CORRECTION -->
+<section id="chap-correction" class="chapter">
+  <div class="container">
+    <div class="chap-01-grid">
+      <!-- Media Left -->
+      <div class="chap-media-wrap reveal">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="Paint correction machine polishing under studio lamps"/>
+      </div>
+      <!-- Typography Right -->
+      <div class="reveal d1">
+        <span class="chapter-eyebrow">CHAPTER 01 — RESTORATION</span>
+        <h2 class="chapter-heading">Paint Correction</h2>
+        <p class="chapter-desc">
+          Paint correction is the controlled, microscopic leveling of the clear coat to eliminate swirl marks, etching, micro-scratches, and severe oxidation. We utilize dual-action and rotary polishers with diminishing abrasives to unlock pure optical clarity.
+        </p>
+
+        <div class="spec-block">
+          <div class="spec-header">TECHNICAL SPECIFICATION</div>
+          <div class="spec-grid">
+            <div class="spec-item">Ultrasonic Paint Thickness Scan</div>
+            <div class="spec-item">Single, Two &amp; Multi-Stage Tiers</div>
+            <div class="spec-item">Defect Mapping Under High CRI Lamps</div>
+            <div class="spec-item">Rotary &amp; DA Compound Sequence</div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px;">
+          <a href="#assessment-sec" class="btn-primary">Explore Paint Correction →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 02: CERAMIC COATING -->
+<section id="chap-ceramic" class="chapter" style="background:var(--bg-warm);">
+  <div class="container">
+    <div class="chap-02-grid">
+      <!-- Typography Left -->
+      <div class="reveal">
+        <span class="chapter-eyebrow">CHAPTER 02 — MOLECULAR SHIELD</span>
+        <h2 class="chapter-heading">Ceramic Protection</h2>
+        <p class="chapter-desc">
+          Unlike temporary waxes or organic sealants that degrade under heat and rainfall, ceramic coatings create a permanent SiO₂ covalent bond across the vehicle substrate. Delivering an impenetrable hydrophobic barrier with self-cleaning behavior and unmatched candy gloss.
+        </p>
+
+        <div class="spec-block">
+          <div class="spec-header">PERFORMANCE CHARACTERISTICS</div>
+          <div class="spec-grid">
+            <div class="spec-item">110°+ Water Contact Angle</div>
+            <div class="spec-item">UV &amp; Oxidation Protection</div>
+            <div class="spec-item">3-Year, 5-Year &amp; Lifetime Tiers</div>
+            <div class="spec-item">Infrared Curing Chamber</div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px;">
+          <a href="#assessment-sec" class="btn-primary">Explore Ceramic Coating →</a>
+        </div>
+      </div>
+      <!-- Enormous Image Right -->
+      <div class="chap-media-wrap reveal d1">
+        <img src="https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1200&q=80" alt="Ceramic coating water beading on exotic car"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 03: PPF -->
+<section id="chap-ppf" class="chapter">
+  <div class="container">
+    <div class="reveal" style="max-width:720px;">
+      <span class="chapter-eyebrow">CHAPTER 03 — PHYSICAL ARMOUR</span>
+      <h2 class="chapter-heading">Paint Protection Film (PPF)</h2>
+      <p class="chapter-desc">
+        Self-healing optical-grade thermoplastic polyurethane designed to absorb stone chips, high-speed gravel, and minor parking scratches. Computer-cut patterns ensure seamless edge wrapped alignment without razor blades touching your paint.
+      </p>
+    </div>
+
+    <!-- Full-Width Banner -->
+    <div class="chap-03-full reveal d1">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=85" alt="PPF installation on supercar front clip"/>
+      <div class="chap-03-overlay">
+        <div style="display:flex; justify-content:space-between; width:100%; align-items:flex-end; flex-wrap:wrap; gap:20px;">
+          <div>
+            <div class="t-label" style="color:var(--gold-accent);">COVERAGE TIERS</div>
+            <div class="t-h3" style="color:var(--cream); margin-top:4px;">Full Front Clip · High Impact Track Pack · Full Vehicle Stealth Wrap</div>
+          </div>
+          <a href="#assessment-sec" class="btn-primary">Request PPF Quotation →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 04: INTERIOR DETAILING (SPLIT SCREEN) -->
+<section id="chap-interior" class="chapter" style="background:var(--bg-warm);">
+  <div class="container">
+    <div class="reveal" style="margin-bottom:48px;">
+      <span class="chapter-eyebrow">CHAPTER 04 — CABIN SANCTUARY</span>
+      <h2 class="chapter-heading">Interior Restoration &amp; Care</h2>
+    </div>
+
+    <div class="chap-04-grid">
+      <div class="split-box reveal">
+        <div>
+          <div class="t-label" style="color:var(--gold-accent); margin-bottom:12px;">LEATHER &amp; FABRIC DISCIPLINE</div>
+          <h3 class="t-h3" style="margin-bottom:16px;">Micro-Extraction &amp; Conditioning</h3>
+          <p class="t-body" style="line-height:1.7;">
+            Hot-water extraction removes embedded oils, bacteria, and allergens. High-grade lanolin and ceramic leather nourishment restores factory matte texture without greasy residue.
+          </p>
+        </div>
+        <div style="margin-top:32px; border-top:1px solid var(--border-subtle); padding-top:16px;">
+          <span class="t-label">STEAM PURGE · FABRIC HYDROPHOBIC COATING</span>
+        </div>
+      </div>
+
+      <div class="split-box reveal d1">
+        <div>
+          <div class="t-label" style="color:var(--gold-accent); margin-bottom:12px;">TRIM &amp; AIR PURIFICATION</div>
+          <h3 class="t-h3" style="margin-bottom:16px;">Carbon, Alcantara &amp; Ozone Purge</h3>
+          <p class="t-body" style="line-height:1.7;">
+            Delicate cleaning of piano black fascias, carbon weave trims, and Alcantara headliners followed by medical-grade ozone sterilization for permanent odour elimination.
+          </p>
+        </div>
+        <div style="margin-top:32px; border-top:1px solid var(--border-subtle); padding-top:16px;">
+          <span class="t-label">OZONE SANITIZED · ZERO GREASY DRESSINGS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHAPTER 05: DECONTAMINATION & POLISH (ASYMMETRIC COLLAGE) -->
+<section id="chap-decon" class="chapter">
+  <div class="container">
+    <div class="chap-05-grid">
+      <div class="reveal">
+        <span class="chapter-eyebrow">CHAPTER 05 — SUB-SURFACE PURITY</span>
+        <h2 class="chapter-heading">Decontamination &amp; Jewelling Polish</h2>
+        <p class="chapter-desc">
+          Daily road wear embeds ferrous iron particles, tar, and industrial fallout into the pores of the paint. Our chemical decontamination and synthetic clay treatment dissolves contamination before a fine finishing polish restores vibrant gloss.
+        </p>
+        <div class="spec-block">
+          <div class="spec-header">PURIFICATION SEQUENCE</div>
+          <div class="spec-grid">
+            <div class="spec-item">pH-Neutral Iron Fallout Dissolver</div>
+            <div class="spec-item">Citrus Tar &amp; Bitumen Purge</div>
+            <div class="spec-item">Ultra-Fine Clay Decontamination</div>
+            <div class="spec-item">Jewelling Finishing Polish</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="collage-wrap reveal d1">
+        <div class="collage-img-1">
+          <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&q=80" alt="Iron fallout and foam wash"/>
+        </div>
+        <div class="collage-img-2">
+          <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=800&q=80" alt="Wheel and caliper detailing"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 08. INTERACTIVE BEFORE / AFTER SLIDER ──────────────────── -->
+<section id="svc-comparison">
+  <div class="container">
+    <div class="reveal" style="text-align:center; max-width:680px; margin:0 auto 48px;">
+      <div class="label-row" style="justify-content:center; margin-bottom:12px;">
+        <div class="label-rule"></div><span class="t-label">Optical Transformation</span><div class="label-rule"></div>
+      </div>
+      <h2 class="t-h1">SEE THE DIFFERENCE.</h2>
+      <p class="t-body" style="margin-top:12px;">
+        High-magnification defect inspection. Drag the slider to witness swirl removal and specular reflection restoration.
+      </p>
+    </div>
+
+    <div class="ba-slider-container reveal" id="ba-interactive-slider">
+      <!-- Before (Bottom Layer) -->
+      <div class="ba-img-before">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1800&q=85" alt="Before swirl mark defects"/>
+        <div style="position:absolute; bottom:24px; left:24px; z-index:5;">
+          <span class="t-label" style="background:rgba(10,10,9,0.85); padding:6px 14px; border:1px solid var(--border-subtle); color:var(--fog);">
+            BEFORE · SWIRL MARKS &amp; ETCHING
+          </span>
+        </div>
+      </div>
+
+      <!-- After (Top Layer with Clip) -->
+      <div class="ba-img-after" id="ba-after-layer">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=85" alt="After ceramic coating reflection"/>
+        <div style="position:absolute; bottom:24px; right:24px; z-index:5;">
+          <span class="t-label" style="background:rgba(10,10,9,0.85); padding:6px 14px; border:1px solid var(--gold-accent); color:var(--gold-light);">
+            AFTER · 2-STAGE CORRECTION + CERAMIC
+          </span>
+        </div>
+      </div>
+
+      <!-- Divider Line & Handle -->
+      <div class="ba-handle-line" id="ba-divider-line">
+        <div class="ba-handle-button">↔</div>
+      </div>
+    </div>
+
+    <p style="text-align:center; font-family:'IBM Plex Mono', monospace; font-size:10px; color:var(--smoke); letter-spacing:0.18em; text-transform:uppercase; margin-top:20px;">
+      ← MOVE CURSOR / DRAG DIVIDER TO INSPECT RESTORATION →
+    </p>
+  </div>
+</section>
+
+<!-- ── 09. PAINT CORRECTION EDUCATION ─────────────────────────── -->
+<section id="paint-education">
+  <div class="container">
+    <div class="reveal" style="max-width:760px;">
+      <div class="label-row" style="margin-bottom:12px;"><div class="label-rule"></div><span class="t-label">Educational Blueprint</span></div>
+      <h2 class="t-display-md">YOUR PAINT TELLS A STORY.</h2>
+      <p class="t-body-lg" style="margin-top:16px;">
+        Factory clear coat measures only 35 to 50 microns thick — thinner than a Post-it note. Every improper wash damages this irreplaceable barrier. Here is how we engineer it back to perfection:
+      </p>
+    </div>
+
+    <div class="edu-step-grid reveal d1">
+      <div class="edu-step-card">
+        <span class="edu-step-num">01 · DETECT</span>
+        <h3 class="edu-step-title">Contamination</h3>
+        <p class="edu-step-text">Brake dust, road pitch, and acid rain bond into the clear coat, creating a rough, cloudy texture that inhibits reflection.</p>
+      </div>
+
+      <div class="edu-step-card">
+        <span class="edu-step-num">02 · INSPECT</span>
+        <h3 class="edu-step-title">Surface Defects</h3>
+        <p class="edu-step-text">Microscopic circular scratches (swirls) scatter light in random directions, reducing paint depth and color richness.</p>
+      </div>
+
+      <div class="edu-step-card">
+        <span class="edu-step-num">03 · LEVEL</span>
+        <h3 class="edu-step-title">Correction</h3>
+        <p class="edu-step-text">Precision abrasive compounds level the highest ridges of the defect without needlessly compromising clear coat thickness.</p>
+      </div>
+
+      <div class="edu-step-card">
+        <span class="edu-step-num">04 · JEWEL</span>
+        <h3 class="edu-step-title">Refinement</h3>
+        <p class="edu-step-text">Finishing micro-pads eliminate any remaining haze, achieving laser-sharp gloss and mirrored specular highlights.</p>
+      </div>
+
+      <div class="edu-step-card">
+        <span class="edu-step-num">05 · LOCK</span>
+        <h3 class="edu-step-title">Protection</h3>
+        <p class="edu-step-text">SiO₂ ceramic coating or self-healing PPF seals the corrected substrate against future chemical and mechanical degradation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 11. PPF ENGINEERING ARCHITECTURE ───────────────────────── -->
+<section id="ppf-diagram-sec">
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <div class="label-row"><div class="label-rule"></div><span class="t-label">Engineering Anatomy</span></div>
+        <h2 class="t-h1">PRESERVE WHAT YOU<br>DON'T WANT TO REPAINT.</h2>
+        <p class="t-body" style="margin-top:20px; line-height:1.75;">
+          OEM paint cannot be duplicated outside the factory. Our Paint Protection Film serves as a sacrificial optical shield with an elastomeric polyurethane memory matrix that heals swirls under radiant ambient heat.
+        </p>
+
+        <div class="layer-stack">
+          <div class="layer-item">
+            <span class="layer-title">01 · Self-Healing Top Coat</span>
+            <span class="layer-badge">Elastomeric Polymer</span>
+          </div>
+          <div class="layer-item">
+            <span class="layer-title">02 · Impact Absorption Core</span>
+            <span class="layer-badge">Thermoplastic Urethane (150μm)</span>
+          </div>
+          <div class="layer-item">
+            <span class="layer-title">03 · Ultra-Clear Acrylic Adhesive</span>
+            <span class="layer-badge">OEM Clear Coat Safe</span>
+          </div>
+          <div class="layer-item" style="border-color:var(--gold-accent);">
+            <span class="layer-title">04 · Factory Original Automotive Clear Coat</span>
+            <span class="layer-badge">Protected Baseline</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal d1">
+        <div class="chap-media-wrap" style="aspect-ratio:1/1;">
+          <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1000&q=80" alt="Precision PPF wrapped edge on luxury car"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 12. "WHICH SERVICE DO I NEED?" INTERACTIVE SELECTOR ────── -->
+<section id="selector-sec">
+  <div class="container">
+    <div class="selector-box reveal">
+      <div class="label-row"><div class="label-rule"></div><span class="t-label">Interactive Consultation Tool</span></div>
+      <h2 class="t-h2">WHAT DOES YOUR VEHICLE NEED?</h2>
+      <p class="t-body" style="margin-top:8px;">Select your primary objective to receive a curated studio discipline recommendation:</p>
+
+      <div class="selector-options">
+        <div class="opt-btn active" data-rec="Paint Correction + 5-Year Ceramic Protection" data-desc="Ideal for vehicles with swirl marks, faded gloss, or light scratches requiring surface rejuvenation and permanent ceramic seal.">
+          <span class="opt-title">Restore &amp; Correct Paint</span>
+          <span class="opt-desc">Eliminate swirl marks, oxidation, and scratches</span>
+        </div>
+
+        <div class="opt-btn" data-rec="Full Front PPF + SiO₂ Ceramic Coating" data-desc="Engineered for brand new or freshly acquired vehicles needing stone chip impact protection on vulnerable panels and hydrophobic gloss on the rest.">
+          <span class="opt-title">Protect a New Vehicle</span>
+          <span class="opt-desc">Prevent stone chips, etching, and road wear from Day 1</span>
+        </div>
+
+        <div class="opt-btn" data-rec="Signature Ceramic Coating + Decontamination" data-desc="Designed for vehicles with good paint condition that need candy glass reflections, UV blockage, and 110° water beading.">
+          <span class="opt-title">Maximum Gloss &amp; Hydrophobicity</span>
+          <span class="opt-desc">Intense candy gloss reflections and easy washing</span>
+        </div>
+
+        <div class="opt-btn" data-rec="Full Body PPF Track Pack" data-desc="Extreme protection for highway cruisers and performance cars subjected to high-speed gravel, bug splatter, and track debris.">
+          <span class="opt-title">Heavy Highway / Track Protection</span>
+          <span class="opt-desc">Self-healing physical barrier across impact zones</span>
+        </div>
+
+        <div class="opt-btn" data-rec="Complete Interior Deep Extraction &amp; Leather Shield" data-desc="Complete cabin rejuvenation including steam carpet extraction, matte leather conditioning, and ozone sanitization.">
+          <span class="opt-title">Cabin &amp; Leather Restoration</span>
+          <span class="opt-desc">Deep extraction, stain removal, and matte nourishment</span>
+        </div>
+
+        <div class="opt-btn" data-rec="Scheduled Maintenance Valet &amp; Boost" data-desc="Safe hand-wash protocol, chemical decontamination, and SiO₂ gloss topper to maintain warranty compliance.">
+          <span class="opt-title">Maintain Existing Protection</span>
+          <span class="opt-desc">Recurring preservation for ceramic or PPF coated cars</span>
+        </div>
+      </div>
+
+      <!-- Dynamic Recommendation Display -->
+      <div class="rec-box">
+        <div>
+          <span class="t-label" style="color:var(--gold-accent);">CURATED ATELIER RECOMMENDATION</span>
+          <div class="t-h3" id="rec-title" style="color:var(--cream); margin:6px 0;">Paint Correction + 5-Year Ceramic Protection</div>
+          <p class="t-caption" id="rec-desc" style="max-width:560px;">Ideal for vehicles with swirl marks, faded gloss, or light scratches requiring surface rejuvenation and permanent ceramic seal.</p>
+        </div>
+        <a href="#assessment-sec" class="btn-primary">Request a Vehicle Assessment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 13. THE PROCESS / CRAFTSMANSHIP TIMELINE ───────────────── -->
+<section class="chapter" style="background:var(--bg-dark);">
+  <div class="container">
+    <div class="reveal" style="max-width:680px; margin-bottom:60px;">
+      <div class="label-row"><div class="label-rule"></div><span class="t-label">Our Operating Standard</span></div>
+      <h2 class="t-h1">THE STANDARD OF OUR WORK</h2>
+      <p class="t-body-lg">Six methodical phases. We treat every vehicle as a unique project — never a production line.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="split-box reveal">
+        <span class="edu-step-num">01 · ASSESS</span>
+        <h3 class="t-h3" style="margin-bottom:12px;">Electronic Paint Audit</h3>
+        <p class="t-body">Ultrasonic gauge measurements across every panel to calculate clear coat depth and log defect topography.</p>
+      </div>
+
+      <div class="split-box reveal d1">
+        <span class="edu-step-num">02 · PREPARE</span>
+        <h3 class="t-h3" style="margin-bottom:12px;">Chemical Decontamination</h3>
+        <p class="t-body">Multi-stage foam wash, iron fall-out dissolution, clay decontamination, and sensitive rubber trim masking.</p>
+      </div>
+
+      <div class="split-box reveal d2">
+        <span class="edu-step-num">03 · CORRECT</span>
+        <h3 class="t-h3" style="margin-bottom:12px;">Micro-Level Polishing</h3>
+        <p class="t-body">Systematic machine correction eliminating swirl marks, water etching, and holograms under specialized high-CRI lighting.</p>
+      </div>
+
+      <div class="split-box reveal">
+        <span class="edu-step-num">04 · REFINE</span>
+        <h3 class="t-h3" style="margin-bottom:12px;">Jewelling &amp; Isopropyl Wipe</h3>
+        <p class="t-body">Ultra-fine finishing jewel pass followed by alcohol wipe-downs to inspect true unmasked surface clarity.</p>
+      </div>
+
+      <div class="split-box reveal d1">
+        <span class="edu-step-num">05 · PROTECT</span>
+        <h3 class="t-h3" style="margin-bottom:12px;">Molecular Barrier Application</h3>
+        <p class="t-body">SiO₂ ceramic coating or computer-cut PPF installed in a temperature and humidity controlled studio bay.</p>
+      </div>
+
+      <div class="split-box reveal d2">
+        <span class="edu-step-num">06 · INSPECT</span>
+        <h3 class="t-h3" style="margin-bottom:12px;">Infrared Cure &amp; Handover</h3>
+        <p class="t-body">Controlled infrared lamp curing, 50-point quality verification, and client care briefing with warranty certificate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 15. TECHNICAL MATERIALS / LABORATORY ───────────────────── -->
+<section id="materials-sec">
+  <div class="container">
+    <div class="reveal" style="max-width:680px; margin-bottom:40px;">
+      <div class="label-row"><div class="label-rule"></div><span class="t-label">Technical Inventory</span></div>
+      <h2 class="t-h2">LABORATORY GRADE CHEMISTRY &amp; TOOLS</h2>
+    </div>
+
+    <div class="mat-tabs reveal">
+      <button class="mat-tab-btn active" data-mat="lighting">01 / High-CRI Lighting</button>
+      <button class="mat-tab-btn" data-mat="polishing">02 / Dual-Action Polishers</button>
+      <button class="mat-tab-btn" data-mat="chemistry">03 / SiO₂ Ceramic Chemistry</button>
+      <button class="mat-tab-btn" data-mat="gauges">04 / Ultrasonic Depth Gauges</button>
+      <button class="mat-tab-btn" data-mat="curing">05 / Infrared Curing Lamps</button>
+    </div>
+
+    <div class="mat-display reveal" id="mat-container">
+      <div>
+        <span class="chapter-eyebrow" id="mat-badge">LIGHTING LAB</span>
+        <h3 class="t-h2" id="mat-title" style="margin-bottom:16px;">Multi-Spectrum High-CRI Inspection Arrays</h3>
+        <p class="t-body" id="mat-desc" style="line-height:1.75;">
+          Standard fluorescent lamps hide 70% of paint defects. We utilize color-rendering index (CRI 96+) inspection lamps spanning 2700K to 6500K color temperatures to expose every swirl, micro-scratch, and hologram in true daylight fidelity.
+        </p>
+        <div style="margin-top:24px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--gold-accent);">
+          SPECIFICATION: 4000K–6500K VARIABLE SPECTRUM · CRI 96+
+        </div>
+      </div>
+
+      <div class="mat-img">
+        <img id="mat-image" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80" alt="High CRI detailing lamps on paint surface"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 16. SERVICE COMPARISON MATRIX ──────────────────────────── -->
+<section id="comparison-matrix">
+  <div class="container">
+    <div class="reveal" style="max-width:680px; margin-bottom:20px;">
+      <div class="label-row"><div class="label-rule"></div><span class="t-label">Service Matrix</span></div>
+      <h2 class="t-h2">ATELIER DISCIPLINE COMPARISON</h2>
+    </div>
+
+    <table class="matrix-table reveal">
+      <thead>
+        <tr>
+          <th>SERVICE DISCIPLINE</th>
+          <th>PRIMARY PURPOSE</th>
+          <th>IDEAL CONDITION</th>
+          <th>DURABILITY / RESULT</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="matrix-svc-name">Paint Correction</div><span class="t-caption">Multi-Stage Machine Polishing</span></td>
+          <td>Restore pure optical clarity &amp; mirror depth</td>
+          <td>Swirl marks, scratches, oxidation, holograms</td>
+          <td>Permanent surface defect removal</td>
+        </tr>
+        <tr>
+          <td><div class="matrix-svc-name">Ceramic Protection</div><span class="t-caption">SiO₂ Covalent Nanocoating</span></td>
+          <td>Chemical resistance, UV seal &amp; candy gloss</td>
+          <td>Freshly corrected or new factory paint</td>
+          <td>3 to 7+ Years Hydrophobic Shield</td>
+        </tr>
+        <tr>
+          <td><div class="matrix-svc-name">Paint Protection Film</div><span class="t-caption">150μm Self-Healing Urethane</span></td>
+          <td>Physical stone chip &amp; gravel impact barrier</td>
+          <td>High-impact zones, track cars, new delivery</td>
+          <td>Up to 10 Years Self-Healing Armour</td>
+        </tr>
+        <tr>
+          <td><div class="matrix-svc-name">Interior Detailing</div><span class="t-caption">Extraction &amp; Matte Nourishment</span></td>
+          <td>Cabin pore sterilization &amp; leather preservation</td>
+          <td>Spills, dirt, worn leather, stale odours</td>
+          <td>Factory matte finish &amp; UV protection</td>
+        </tr>
+        <tr>
+          <td><div class="matrix-svc-name">Maintenance Program</div><span class="t-caption">Scheduled Neutral Preservation</span></td>
+          <td>Maintain hydrophobic beading &amp; warranty</td>
+          <td>Coated vehicles on monthly/quarterly care</td>
+          <td>Ongoing showroom condition</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ── 18 & 19. FINAL CONVERSION & VEHICLE ASSESSMENT FORM ────── -->
+<section id="assessment-sec">
+  <div class="container">
+    <div class="assess-grid">
+      
+      <!-- Left: Narrative -->
+      <div class="reveal">
+        <div class="label-row"><div class="label-rule"></div><span class="t-label">Direct Consultation</span></div>
+        <h2 class="t-display-md" style="line-height:1.02; margin-bottom:24px;">
+          YOUR VEHICLE<br>
+          <em>DESERVES MORE</em><br>
+          THAN A WASH.
+        </h2>
+        <p class="t-body-lg" style="margin-bottom:32px;">
+          Tell us what you drive, what you want to improve, and what you want to protect. Our master technicians will craft a tailored detailing blueprint.
+        </p>
+
+        <div style="border-top:1px solid var(--border-subtle); padding-top:24px; margin-top:32px;">
+          <div class="t-label" style="color:var(--smoke); margin-bottom:8px;">PREFER DIRECT CALL?</div>
+          <div class="t-h3" style="color:var(--gold-light);">
+            <a href="tel:+919159944902">+91 91599 44902</a>
+          </div>
+          <p class="t-caption" style="margin-top:4px;">Studio Hours: Monday – Saturday, 09:30 AM – 08:30 PM</p>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="assess-form-card reveal d1">
+        <div class="t-h3" style="color:var(--cream); margin-bottom:8px;">Vehicle Assessment Form</div>
+        <p class="t-caption" style="margin-bottom:32px;">No obligation consultation &amp; paint thickness analysis quote.</p>
+
+        <form id="assessment-form">
+          <div class="assess-form-row">
+            <div class="assess-field">
+              <label class="assess-label" for="af-name">Full Name *</label>
+              <input class="assess-input" id="af-name" type="text" placeholder="John Doe" required/>
+            </div>
+            <div class="assess-field">
+              <label class="assess-label" for="af-phone">Phone Number *</label>
+              <input class="assess-input" id="af-phone" type="tel" placeholder="+91 XXXXX XXXXX" required/>
+            </div>
+          </div>
+
+          <div class="assess-form-row">
+            <div class="assess-field">
+              <label class="assess-label" for="af-email">Email Address</label>
+              <input class="assess-input" id="af-email" type="email" placeholder="john@example.com"/>
+            </div>
+            <div class="assess-field">
+              <label class="assess-label" for="af-vehicle">Vehicle Make &amp; Model *</label>
+              <input class="assess-input" id="af-vehicle" type="text" placeholder="e.g. Porsche 911 GT3 / BMW M3" required/>
+            </div>
+          </div>
+
+          <div class="assess-form-row">
+            <div class="assess-field">
+              <label class="assess-label" for="af-year">Vehicle Year</label>
+              <input class="assess-input" id="af-year" type="text" placeholder="e.g. 2024"/>
+            </div>
+            <div class="assess-field">
+              <label class="assess-label" for="af-discipline">Desired Discipline</label>
+              <select class="assess-select" id="af-discipline">
+                <option value="paint-correction">01 — Paint Correction</option>
+                <option value="ceramic-coating">02 — Ceramic Protection</option>
+                <option value="ppf">03 — Paint Protection Film (PPF)</option>
+                <option value="interior">04 — Interior Restoration</option>
+                <option value="decon-polish">05 — Decontamination &amp; Polish</option>
+                <option value="maintenance">06 — Maintenance Program</option>
+                <option value="advice">Unsure — Need Expert Advice</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="assess-field">
+            <label class="assess-label" for="af-condition">Current Paint Condition / Specific Concerns</label>
+            <textarea class="assess-textarea" id="af-condition" placeholder="Describe existing swirl marks, rock chips, water spots, or protection goals..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width:100%; justify-content:center; padding:18px;">
+            Submit Vehicle Assessment →
+          </button>
+
+          <div id="assess-success" style="display:none; margin-top:20px; padding:16px; background:rgba(184,151,58,0.08); border:1px solid var(--gold-accent); color:var(--gold-light); font-size:13px; text-align:center;">
+            Thank you. Your assessment request has been logged with our studio engineers. We will review your vehicle specifications and reach out within 90 minutes.
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────── -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">New Generation <em>Tuners</em></div>
+        <p class="footer-desc">Specialist Automotive Detailing Atelier, Paint Correction &amp; Vehicle Protection Studio. Est. 2014.</p>
+        <p style="font-size:12px; color:var(--mid); margin-top:8px; line-height:1.5;">37, AM Complex, Opp. Velu Mahal, Trichy Bypass Road, Rajakkapatti, Dindigul - 624004</p>
+        <span class="t-label" style="color:var(--smoke); margin-top:8px; display:inline-block;">Mon – Sat · 09:30 AM – 08:30 PM</span>
+      </div>
+      <div>
+        <div class="footer-col-title">Disciplines</div>
+        <div class="footer-links">
+          <a href="#chap-correction">Paint Correction</a>
+          <a href="#chap-ceramic">Ceramic Protection</a>
+          <a href="#chap-ppf">Paint Protection Film</a>
+          <a href="#chap-interior">Interior Detailing</a>
+          <a href="#chap-decon">Decontamination</a>
+          <a href="#chap-maintenance">Maintenance</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Studio</div>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="reviews.html">Reviews</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <div class="footer-contact-row"><span class="t-label">Primary</span><a href="tel:+919159944902">+91 91599 44902</a></div>
+        <div class="footer-contact-row"><span class="t-label">Direct</span><a href="tel:+919659898206">+91 96598 98206</a></div>
+        <div class="footer-contact-row"><span class="t-label">Support</span><a href="tel:+916382184080">+91 63821 84080</a></div>
+        <div class="footer-contact-row"><span class="t-label">Email</span><a href="mailto:info@newgenerationtuners.com">info@newgenerationtuners.com</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 New Generation Tuners. All rights reserved.</p>
+      <div style="display:flex;gap:20px;"><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="shared.js"></script>
+
+<script>
+// ── INTERACTIVE CONSULTATION SELECTOR ─────────────────────────
+(function(){
+  const optBtns = document.querySelectorAll('.opt-btn');
+  const recTitle = document.getElementById('rec-title');
+  const recDesc = document.getElementById('rec-desc');
+  const disciplineSelect = document.getElementById('af-discipline');
+
+  optBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      optBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (recTitle && recDesc) {
+        recTitle.textContent = btn.dataset.rec;
+        recDesc.textContent = btn.dataset.desc;
+      }
+    });
+  });
+
+  // ── BEFORE/AFTER SLIDER SCRIPT ───────────────────────────────
+  const slider = document.getElementById('ba-interactive-slider');
+  const afterLayer = document.getElementById('ba-after-layer');
+  const dividerLine = document.getElementById('ba-divider-line');
+
+  if (slider && afterLayer && dividerLine) {
+    let isDragging = false;
+
+    function updateSlider(clientX) {
+      const rect = slider.getBoundingClientRect();
+      let percent = ((clientX - rect.left) / rect.width) * 100;
+      percent = Math.max(2, Math.min(98, percent));
+      afterLayer.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+      dividerLine.style.left = `${percent}%`;
+    }
+
+    slider.addEventListener('mousedown', e => { isDragging = true; updateSlider(e.clientX); });
+    window.addEventListener('mousemove', e => { if (isDragging) updateSlider(e.clientX); });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+
+    slider.addEventListener('touchstart', e => { isDragging = true; updateSlider(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchmove', e => { if (isDragging) updateSlider(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => { isDragging = false; });
+  }
+
+  // ── TECHNICAL MATERIALS TABS ─────────────────────────────────
+  const matData = {
+    lighting: {
+      badge: "LIGHTING LAB",
+      title: "Multi-Spectrum High-CRI Inspection Arrays",
+      desc: "Standard fluorescent lamps hide 70% of paint defects. We utilize color-rendering index (CRI 96+) inspection lamps spanning 2700K to 6500K color temperatures to expose every swirl, micro-scratch, and hologram in true daylight fidelity.",
+      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80",
+      spec: "SPECIFICATION: 4000K–6500K VARIABLE SPECTRUM · CRI 96+"
+    },
+    polishing: {
+      badge: "MACHINE LAB",
+      title: "Dual-Action & Rotary Orbital Machinery",
+      desc: "Rupes BigFoot & Flex random orbital dual-action machines deliver balanced oscillating torque without creating friction burn holograms, preserving maximum clear coat thickness.",
+      img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1000&q=80",
+      spec: "SPECIFICATION: 15MM & 21MM ORBITAL THROWS · BALANCED COUNTERWEIGHTS"
+    },
+    chemistry: {
+      badge: "COATING LAB",
+      title: "Pure SiO₂ & TiO₂ Hydrophobic Chemistry",
+      desc: "Laboratory formulated silica dioxide nanostructures bond directly into the micro-pores of clear coats, forming an inorganic crystalline glass lattice resistant to pH2-pH12 chemicals.",
+      img: "https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1000&q=80",
+      spec: "SPECIFICATION: 9H PENCIL HARDNESS · 110°+ WATER CONTACT ANGLE"
+    },
+    gauges: {
+      badge: "DIAGNOSTIC LAB",
+      title: "PosiTector Ultrasonic Paint Depth Gauges",
+      desc: "Digital thickness logging on steel, aluminum, and carbon fiber composite panels down to 0.1 micron precision before any machine touches the bodywork.",
+      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000&q=80",
+      spec: "SPECIFICATION: 0.1μM TOLERANCE · EDDY CURRENT & ULTRASONIC DUAL-MODE"
+    },
+    curing: {
+      badge: "CURING BAY",
+      title: "Short-Wave Infrared Baking Stations",
+      desc: "Infrared heat lamps bake ceramic coatings from the inside out, ensuring rapid cross-linking crystallization and maximum bond strength prior to outdoor exposure.",
+      img: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1000&q=80",
+      spec: "SPECIFICATION: SHORT-WAVE IR EMITTER · CONTROLLED 60°C THERMAL SOAK"
+    }
+  };
+
+  const matTabs = document.querySelectorAll('.mat-tab-btn');
+  const matBadge = document.getElementById('mat-badge');
+  const matTitle = document.getElementById('mat-title');
+  const matDesc = document.getElementById('mat-desc');
+  const matImg = document.getElementById('mat-image');
+
+  matTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      matTabs.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.mat;
+      if (matData[key]) {
+        matBadge.textContent = matData[key].badge;
+        matTitle.textContent = matData[key].title;
+        matDesc.textContent = matData[key].desc;
+        matImg.src = matData[key].img;
+      }
+    });
+  });
+
+  // ── ASSESSMENT FORM SUBMISSION ────────────────────────────────
+  const form = document.getElementById('assessment-form');
+  const successMsg = document.getElementById('assess-success');
+  if (form && successMsg) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      successMsg.style.display = 'block';
+      form.reset();
+      setTimeout(() => { successMsg.style.display = 'none'; }, 8000);
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
