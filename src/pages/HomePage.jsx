@@ -55,7 +55,7 @@ export default function HomePage() {
       
       {/* ── 01. HERO (DARK GRAPHITE CINEMATIC) ──────────────────── */}
       <section className="relative min-h-[94vh] flex items-center overflow-hidden py-24 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        {/* Full Viewport High-End Car Detailing Video Background */}
+        {/* Full Viewport High-End Car Detailing / Car Wash Video Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             autoPlay
@@ -64,14 +64,14 @@ export default function HomePage() {
             playsInline
             preload="auto"
             poster="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1800&q=80"
-            className="w-full h-full object-cover brightness-[0.42] contrast-[1.25] scale-105"
+            className="w-full h-full object-cover brightness-[0.55] contrast-[1.2] scale-105"
+            onCanPlay={(e) => e.currentTarget.play().catch(() => {})}
           >
+            <source src="/videos/car-wash.mp4" type="video/mp4" />
             <source src="/videos/car-detailing.mp4" type="video/mp4" />
-            <source src="/videos/car-stream.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/70 to-[#101214]/85"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/80"></div>
-          <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/90 via-[#101214]/50 to-[#101214]/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/70"></div>
         </div>
 
         <div className="container relative z-10">
