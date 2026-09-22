@@ -107,15 +107,15 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Main Redesigned Glass Navbar */}
-        <header className={`transition-all duration-300 ${
-          isScrolled ? 'navbar-solid py-2.5' : 'navbar-glass py-4'
+        {/* Main Liquid White Glass Navbar */}
+        <header className={`transition-all duration-300 navbar-liquid-white ${
+          isScrolled ? 'py-2.5 shadow-xl border-b border-black/[0.08]' : 'py-4 border-b border-white/[0.1]'
         }`}>
           <div className="container flex justify-between items-center relative z-10">
             
             {/* Brand Logo with exact aerodynamic car graphic */}
             <Link to="/" className="flex items-center group py-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]" aria-label="New Generation Tuner's Home">
-              <div className="h-9 sm:h-11 flex items-center text-[#FFFFFF] group-hover:text-[#E10600] transition-colors">
+              <div className="h-9 sm:h-11 flex items-center text-[#000000] group-hover:text-[#E10600] transition-colors">
                 <svg 
                   viewBox="0 0 500 160" 
                   className="h-9 sm:h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
@@ -149,8 +149,8 @@ export default function Navbar() {
                     aria-current={isActive ? 'page' : undefined}
                     className={`relative py-1 font-body font-semibold text-[13px] tracking-wider transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600] ${
                       isActive 
-                        ? 'text-[#FFFFFF] font-bold' 
-                        : 'text-[#8D9398] hover:text-[#FFFFFF]'
+                        ? 'text-[#000000] font-bold' 
+                        : 'text-[#555A60] hover:text-[#000000]'
                     }`}
                   >
                     {link.label}
@@ -175,7 +175,7 @@ export default function Navbar() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-[#FFFFFF] p-2 hover:text-[#E10600] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]"
+              className="lg:hidden text-[#000000] p-2 hover:text-[#E10600] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >
