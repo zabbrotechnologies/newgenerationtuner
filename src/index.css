@@ -1,22 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  /* PERFORMANCE BRAND PALETTE */
-  --graphite: #101214;
-  --carbon: #181B1E;
-  --carbon-subtle: #22262B;
-  --warm-white: #F2F1ED;
-  --pure-white: #FFFFFF;
-  --performance-red: #D71920;
-  --red-dark: #8F1015;
-  --metallic: #8D9398;
-  --soft-grey: #C7C9C8;
-  --border-dark: rgba(255, 255, 255, 0.12);
-  --border-light: rgba(0, 0, 0, 0.12);
+  /* DARK LUXURY PALETTE */
+  --ngt-dark: #050505;
+  --ngt-surface: #0c0d0e;
+  --ngt-card: #121316;
+  --ngt-card-subtle: #17181c;
+  --ngt-off-white: #f5f5f7;
+  --ngt-pure-white: #ffffff;
+  --ngt-red: #d71920;
+  --ngt-red-dark: #8f1015;
+  --ngt-muted: #8e8e93;
+  --ngt-muted-dark: #48484a;
+  --ngt-border: rgba(255, 255, 255, 0.08);
+  --ngt-border-highlight: rgba(255, 255, 255, 0.16);
 
   /* TYPOGRAPHY SYSTEM */
-  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -30,34 +31,35 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--graphite);
-  color: var(--warm-white);
+  background-color: var(--ngt-dark);
+  color: var(--ngt-off-white);
   font-family: var(--font-body);
 }
 
 body {
-  background-color: var(--graphite);
-  color: var(--warm-white);
+  background-color: var(--ngt-dark);
+  color: var(--ngt-off-white);
   line-height: 1.6;
   font-weight: 400;
   font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Custom Minimal Engineered Scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--graphite);
+  background: var(--ngt-dark);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--carbon-subtle);
+  background: #222429;
   border-radius: 0px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--performance-red);
+  background: var(--ngt-red);
 }
 
 /* Base Container */
@@ -66,6 +68,12 @@ body {
   max-width: 1360px;
   margin: 0 auto;
   padding: 0 24px;
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 32px;
+  }
 }
 
 /* Typography Classes */
@@ -82,21 +90,12 @@ body {
   font-family: var(--font-mono); 
 }
 
-/* Nav Link Typography: Manrope 600 */
-.nav-link {
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 /* Micro Labels & Technical Telemetry */
 .micro-label {
   font-family: var(--font-mono);
   font-weight: 500;
   font-size: 10px;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
@@ -104,32 +103,54 @@ body {
   font-family: var(--font-mono);
   font-weight: 400;
   font-size: 11px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
-/* Buttons: Primary CTA Space Grotesk 600, Standard Manrope 600 */
+/* Glassmorphism Styles */
+.glass-panel-dark {
+  background: rgba(10, 10, 12, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-dark-interactive {
+  background: rgba(14, 15, 18, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.35s var(--ease);
+}
+.glass-panel-dark-interactive:hover {
+  background: rgba(22, 23, 28, 0.85);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Premium Buttons */
 .btn-red {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: var(--performance-red);
+  background-color: var(--ngt-red);
   color: #FFFFFF;
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 14px 28px;
-  border-radius: 0px;
-  border: 1px solid var(--performance-red);
+  padding: 13px 26px;
+  border-radius: 2px;
+  border: 1px solid var(--ngt-red);
   cursor: pointer;
   transition: all 0.25s var(--ease);
   text-decoration: none;
 }
 .btn-red:hover {
-  background-color: var(--red-dark);
-  border-color: var(--red-dark);
+  background-color: var(--ngt-red-dark);
+  border-color: var(--ngt-red-dark);
+  box-shadow: 0 4px 20px rgba(215, 25, 32, 0.35);
   transform: translateY(-1px);
 }
 
@@ -138,196 +159,73 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background-color: transparent;
-  color: var(--warm-white);
+  background-color: rgba(255, 255, 255, 0.03);
+  color: var(--ngt-off-white);
   font-family: var(--font-display);
   font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  padding: 14px 26px;
-  border-radius: 0px;
-  border: 1px solid var(--border-dark);
+  padding: 13px 26px;
+  border-radius: 2px;
+  border: 1px solid var(--ngt-border);
+  backdrop-filter: blur(10px);
   cursor: pointer;
   transition: all 0.25s var(--ease);
   text-decoration: none;
 }
 .btn-ghost-dark:hover {
-  border-color: var(--performance-red);
+  border-color: rgba(255, 255, 255, 0.3);
   color: #FFFFFF;
-  background-color: rgba(215, 25, 32, 0.08);
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-1px);
 }
 
-.btn-ghost-light {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background-color: transparent;
-  color: var(--graphite);
-  font-family: var(--font-display);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  padding: 14px 26px;
-  border-radius: 0px;
-  border: 1px solid var(--border-light);
-  cursor: pointer;
-  transition: all 0.25s var(--ease);
-  text-decoration: none;
-}
-.btn-ghost-light:hover {
-  border-color: var(--performance-red);
-  color: var(--performance-red);
-  background-color: rgba(215, 25, 32, 0.04);
-}
-
-/* Engineered Section Themes */
+/* Dark Theme Surfaces */
 .theme-dark {
-  background-color: var(--graphite);
-  color: var(--warm-white);
+  background-color: var(--ngt-dark);
+  color: var(--ngt-off-white);
 }
-.theme-carbon {
-  background-color: var(--carbon);
-  color: var(--warm-white);
+.theme-surface {
+  background-color: var(--ngt-surface);
+  color: var(--ngt-off-white);
 }
-.theme-light {
-  background-color: var(--warm-white);
-  color: var(--graphite);
-}
-.theme-white {
-  background-color: var(--pure-white);
-  color: var(--graphite);
+.theme-card {
+  background-color: var(--ngt-card);
+  color: var(--ngt-off-white);
 }
 
-/* Precision Rules */
-.border-subtle-dark {
-  border-color: var(--border-dark);
-}
-.border-subtle-light {
-  border-color: var(--border-light);
-}
-
-/* ── LIQUID WHITE GLASS NAVBAR SYSTEM ───────────────────────── */
-.navbar-liquid-white {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
-  position: relative;
-  overflow: hidden;
+/* Header Glassmorphism */
+.navbar-dark-glass {
+  background: rgba(5, 5, 5, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.navbar-liquid-white::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -20%;
-  width: 140%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.95), rgba(242, 241, 237, 0.4) 60%, transparent 80%);
-  pointer-events: none;
-  z-index: -1;
-  animation: liquidShimmer 12s ease-in-out infinite alternate;
-}
-
-@keyframes liquidShimmer {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-8px) scale(1.02);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(4px) scale(0.98);
-    opacity: 0.85;
-  }
-}
-
-/* ── CINEMATIC PARALLAX & FLOATING HERO ANIMATIONS ─────────── */
-@keyframes heroFloatSubtle {
-  0% {
-    transform: translateY(0px) scale(1.05);
-  }
-  50% {
-    transform: translateY(-12px) scale(1.08);
-  }
-  100% {
-    transform: translateY(0px) scale(1.05);
-  }
-}
-
-@keyframes heroContentFloat {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.animate-hero-float {
-  animation: heroFloatSubtle 14s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-.animate-content-float {
-  animation: heroContentFloat 8s ease-in-out infinite alternate;
-  will-change: transform;
-}
-
-/* ── ACCESSIBILITY FOCUS RINGS & SKELETON SHIMMER ─────────── */
+/* Focus Ring */
 :focus-visible {
-  outline: 2px solid var(--performance-red);
+  outline: 2px solid var(--ngt-red);
   outline-offset: 2px;
 }
 
-.skeleton-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(255, 255, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.03) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite ease-in-out;
+/* Animations */
+@keyframes heroGlow {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.05); }
+  100% { opacity: 0.3; transform: scale(1); }
 }
 
-.skeleton-shimmer-light {
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.04) 0%,
-    rgba(0, 0, 0, 0.09) 50%,
-    rgba(0, 0, 0, 0.04) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite ease-in-out;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
+.animate-glow {
+  animation: heroGlow 8s ease-in-out infinite alternate;
 }
 
 /* Card Subtle Lift */
 .hover-lift {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
-
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.18);
 }
-
-

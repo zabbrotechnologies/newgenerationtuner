@@ -17,22 +17,27 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              graphite: '#101214',
-              carbon: '#181B1E',
+              ngtDark: '#050505',
+              ngtSurface: '#0E0E10',
+              ngtCard: '#141417',
+              ngtBorder: 'rgba(255, 255, 255, 0.08)',
               performanceRed: '#D71920',
-              warmWhite: '#F2F1ED'
+              ngtRed: '#D71920',
+              ngtRedDark: '#991116',
+              ngtMuted: '#8E8E93',
+              ngtOffWhite: '#F5F5F7'
             },
             fontFamily: {
-              display: ['"Space Grotesk"', 'sans-serif'],
-              sans: ['"Manrope"', 'sans-serif'],
-              body: ['"Manrope"', 'sans-serif'],
+              display: ['"Outfit"', '"Space Grotesk"', 'sans-serif'],
+              sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+              body: ['"Inter"', 'sans-serif'],
               mono: ['"IBM Plex Mono"', 'monospace']
             }
           }
@@ -40,7 +45,7 @@
       }
     </script>
   </head>
-  <body class="bg-[#101214] text-[#F2F1ED] antialiased">
+  <body class="bg-[#050505] text-[#F5F5F7] antialiased selection:bg-[#D71920] selection:text-[#FFFFFF]">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

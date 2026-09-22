@@ -1,170 +1,99 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { 
+  ShieldCheck, 
+  Sparkles, 
+  ArrowUpRight, 
+  ChevronRight, 
+  Eye, 
+  Gauge, 
+  Flame, 
+  Sun, 
+  CheckCircle2, 
+  Phone, 
+  Clock, 
+  MapPin, 
+  Layers,
+  Wrench,
+  Zap,
+  Play
+} from 'lucide-react';
+import HeroSection from '../components/sections/HeroSection.jsx';
+import FAQSection from '../components/sections/FAQSection.jsx';
+import TestimonialSection from '../components/sections/TestimonialSection.jsx';
 import BeforeAfterSlider from '../components/media/BeforeAfterSlider.jsx';
-import ServiceSelector from '../components/services/ServiceSelector.jsx';
-import MaterialExplorer from '../components/services/MaterialExplorer.jsx';
-import PaintInspection from '../components/interactive/PaintInspection.jsx';
-import WaterBeading from '../components/interactive/WaterBeading.jsx';
 import MultiStepAssessment from '../components/forms/MultiStepAssessment.jsx';
-import { studioServices, studioCompany } from '../data/index.js';
+import { 
+  studioServices, 
+  studioGallery, 
+  studioCompany, 
+  PROCESS_TIMELINE, 
+  TECHNICAL_LAB_ITEMS 
+} from '../data/index.js';
 
 export default function HomePage() {
-  const [activeServiceIdx, setActiveServiceIdx] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const serviceImages = [
-    {
-      title: "PAINT CORRECTION",
-      sub: "Microscopic clear coat levelling removing 90%+ wash scratches",
-      img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1400&q=80",
-      spec: "0.1 MICRON ACCURACY"
-    },
-    {
-      title: "CERAMIC PROTECTION",
-      sub: "9H+ Covalent SiO₂ quartz shield with 115° hydrophobic rolloff",
-      img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1400&q=80",
-      spec: "115.4° BEAD ANGLE"
-    },
-    {
-      title: "PAINT PROTECTION FILM",
-      sub: "Optically clear 8.0 mil self-healing polyurethane gravel barrier",
-      img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&q=80",
-      spec: "8.0 MIL SELF-HEALING"
-    },
-    {
-      title: "INTERIOR RESTORATION",
-      sub: "Enzyme steam sanitization and OEM matte leather hide encapsulation",
-      img: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1400&q=80",
-      spec: "pH 7.0 BALANCED"
-    },
-    {
-      title: "DECONTAMINATION & POLISH",
-      sub: "Chemical iron fallout neutralization and high-gloss single-stage polish",
-      img: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1400&q=80",
-      spec: "FALLOUT FREE"
-    },
-    {
-      title: "MAINTENANCE PROTOCOLS",
-      sub: "Scientific recurring preservation for coated or wrapped track assets",
-      img: "https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1400&q=80",
-      spec: "SiO₂ TOPPER BOOST"
-    }
-  ];
-
   return (
-    <div className="space-y-0 text-[#F2F1ED] selection:bg-[#D71920] selection:text-[#FFFFFF]">
+    <div id="main-content" className="bg-[#050505] text-[#F5F5F7] selection:bg-[#D71920] selection:text-[#FFFFFF]">
       
-      {/* ── 01. HERO (DARK GRAPHITE CINEMATIC) ──────────────────── */}
-      <section className="relative min-h-[94vh] flex items-center overflow-hidden py-24 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        <div 
-          className="absolute inset-0 z-0 overflow-hidden"
-          style={{ transform: `translateY(${Math.min(scrollY * 0.35, 200)}px)` }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=2070&q=85&auto=format&fit=crop"
-            onError={(e) => {
-              e.currentTarget.src = "/images/hero-car-wash.jpg";
-            }}
-            alt="Automotive performance detailing atelier car wash in progress"
-            className="w-full h-full object-cover brightness-[0.70] contrast-[1.12] scale-110 animate-hero-float"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/95 via-[#101214]/50 to-[#101214]/75"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/65"></div>
-        </div>
+      {/* ── 01. NAVIGATION is handled by Navbar.jsx globally ── */}
 
-        <div 
-          className="container relative z-10 animate-content-float"
-          style={{ transform: `translateY(${Math.min(-scrollY * 0.12, 0)}px)` }}
-        >
-          <div className="max-w-4xl space-y-8">
-            
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md shadow-2xl transition-transform hover:-translate-y-0.5">
-              <span className="w-2 h-2 bg-[#D71920] animate-pulse"></span>
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
-                AUTOMOTIVE PERFORMANCE DETAILING ATELIER
-              </span>
-            </div>
+      {/* ── 02. HERO SECTION (CINEMATIC VIDEO + BLACK GLASS PANEL) ── */}
+      <HeroSection />
 
-            {/* Bold Grotesk Headline */}
-            <div className="space-y-2">
-              <div className="font-mono text-xs text-[#D71920] tracking-[0.25em] uppercase font-bold flex items-center gap-3">
-                <span>PROTECT.</span>
-                <span className="text-[#8D9398]">/</span>
-                <span>CORRECT.</span>
-                <span className="text-[#8D9398]">/</span>
-                <span>REFINE.</span>
-              </div>
-
-              <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF] drop-shadow-lg">
-                SURFACE.<br />
-                <span className="text-[#D71920]">PERFECTED.</span>
-              </h1>
-            </div>
-
-            <p className="font-body text-[#8D9398] text-base md:text-lg max-w-2xl leading-relaxed font-normal">
-              Precision paint correction, 9H+ SiO₂ ceramic coatings, and self-healing PPF engineered around your vehicle's physical clear coat substrate.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#assessment-section" className="btn-red text-sm py-3.5 px-7 shadow-xl shadow-red-950/30">
-                Book Your Detail ↗
-              </a>
-              <a href="#service-discovery" className="btn-ghost-dark text-sm py-3.5 px-7 backdrop-blur-sm">
-                Explore The Work ↓
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── 02. BRAND STATEMENT (LIGHT SECTION) ─────────────────── */}
-      <section className="py-24 md:py-32 bg-[#F2F1ED] text-[#101214] border-b border-[rgba(0,0,0,0.12)]">
+      {/* ── 03. TRUST / VALUE STRIP ────────────────────────────── */}
+      <section id="trust-strip" className="bg-[#0A0B0D] border-b border-white/[0.08] py-8 sm:py-10 relative">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
             
-            <div className="lg:col-span-5 relative">
-              <div className="aspect-[4/5] overflow-hidden border border-[rgba(0,0,0,0.15)] group">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80" 
-                  alt="Detailing craftsmanship and light inspection" 
-                  className="w-full h-full object-cover filter brightness-[0.85] contrast-115 group-hover:scale-105 transition-transform duration-700"
-                />
+            {/* Stat 01 */}
+            <div className="pt-4 md:pt-0 md:px-4 first:pt-0 first:px-0 space-y-1">
+              <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
+                ESTABLISHED 2014
+              </div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+                10+ Years Atelier Care
+              </div>
+              <div className="font-body text-xs text-[#8E8E93]">
+                Dedicated to bespoke vehicle restoration
               </div>
             </div>
 
-            <div className="lg:col-span-7 space-y-6">
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
-                <span className="w-8 h-[2px] bg-[#D71920]"></span>
-                <span>PHILOSOPHY / 01</span>
+            {/* Stat 02 */}
+            <div className="pt-4 md:pt-0 md:px-4 space-y-1">
+              <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
+                NANO-CERAMIC
               </div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+                9H+ SiO₂ Covalent Matrix
+              </div>
+              <div className="font-body text-xs text-[#8E8E93]">
+                110°+ hydrophobic roll-off angle
+              </div>
+            </div>
 
-              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#101214] leading-[1.02] uppercase">
-                A CLEAN CAR ISN'T THE GOAL.<br />
-                <span className="text-[#D71920]">THE FINISH IS.</span>
-              </h2>
+            {/* Stat 03 */}
+            <div className="pt-4 md:pt-0 md:px-4 space-y-1">
+              <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
+                SURFACE INTEGRITY
+              </div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+                0.1μm Ultrasonic Precision
+              </div>
+              <div className="font-body text-xs text-[#8E8E93]">
+                Non-destructive clear coat diagnostics
+              </div>
+            </div>
 
-              <p className="font-body text-[#555A60] text-base md:text-lg leading-relaxed font-normal">
-                Cleaning removes surface debris. Detailing is the science of restoring factory paintwork to pure optical reflection — leveling microscopic clear coat peaks, eliminating wash friction scratches, and sealing the substrate with permanent molecular protection.
-              </p>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-[rgba(0,0,0,0.1)]">
-                <div>
-                  <h4 className="font-display text-xl text-[#101214] font-bold mb-1">Subsurface Levelling</h4>
-                  <p className="font-body text-xs text-[#666B72] leading-relaxed font-normal">Microscopic compounding removing swirl scratches down to pure mirror reflection.</p>
-                </div>
-                <div>
-                  <h4 className="font-display text-xl text-[#101214] font-bold mb-1">Molecular Covalent Seals</h4>
-                  <p className="font-body text-xs text-[#666B72] leading-relaxed font-normal">SiO₂ crosslinked matrices resistant to UV oxidation, acid rain, and bird lime etching.</p>
-                </div>
+            {/* Stat 04 */}
+            <div className="pt-4 md:pt-0 md:px-4 space-y-1">
+              <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
+                PHYSICAL ARMOUR
+              </div>
+              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+                Self-Healing TPU Film
+              </div>
+              <div className="font-body text-xs text-[#8E8E93]">
+                Computer-cut wrapped edge coverage
               </div>
             </div>
 
@@ -172,225 +101,556 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 03. SERVICE DISCOVERY (INTERACTIVE SPLIT CHAPTERS) ───── */}
-      <section id="service-discovery" className="py-24 md:py-32 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+      {/* ── 04. COMPLETE AUTOMOTIVE DETAILING SOLUTIONS (SERVICES) ── */}
+      <section id="services-section" className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
         <div className="container">
-          <div className="flex justify-between items-end pb-6 mb-12 border-b border-[rgba(255,255,255,0.12)]">
-            <div>
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] mb-2 font-medium">
-                <span className="w-6 h-[2px] bg-[#D71920]"></span>
-                <span>SERVICE EXPLORATION</span>
+          
+          {/* Header */}
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-8 mb-16 border-b border-white/[0.08]">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
+                <span className="w-2 h-2 rounded-full bg-[#D71920]"></span>
+                <span>DETAILING DISCIPLINES</span>
               </div>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] tracking-tight uppercase">
-                WHAT WE DO
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFFFFF] tracking-tight uppercase">
+                COMPLETE AUTOMOTIVE DETAILING SOLUTIONS
               </h2>
             </div>
-            <Link to="/services" className="font-body text-xs text-[#D71920] uppercase tracking-wider hover:underline flex items-center gap-1 font-semibold">
-              View All 06 Disciplines ↗
+            
+            <Link to="/services" className="font-display text-xs text-[#D71920] uppercase tracking-wider hover:text-white flex items-center gap-1.5 font-bold group">
+              <span>View All 06 Disciplines</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
-            {/* Left Vertical Interactive List (col-span-6) */}
-            <div className="lg:col-span-6 divide-y divide-[rgba(255,255,255,0.08)] border-y border-[rgba(255,255,255,0.08)]">
-              {studioServices.map((svc, idx) => (
-                <div
-                  key={svc.id}
-                  onMouseEnter={() => setActiveServiceIdx(idx)}
-                  className={`py-6 px-4 transition-all cursor-pointer flex items-center justify-between group ${
-                    activeServiceIdx === idx 
-                      ? 'bg-[#181B1E] border-l-4 border-[#D71920]' 
-                      : 'hover:bg-white/[0.02]'
-                  }`}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="font-mono text-xs text-[#8D9398] font-medium">{svc.number}</span>
-                    <span className={`font-display text-xl sm:text-2xl font-bold tracking-tight uppercase transition-colors ${
-                      activeServiceIdx === idx ? 'text-[#FFFFFF]' : 'text-[#8D9398] group-hover:text-[#FFFFFF]'
-                    }`}>
-                      {svc.title}
-                    </span>
+          {/* Services Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {studioServices.map((svc) => (
+              <div
+                key={svc.id}
+                className="bg-[#0E0E10] border border-white/[0.08] hover:border-white/[0.2] transition-all duration-300 rounded overflow-hidden flex flex-col justify-between group hover-lift"
+              >
+                <div>
+                  {/* Service Image with Subtle Dark Filter */}
+                  <div className="aspect-[16/10] overflow-hidden relative bg-[#141417]">
+                    <img
+                      src={svc.image}
+                      alt={svc.title}
+                      className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1] group-hover:scale-105 group-hover:brightness-[0.9] transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] via-transparent to-transparent"></div>
+                    
+                    {/* Top Number Badge */}
+                    <div className="absolute top-4 left-4 font-mono text-[11px] text-[#FFFFFF] bg-[#050505]/80 px-2.5 py-1 border border-white/[0.1] backdrop-blur-md">
+                      {svc.number}
+                    </div>
+
+                    <div className="absolute top-4 right-4 font-mono text-[10px] text-[#D71920] bg-[#050505]/80 px-2.5 py-1 border border-white/[0.1] backdrop-blur-md uppercase tracking-wider">
+                      {svc.category}
+                    </div>
                   </div>
-                  <span className={`font-display text-base transition-transform ${
-                    activeServiceIdx === idx ? 'text-[#D71920] translate-x-1 font-bold' : 'text-[#8D9398]'
-                  }`}>
-                    →
-                  </span>
-                </div>
-              ))}
-            </div>
 
-            {/* Right Dynamic Showcase Panel (col-span-6) */}
-            <div className="lg:col-span-6 relative aspect-[4/3] lg:aspect-auto overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#181B1E]">
-              <img
-                src={serviceImages[activeServiceIdx]?.img}
-                alt={serviceImages[activeServiceIdx]?.title}
-                className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.2] transition-all duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-transparent"></div>
-              
-              <div className="absolute bottom-6 left-6 right-6 p-6 bg-[#101214]/95 border border-[rgba(255,255,255,0.12)]">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-medium">
-                    DISCIPLINE 0{activeServiceIdx + 1}
-                  </span>
-                  <span className="font-mono text-[10px] text-[#FFFFFF] bg-[#181B1E] px-2 py-0.5 border border-white/10 font-medium">
-                    {serviceImages[activeServiceIdx]?.spec}
-                  </span>
+                  {/* Body Content */}
+                  <div className="p-6 sm:p-7 space-y-4">
+                    <h3 className="font-display text-2xl font-bold text-[#FFFFFF] uppercase tracking-tight group-hover:text-[#D71920] transition-colors">
+                      {svc.title}
+                    </h3>
+                    <p className="font-body text-xs sm:text-sm text-[#8E8E93] leading-relaxed font-normal">
+                      {svc.summary}
+                    </p>
+
+                    {/* Highlights */}
+                    <div className="pt-3 border-t border-white/[0.06] space-y-1.5">
+                      {svc.process.slice(0, 3).map((p, pIdx) => (
+                        <div key={pIdx} className="flex items-center gap-2 text-xs font-body text-[#AEAEB2]">
+                          <CheckCircle2 size={12} className="text-[#D71920] flex-shrink-0" />
+                          <span className="truncate">{p}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-                <h3 className="font-display text-2xl font-bold text-[#FFFFFF] uppercase tracking-tight mb-1">
-                  {serviceImages[activeServiceIdx]?.title}
-                </h3>
-                <p className="font-body text-xs text-[#8D9398] leading-relaxed font-normal">
-                  {serviceImages[activeServiceIdx]?.sub}
-                </p>
+
+                {/* Card Footer Link */}
+                <div className="p-6 sm:p-7 pt-0">
+                  <Link
+                    to="/services"
+                    className="w-full py-3 px-4 bg-white/[0.03] hover:bg-[#D71920] text-[#FFFFFF] border border-white/[0.08] hover:border-[#D71920] rounded font-display text-xs uppercase tracking-wider font-semibold flex items-center justify-between transition-all"
+                  >
+                    <span>Explore Protocol</span>
+                    <ArrowUpRight size={14} />
+                  </Link>
+                </div>
+
               </div>
-            </div>
-
+            ))}
           </div>
+
         </div>
       </section>
 
-      {/* ── 04. PAINT CORRECTION (LIGHT SECTION) ─────────────────── */}
-      <section className="py-24 md:py-32 bg-[#F2F1ED] text-[#101214] border-b border-[rgba(0,0,0,0.12)]">
+      {/* ── 05. ABOUT / WHY NGT ("MORE THAN JUST DETAILING") ─────── */}
+      <section className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
         <div className="container">
-          <PaintInspection />
-        </div>
-      </section>
-
-      {/* ── 05. CERAMIC PROTECTION (DARK GRAPHITE) ──────────────── */}
-      <section className="py-24 md:py-32 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        <div className="container">
-          <WaterBeading />
-        </div>
-      </section>
-
-      {/* ── 06. PPF LAYERED REVEAL (LIGHT SECTION) ──────────────── */}
-      <section className="py-24 md:py-32 bg-[#F2F1ED] text-[#101214] border-b border-[rgba(0,0,0,0.12)]">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            <div className="lg:col-span-6 space-y-6">
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
+            {/* Visual Column */}
+            <div className="lg:col-span-5 relative">
+              <div className="aspect-[4/5] rounded overflow-hidden border border-white/[0.1] relative group">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80" 
+                  alt="Craftsmanship and multi-spectrum inspection" 
+                  className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.15] group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0D] via-transparent to-transparent"></div>
+                
+                {/* Floating Stat Overlay */}
+                <div className="absolute bottom-6 left-6 right-6 p-5 glass-panel-dark rounded border border-white/[0.1]">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-semibold">TOLERANCE SPEC</div>
+                      <div className="font-display text-xl font-bold text-[#FFFFFF]">0.1 MICRON AUDIT</div>
+                    </div>
+                    <Gauge size={24} className="text-[#D71920]" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Editorial Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
                 <span className="w-8 h-[2px] bg-[#D71920]"></span>
-                <span>PHYSICAL ARMOUR / PPF</span>
+                <span>ATELIER PHILOSOPHY</span>
               </div>
 
-              <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-[#101214] leading-[1.02] uppercase">
-                KEEP THE PAINT.<br />
-                <span className="text-[#D71920]">TAKE THE IMPACT.</span>
+              <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#FFFFFF] leading-[1.05] uppercase">
+                MORE THAN JUST A WASH.<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D71920] to-[#FF4D4D]">
+                  SURFACE SCIENCE.
+                </span>
               </h2>
 
-              <p className="font-body text-[#555A60] text-sm md:text-base leading-relaxed font-normal">
-                Self-healing optical-grade thermoplastic polyurethane designed to absorb high-velocity gravel, stone chips, and track debris. Micro-scratches disappear automatically under engine bay or solar heat.
+              <p className="font-body text-[#AEAEB2] text-sm sm:text-base leading-relaxed font-normal">
+                Standard car washes create microscopic scratch networks, holograms, and buffer trails that ruin your clear coat's optical depth. At New Generation Tuner's, we treat every vehicle panel as a precision optical surface.
               </p>
 
-              <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.12)] p-5 space-y-3">
-                <div className="font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-medium">
-                  LAYER COMPOSITION
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-white/[0.08]">
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-[#FFFFFF] font-display text-lg font-bold">
+                    <Eye size={18} className="text-[#D71920]" />
+                    <span>High-CRI Inspection</span>
+                  </div>
+                  <p className="font-body text-xs text-[#8E8E93] leading-relaxed">
+                    96+ CRI multi-spectrum lighting simulating solar fidelity to reveal over 90% of hidden clear coat micro-scratches.
+                  </p>
                 </div>
-                <div className="grid grid-cols-3 gap-2 text-xs">
-                  <div className="bg-[#F2F1ED] p-2 text-center border border-[rgba(0,0,0,0.06)]">
-                    <div className="font-mono text-[#8D9398] text-[9px] font-medium">01</div>
-                    <div className="font-body font-semibold text-[#101214]">CLEAR COAT</div>
-                  </div>
-                  <div className="bg-[#D71920]/10 p-2 text-center border border-[#D71920]/40">
-                    <div className="font-mono text-[#D71920] text-[9px] font-medium">02</div>
-                    <div className="font-body font-semibold text-[#D71920]">8.0 MIL PPF</div>
-                  </div>
-                  <div className="bg-[#F2F1ED] p-2 text-center border border-[rgba(0,0,0,0.06)]">
-                    <div className="font-mono text-[#8D9398] text-[9px] font-medium">03</div>
-                    <div className="font-body font-semibold text-[#101214]">CERAMIC TOP</div>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <div className="lg:col-span-6">
-              <div className="aspect-[4/3] overflow-hidden border border-[rgba(0,0,0,0.15)] group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80"
-                  alt="PPF application"
-                  className="w-full h-full object-cover filter brightness-[0.9] contrast-[1.1] group-hover:scale-105 transition-transform duration-700"
-                />
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2 text-[#FFFFFF] font-display text-lg font-bold">
+                    <Layers size={18} className="text-[#D71920]" />
+                    <span>Subsurface Levelling</span>
+                  </div>
+                  <p className="font-body text-xs text-[#8E8E93] leading-relaxed">
+                    Controlled compound sequences that safely level clear coat peaks permanently without filler glazes.
+                  </p>
+                </div>
               </div>
+
+              <div className="pt-4">
+                <Link to="/about" className="btn-ghost-dark text-xs py-3 px-6">
+                  <span>Learn About Our Studio</span>
+                  <ChevronRight size={14} />
+                </Link>
+              </div>
+
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 07. BEFORE / AFTER FULL-WIDTH TRANSFORMATION ───────── */}
-      <section className="py-24 md:py-32 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+      {/* ── 06. DETAILING PROCESS (01 TO 06 NUMBERED STEPS) ────── */}
+      <section className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
-              <span className="w-6 h-[2px] bg-[#D71920]"></span>
-              <span>OPTICAL TRANSFORMATION</span>
-              <span className="w-6 h-[2px] bg-[#D71920]"></span>
+          
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
+              <Wrench size={14} />
+              <span>THE 6-STEP PROTOCOL</span>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#FFFFFF] uppercase tracking-tight">
-              SEE THE DIFFERENCE.
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFFFFF] tracking-tight uppercase">
+              OUR DETAILING PROCESS
             </h2>
-            <p className="font-body text-sm text-[#8D9398] font-normal">
-              High-magnification defect removal. Drag the boundary line to compare damaged clear coat with a 2-stage corrected mirror finish.
+            <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed font-normal">
+              A systematic, lab-grade execution pipeline guaranteeing permanent optical clarity and long-term surface defense.
             </p>
           </div>
 
-          <BeforeAfterSlider />
-        </div>
-      </section>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PROCESS_TIMELINE.map((item) => (
+              <div 
+                key={item.step}
+                className="bg-[#0E0E10] border border-white/[0.08] p-7 rounded hover:border-[#D71920]/40 transition-all duration-300 relative group flex flex-col justify-between"
+              >
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <span className="font-mono text-2xl font-bold text-[#D71920]">{item.step}</span>
+                    <span className="font-mono text-[10px] tracking-widest text-[#8E8E93] uppercase">PHASE {item.step}</span>
+                  </div>
 
-      {/* ── 08. MATERIAL EXPLORER ───────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-[#181B1E] border-b border-[rgba(255,255,255,0.12)]">
-        <div className="container">
-          <MaterialExplorer />
-        </div>
-      </section>
+                  <h3 className="font-display text-xl font-bold text-[#FFFFFF] uppercase tracking-tight group-hover:text-[#D71920] transition-colors">
+                    {item.title}
+                  </h3>
 
-      {/* ── 09. INTERACTIVE SERVICE SELECTOR ───────────────────── */}
-      <section className="py-24 md:py-32 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
-        <div className="container">
-          <ServiceSelector />
-        </div>
-      </section>
-
-      {/* ── 10. MULTI-STEP VEHICLE ASSESSMENT WIZARD ───────────── */}
-      <section id="assessment-section" className="py-24 md:py-32 bg-[#181B1E]">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            <div className="lg:col-span-5 space-y-6">
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
-                <span className="w-8 h-[2px] bg-[#D71920]"></span>
-                <span>DIRECT ATELIER CONSULTATION</span>
-              </div>
-              <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#FFFFFF] leading-tight uppercase tracking-tight">
-                READY FOR A<br />
-                <span className="text-[#D71920]">BETTER FINISH?</span>
-              </h2>
-              <p className="font-body text-sm text-[#8D9398] leading-relaxed font-normal">
-                Complete our 5-step vehicle assessment. Our master technicians will evaluate your clear coat thickness, swirl severity, and recommend tailored protection protocols within 90 minutes.
-              </p>
-              
-              <div className="pt-6 border-t border-[rgba(255,255,255,0.12)] space-y-2.5">
-                <div>
-                  <span className="font-mono text-[10px] tracking-wider uppercase text-[#8D9398] block">DIRECT DESK</span>
-                  <a href={`tel:${studioCompany.phones.primary}`} className="font-display text-2xl font-bold text-[#FFFFFF] hover:text-[#D71920] transition-colors">
-                    {studioCompany.phones.primary}
-                  </a>
+                  <p className="font-body text-xs text-[#AEAEB2] leading-relaxed">
+                    {item.summary}
+                  </p>
                 </div>
-                <div className="font-body text-xs text-[#8D9398]">STUDIO: {studioCompany.address}</div>
-                <div className="font-body text-xs text-[#FFFFFF] font-medium">HOURS: {studioCompany.hours}</div>
+
+                <div className="pt-4 mt-4 border-t border-white/[0.06] font-mono text-[11px] text-[#8E8E93]">
+                  {item.detail}
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 07. REAL RESULTS (BEFORE & AFTER SLIDER) ─────────────── */}
+      <section className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
+        <div className="container">
+          
+          <div className="max-w-2xl mx-auto text-center mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
+              <Sparkles size={14} />
+              <span>REAL RESULTS &amp; OPTICAL PROOF</span>
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFFFFF] tracking-tight uppercase">
+              SEE THE TRANSFORMATION
+            </h2>
+            <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed font-normal">
+              High-magnification defect levelling. Drag the interactive divider to compare swirl-damaged clear coat against our 2-stage corrected specular finish.
+            </p>
+          </div>
+
+          <div className="max-w-5xl mx-auto">
+            <BeforeAfterSlider />
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 08. GALLERY / OUR WORK (PORTFOLIO GRID) ─────────────── */}
+      <section className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
+        <div className="container">
+          
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-8 mb-16 border-b border-white/[0.08]">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
+                <span className="w-2 h-2 rounded-full bg-[#D71920]"></span>
+                <span>RECENT ATELIER COMMISSIONS</span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFFFFF] tracking-tight uppercase">
+                FEATURED WORK &amp; CLIENT BUILDS
+              </h2>
+            </div>
+            
+            <Link to="/gallery" className="font-display text-xs text-[#D71920] uppercase tracking-wider hover:text-white flex items-center gap-1.5 font-bold group">
+              <span>Explore Complete Gallery</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {studioGallery.map((item) => (
+              <div 
+                key={item.id}
+                className="bg-[#0E0E10] border border-white/[0.08] rounded overflow-hidden group hover-lift"
+              >
+                <div className="aspect-[16/10] overflow-hidden relative">
+                  <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.1] group-hover:scale-105 group-hover:brightness-[0.95] transition-all duration-500" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] via-transparent to-transparent"></div>
+                  
+                  <div className="absolute top-4 right-4 bg-[#050505]/80 px-3 py-1 font-mono text-[10px] text-[#D71920] border border-white/[0.1] uppercase tracking-wider backdrop-blur-md">
+                    {item.category}
+                  </div>
+                </div>
+
+                <div className="p-6 sm:p-8 space-y-4">
+                  <div>
+                    <h3 className="font-display text-2xl font-bold text-[#FFFFFF] uppercase tracking-tight">
+                      {item.title}
+                    </h3>
+                    <div className="font-mono text-xs text-[#D71920] font-medium mt-1">
+                      {item.service}
+                    </div>
+                  </div>
+
+                  <p className="font-body text-xs text-[#8E8E93] leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <div className="pt-4 border-t border-white/[0.06] flex flex-wrap gap-2">
+                    {item.metrics.map((metric, mIdx) => (
+                      <span key={mIdx} className="font-mono text-[10px] text-[#AEAEB2] bg-white/[0.04] px-2.5 py-1 border border-white/[0.06] rounded-sm">
+                        {metric}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 09. SHOWREEL / THE STUDIO EXPERIENCE ────────────────── */}
+      <section className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative overflow-hidden">
+        <div className="container">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <div className="lg:col-span-5 space-y-6">
+              <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
+                <span className="w-8 h-[2px] bg-[#D71920]"></span>
+                <span>STUDIO SHOWREEL</span>
+              </div>
+
+              <h2 className="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-[#FFFFFF] leading-[1.05] uppercase">
+                THE DETAILING<br />
+                <span className="text-[#D71920]">EXPERIENCE.</span>
+              </h2>
+
+              <p className="font-body text-sm sm:text-base text-[#AEAEB2] leading-relaxed">
+                Step inside our climate-controlled detailing bays. From touchless deionized foam baths to short-wave infrared ceramic baking lamps, witness how our master technicians achieve mirror reflections.
+              </p>
+
+              <div className="space-y-3 pt-2">
+                <div className="flex items-center gap-3 text-xs font-mono text-[#F5F5F7]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D71920]"></span>
+                  <span>DUST-FREE CLIMATE-CONTROLLED ATELIER BAYS</span>
+                </div>
+                <div className="flex items-center gap-3 text-xs font-mono text-[#F5F5F7]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D71920]"></span>
+                  <span>96+ CRI HIGH-PRECISION INSPECTION ARRAYS</span>
+                </div>
+                <div className="flex items-center gap-3 text-xs font-mono text-[#F5F5F7]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#D71920]"></span>
+                  <span>SHORT-WAVE IR INFRARED CERAMIC BAKING</span>
+                </div>
               </div>
             </div>
 
             <div className="lg:col-span-7">
+              <div className="aspect-[16/9] rounded overflow-hidden border border-white/[0.12] bg-[#000000] relative shadow-2xl group">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.1]"
+                >
+                  <source src="/videos/car-detailing.mp4" type="video/mp4" />
+                  <source src="/videos/hero.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none"></div>
+                
+                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center pointer-events-none">
+                  <div className="font-mono text-[10px] text-[#FFFFFF] bg-[#050505]/80 px-3 py-1 border border-white/[0.1] backdrop-blur-md">
+                    ATELIER LIVE FEED · STUDIO BAY 01
+                  </div>
+                  <div className="font-mono text-[10px] text-[#D71920] bg-[#050505]/80 px-3 py-1 border border-white/[0.1] backdrop-blur-md flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-ping"></span>
+                    ACTIVE DETAILING
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 10. TESTIMONIALS (CLIENT REVIEWS) ───────────────────── */}
+      <TestimonialSection />
+
+      {/* ── 11. DETAILING STANDARDS & TECHNOLOGY (TECHNICAL LAB) ── */}
+      <section className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
+        <div className="container">
+          
+          <div className="max-w-3xl mx-auto text-center mb-16 space-y-3">
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
+              <Zap size={14} />
+              <span>TECHNICAL LAB STANDARDS</span>
+            </div>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFFFFF] tracking-tight uppercase">
+              PRECISION EQUIPMENT &amp; CHEMISTRY
+            </h2>
+            <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed font-normal">
+              State-of-the-art diagnostic instruments, German dual-action polishers, and pure silicon dioxide chemistry.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {TECHNICAL_LAB_ITEMS.map((item) => (
+              <div 
+                key={item.id}
+                className="bg-[#0E0E10] border border-white/[0.08] rounded overflow-hidden group hover-lift flex flex-col justify-between"
+              >
+                <div>
+                  <div className="aspect-[16/9] overflow-hidden relative">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1] group-hover:scale-105 transition-all duration-500"
+                    />
+                    <div className="absolute top-3 left-3 font-mono text-[10px] text-[#FFFFFF] bg-[#050505]/80 px-2.5 py-0.5 border border-white/[0.1] backdrop-blur-md">
+                      {item.label}
+                    </div>
+                  </div>
+
+                  <div className="p-6 space-y-3">
+                    <h4 className="font-display text-lg font-bold text-[#FFFFFF] group-hover:text-[#D71920] transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="font-body text-xs text-[#8E8E93] leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-6 pt-0">
+                  <div className="p-2.5 bg-white/[0.02] border border-white/[0.06] rounded font-mono text-[10px] text-[#D71920] truncate">
+                    {item.spec}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 12. FAQ ACCORDION ───────────────────────────────────── */}
+      <FAQSection />
+
+      {/* ── 13. STUDIO DIRECT / CONSULTATION ASSESSMENT ─────────── */}
+      <section id="assessment-section" className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Left Info Column */}
+            <div className="lg:col-span-5 space-y-8">
+              <div className="space-y-4">
+                <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
+                  <span className="w-8 h-[2px] bg-[#D71920]"></span>
+                  <span>DIRECT CONSULTATION</span>
+                </div>
+                
+                <h2 className="font-display text-3xl sm:text-5xl font-extrabold text-[#FFFFFF] leading-tight uppercase tracking-tight">
+                  READY FOR A<br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D71920] to-[#FF4D4D]">
+                    BETTER FINISH?
+                  </span>
+                </h2>
+                
+                <p className="font-body text-sm text-[#8E8E93] leading-relaxed font-normal">
+                  Complete our 5-step vehicle assessment. Our master technicians will evaluate your clear coat thickness, swirl severity, and recommend tailored protection protocols within 90 minutes.
+                </p>
+              </div>
+
+              {/* Direct Studio Coordinates */}
+              <div className="p-6 bg-[#121316] border border-white/[0.08] rounded space-y-4">
+                <div>
+                  <span className="font-mono text-[10px] tracking-wider uppercase text-[#636366] block mb-1">DIRECT DESK</span>
+                  <a href={`tel:${studioCompany.phones.primary}`} className="font-display text-2xl font-bold text-[#FFFFFF] hover:text-[#D71920] transition-colors flex items-center gap-2">
+                    <Phone size={20} className="text-[#D71920]" />
+                    {studioCompany.phones.primary}
+                  </a>
+                </div>
+
+                <div className="border-t border-white/[0.06] pt-3 text-xs text-[#8E8E93] flex items-start gap-2">
+                  <MapPin size={16} className="text-[#636366] flex-shrink-0 mt-0.5" />
+                  <span>{studioCompany.address}</span>
+                </div>
+
+                <div className="border-t border-white/[0.06] pt-3 text-xs text-[#AEAEB2] flex items-center gap-2">
+                  <Clock size={16} className="text-[#636366]" />
+                  <span>{studioCompany.hours}</span>
+                </div>
+              </div>
+
+            </div>
+
+            {/* Right Interactive Form Column */}
+            <div className="lg:col-span-7">
               <MultiStepAssessment />
             </div>
+
           </div>
         </div>
       </section>
+
+      {/* ── 14. FINAL BOOKING CTA ("YOUR CAR DESERVES MORE") ─────── */}
+      <section className="py-24 md:py-28 bg-[#050505] relative overflow-hidden">
+        {/* Subtle Ambient Radial Glow */}
+        <div className="absolute inset-0 bg-radial-gradient from-[#D71920]/10 via-transparent to-transparent pointer-events-none"></div>
+
+        <div className="container relative z-10 text-center max-w-4xl mx-auto space-y-8">
+          
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+            <Sparkles size={14} className="text-[#D71920]" />
+            <span className="font-mono text-[10px] sm:text-xs tracking-widest uppercase text-[#F5F5F7]">
+              EXECUTIVE ATELIER SCHEDULING
+            </span>
+          </div>
+
+          <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-[#FFFFFF] leading-[1.05]">
+            YOUR CAR DESERVES MORE<br />
+            <span className="text-[#D71920]">THAN A QUICK WASH.</span>
+          </h2>
+
+          <p className="font-body text-base sm:text-lg text-[#AEAEB2] max-w-2xl mx-auto leading-relaxed">
+            Reserve your studio appointment today. Experience mirror reflection paint correction, permanent 9H+ SiO₂ ceramic coatings, and stealth self-healing PPF.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <Link 
+              to="/contact" 
+              className="btn-red w-full sm:w-auto py-4 px-10 text-sm group"
+            >
+              <span>Schedule Atelier Assessment</span>
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </Link>
+
+            <a 
+              href={`https://wa.me/${studioCompany.phones.primary.replace(/[^0-9]/g, '')}`} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="btn-ghost-dark w-full sm:w-auto py-4 px-10 text-sm"
+            >
+              <span>Direct WhatsApp Consult</span>
+              <ArrowUpRight size={16} />
+            </a>
+          </div>
+
+          <div className="pt-8 text-xs font-mono text-[#636366]">
+            {studioCompany.promise}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 15. FOOTER is rendered globally in App.jsx ── */}
 
     </div>
   );
