@@ -70,8 +70,8 @@ export default function PaintInspection() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-[rgba(255,255,255,0.12)]">
         <div>
-          <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] mb-2 font-bold">
-            <span className="w-6 h-[2px] bg-[#D71920]"></span>
+          <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] mb-2 font-bold">
+            <span className="w-6 h-[2px] bg-[#E10600]"></span>
             <span>DIAGNOSTIC SYSTEM 01 · SURFACE INSPECTION</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] tracking-tight">
@@ -83,7 +83,7 @@ export default function PaintInspection() {
         </div>
 
         {/* Mode Selector Buttons */}
-        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#181B1E] border border-[rgba(255,255,255,0.12)]">
+        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-[#080808] border border-[rgba(255,255,255,0.12)]">
           {[
             { id: 'inspect', label: '01 · INSPECT' },
             { id: 'correct', label: '02 · CORRECT' },
@@ -95,7 +95,7 @@ export default function PaintInspection() {
               onClick={() => setMode(s.id)}
               className={`px-3 py-1.5 font-mono text-[10px] tracking-wider uppercase transition-all ${
                 mode === s.id
-                  ? 'bg-[#D71920] text-white font-bold'
+                  ? 'bg-[#E10600] text-white font-bold'
                   : 'text-[#8D9398] hover:text-[#FFFFFF] hover:bg-white/5'
               }`}
             >
@@ -114,7 +114,7 @@ export default function PaintInspection() {
             ref={containerRef}
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
-            className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#101214] cursor-crosshair select-none group"
+            className="relative w-full aspect-[16/10] md:aspect-[16/9] overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#000000] cursor-crosshair select-none group"
           >
             {/* Background Base Paint Image */}
             <img
@@ -132,7 +132,7 @@ export default function PaintInspection() {
             />
 
             {/* Dark Studio Lighting Vignette */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/60 pointer-events-none"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/60 pointer-events-none"></div>
 
             {/* Loupe Scanner Ring */}
             <div
@@ -143,15 +143,15 @@ export default function PaintInspection() {
                 transform: 'translate(-50%, -50%)'
               }}
             >
-              <div className="w-36 h-36 md:w-48 md:h-48 rounded-none border-2 border-[#D71920] bg-[#D71920]/10 shadow-[0_0_30px_rgba(215,25,32,0.45)] backdrop-contrast-150 backdrop-brightness-125 flex items-center justify-center relative overflow-hidden">
+              <div className="w-36 h-36 md:w-48 md:h-48 rounded-none border-2 border-[#E10600] bg-[#E10600]/10 shadow-[0_0_30px_rgba(215,25,32,0.45)] backdrop-contrast-150 backdrop-brightness-125 flex items-center justify-center relative overflow-hidden">
                 
                 {/* Engineering Grid Overlays */}
-                <div className="w-full h-[1px] bg-[#D71920]/60 absolute"></div>
-                <div className="h-full w-[1px] bg-[#D71920]/60 absolute"></div>
+                <div className="w-full h-[1px] bg-[#E10600]/60 absolute"></div>
+                <div className="h-full w-[1px] bg-[#E10600]/60 absolute"></div>
                 
                 {mode === 'inspect' && (
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#101214_85%)] flex items-center justify-center">
-                    <div className="font-mono text-[9px] text-[#D71920] uppercase tracking-widest text-center px-2 bg-[#101214]/90 py-1 border border-[#D71920]">
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,#000000_85%)] flex items-center justify-center">
+                    <div className="font-mono text-[9px] text-[#E10600] uppercase tracking-widest text-center px-2 bg-[#000000]/90 py-1 border border-[#E10600]">
                       DEFECT: SWIRLS 45µm
                     </div>
                   </div>
@@ -159,7 +159,7 @@ export default function PaintInspection() {
 
                 {mode === 'correct' && (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-mono text-[9px] text-[#FFFFFF] uppercase tracking-widest text-center px-2 bg-[#101214]/90 py-1 border border-white/20">
+                    <div className="font-mono text-[9px] text-[#FFFFFF] uppercase tracking-widest text-center px-2 bg-[#000000]/90 py-1 border border-white/20">
                       LEVELLING: 90% PASS
                     </div>
                   </div>
@@ -167,7 +167,7 @@ export default function PaintInspection() {
 
                 {mode === 'refine' && (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-mono text-[9px] text-[#FFFFFF] uppercase tracking-widest text-center px-2 bg-[#101214]/90 py-1 border border-white/40">
+                    <div className="font-mono text-[9px] text-[#FFFFFF] uppercase tracking-widest text-center px-2 bg-[#000000]/90 py-1 border border-white/40">
                       CLARITY: 99.4 GU
                     </div>
                   </div>
@@ -175,23 +175,23 @@ export default function PaintInspection() {
 
                 {mode === 'protect' && (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="font-mono text-[9px] text-[#D71920] uppercase tracking-widest text-center px-2 bg-[#101214]/90 py-1 border border-[#D71920]">
+                    <div className="font-mono text-[9px] text-[#E10600] uppercase tracking-widest text-center px-2 bg-[#000000]/90 py-1 border border-[#E10600]">
                       SiO₂ SHIELD: 9H ACTIVE
                     </div>
                   </div>
                 )}
 
-                <div className="w-2 h-2 bg-[#D71920]"></div>
+                <div className="w-2 h-2 bg-[#E10600]"></div>
               </div>
             </div>
 
             {/* Static HUD Callouts */}
-            <div className="absolute top-4 left-4 font-mono text-[10px] text-[#D71920] bg-[#101214]/90 px-3 py-1.5 border border-[rgba(255,255,255,0.12)]">
+            <div className="absolute top-4 left-4 font-mono text-[10px] text-[#E10600] bg-[#000000]/90 px-3 py-1.5 border border-[rgba(255,255,255,0.12)]">
               <span>SCANNER: </span>
               <span className="text-[#FFFFFF]">5000K HIGH-CRI LED</span>
             </div>
 
-            <div className="absolute bottom-4 right-4 font-mono text-[10px] text-[#8D9398] bg-[#101214]/90 px-3 py-1.5 border border-[rgba(255,255,255,0.12)]">
+            <div className="absolute bottom-4 right-4 font-mono text-[10px] text-[#8D9398] bg-[#000000]/90 px-3 py-1.5 border border-[rgba(255,255,255,0.12)]">
               <span>POS: </span>
               <span className="text-[#FFFFFF]">{lensPos.x.toFixed(1)}% X · {lensPos.y.toFixed(1)}% Y</span>
             </div>
@@ -199,10 +199,10 @@ export default function PaintInspection() {
         </div>
 
         {/* Telemetry & Analysis Panel (col-span-4) */}
-        <div className="lg:col-span-4 flex flex-col justify-between bg-[#181B1E] border border-[rgba(255,255,255,0.12)] p-6 md:p-8">
+        <div className="lg:col-span-4 flex flex-col justify-between bg-[#080808] border border-[rgba(255,255,255,0.12)] p-6 md:p-8">
           <div className="space-y-6">
             <div className="flex items-center justify-between border-b border-[rgba(255,255,255,0.12)] pb-4">
-              <span className="font-mono text-[10px] text-[#D71920] tracking-widest uppercase font-bold">
+              <span className="font-mono text-[10px] text-[#E10600] tracking-widest uppercase font-bold">
                 {stageDescriptions[mode].tag}
               </span>
               <span className="font-mono text-[10px] text-[#8D9398]">TELEMETRY</span>
@@ -223,9 +223,9 @@ export default function PaintInspection() {
                 Surface Diagnostics
               </div>
               {stageDescriptions[mode].findings.map((item, idx) => (
-                <div key={idx} className="flex justify-between items-center bg-[#101214] p-3 border border-[rgba(255,255,255,0.08)] text-xs">
+                <div key={idx} className="flex justify-between items-center bg-[#000000] p-3 border border-[rgba(255,255,255,0.08)] text-xs">
                   <span className="text-[#8D9398] font-mono text-[11px]">{item.label}</span>
-                  <span className={`font-mono text-[11px] font-bold ${item.isRed ? 'text-[#D71920]' : 'text-[#FFFFFF]'}`}>
+                  <span className={`font-mono text-[11px] font-bold ${item.isRed ? 'text-[#E10600]' : 'text-[#FFFFFF]'}`}>
                     {item.severity}
                   </span>
                 </div>
@@ -240,7 +240,7 @@ export default function PaintInspection() {
                 const nextIndex = (modes.indexOf(mode) + 1) % modes.length;
                 setMode(modes[nextIndex]);
               }}
-              className="w-full py-3 px-4 bg-[#101214] hover:bg-[#D71920] text-[#FFFFFF] font-mono text-xs uppercase tracking-widest transition-colors border border-[rgba(255,255,255,0.12)] flex items-center justify-center gap-2"
+              className="w-full py-3 px-4 bg-[#000000] hover:bg-[#E10600] text-[#FFFFFF] font-mono text-xs uppercase tracking-widest transition-colors border border-[rgba(255,255,255,0.12)] flex items-center justify-center gap-2"
             >
               Advance Protocol Sequence ↗
             </button>

@@ -32,8 +32,8 @@ export default function WaterBeading() {
 
       // Render deep graphite paint substrate
       const bgGrad = ctx.createLinearGradient(0, 0, 0, height);
-      bgGrad.addColorStop(0, '#101214');
-      bgGrad.addColorStop(0.5, '#181B1E');
+      bgGrad.addColorStop(0, '#000000');
+      bgGrad.addColorStop(0.5, '#080808');
       bgGrad.addColorStop(1, '#0C0E10');
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
@@ -118,8 +118,8 @@ export default function WaterBeading() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-[rgba(255,255,255,0.12)]">
         <div>
-          <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] mb-2 font-bold">
-            <span className="w-6 h-[2px] bg-[#D71920]"></span>
+          <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] mb-2 font-bold">
+            <span className="w-6 h-[2px] bg-[#E10600]"></span>
             <span>DIAGNOSTIC SYSTEM 02 · HYDROPHOBIC FLUID DYNAMICS</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] tracking-tight">
@@ -131,7 +131,7 @@ export default function WaterBeading() {
         </div>
 
         {/* Substrate Selector */}
-        <div className="flex items-center gap-1.5 p-1 bg-[#181B1E] border border-[rgba(255,255,255,0.12)]">
+        <div className="flex items-center gap-1.5 p-1 bg-[#080808] border border-[rgba(255,255,255,0.12)]">
           <button
             onClick={() => setSurfaceType('untreated')}
             className={`px-3 py-2 font-mono text-[10px] tracking-wider uppercase transition-all ${
@@ -146,7 +146,7 @@ export default function WaterBeading() {
             onClick={() => setSurfaceType('protected')}
             className={`px-3 py-2 font-mono text-[10px] tracking-wider uppercase transition-all ${
               surfaceType === 'protected'
-                ? 'bg-[#D71920] text-white font-bold'
+                ? 'bg-[#E10600] text-white font-bold'
                 : 'text-[#8D9398] hover:text-[#FFFFFF]'
             }`}
           >
@@ -160,18 +160,18 @@ export default function WaterBeading() {
         
         {/* Canvas Viewport (col-span-8) */}
         <div className="lg:col-span-8 relative">
-          <div className="relative w-full h-[380px] md:h-[440px] overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#101214] select-none">
+          <div className="relative w-full h-[380px] md:h-[440px] overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#000000] select-none">
             <canvas ref={canvasRef} className="w-full h-full block" />
 
             {/* Overlaid HUD Metrics */}
-            <div className="absolute top-4 left-4 bg-[#101214]/90 px-3.5 py-2 border border-[rgba(255,255,255,0.12)] font-mono text-[10px] space-y-1">
+            <div className="absolute top-4 left-4 bg-[#000000]/90 px-3.5 py-2 border border-[rgba(255,255,255,0.12)] font-mono text-[10px] space-y-1">
               <div className="text-[#8D9398] uppercase tracking-widest">ACTIVE SUBSTRATE</div>
-              <div className={surfaceType === 'protected' ? 'text-[#D71920] font-bold' : 'text-red-400 font-bold'}>
+              <div className={surfaceType === 'protected' ? 'text-[#E10600] font-bold' : 'text-red-400 font-bold'}>
                 {surfaceType === 'protected' ? 'CERAMIC MATRIX (115° CONTACT ANGLE)' : 'RAW OXIDIZED CLEAR COAT (< 30° ANGLE)'}
               </div>
             </div>
 
-            <div className="absolute bottom-4 right-4 bg-[#101214]/90 px-3.5 py-2 border border-[rgba(255,255,255,0.12)] font-mono text-[10px] text-right space-y-1">
+            <div className="absolute bottom-4 right-4 bg-[#000000]/90 px-3.5 py-2 border border-[rgba(255,255,255,0.12)] font-mono text-[10px] text-right space-y-1">
               <div className="text-[#8D9398] uppercase tracking-widest">BEHAVIOR</div>
               <div className="text-[#FFFFFF]">
                 {surfaceType === 'protected' ? 'RAPID BEAD ROLLOFF & SELF-CLEANING' : 'WATER LOGGING & CALCIUM ETCHING'}
@@ -181,15 +181,15 @@ export default function WaterBeading() {
         </div>
 
         {/* Telemetry Comparison Table (col-span-4) */}
-        <div className="lg:col-span-4 bg-[#181B1E] border border-[rgba(255,255,255,0.12)] p-6 md:p-8 flex flex-col justify-between">
+        <div className="lg:col-span-4 bg-[#080808] border border-[rgba(255,255,255,0.12)] p-6 md:p-8 flex flex-col justify-between">
           <div className="space-y-6">
-            <div className="flex justify-between items-center border-b border-[rgba(255,255,255,0.12)] pb-4 font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-bold">
+            <div className="flex justify-between items-center border-b border-[rgba(255,255,255,0.12)] pb-4 font-mono text-[10px] text-[#E10600] uppercase tracking-widest font-bold">
               <span>PHYSICAL METRICS</span>
               <span>ISO 19403</span>
             </div>
 
             <div className="space-y-4">
-              <div className="bg-[#101214] p-4 border border-[rgba(255,255,255,0.08)] space-y-1">
+              <div className="bg-[#000000] p-4 border border-[rgba(255,255,255,0.08)] space-y-1">
                 <div className="font-mono text-[10px] text-[#8D9398] uppercase">Contact Angle</div>
                 <div className="font-display text-3xl font-bold text-[#FFFFFF]">
                   {surfaceType === 'protected' ? '115.4°' : '28.1°'}
@@ -201,9 +201,9 @@ export default function WaterBeading() {
                 </p>
               </div>
 
-              <div className="bg-[#101214] p-4 border border-[rgba(255,255,255,0.08)] space-y-1">
+              <div className="bg-[#000000] p-4 border border-[rgba(255,255,255,0.08)] space-y-1">
                 <div className="font-mono text-[10px] text-[#8D9398] uppercase">Shedding Velocity</div>
-                <div className="font-display text-3xl font-bold text-[#D71920]">
+                <div className="font-display text-3xl font-bold text-[#E10600]">
                   {surfaceType === 'protected' ? '< 15 km/h' : '> 85 km/h (Pooled)'}
                 </div>
                 <p className="text-xs text-[#8D9398]">
@@ -216,7 +216,7 @@ export default function WaterBeading() {
           <div className="pt-6 border-t border-[rgba(255,255,255,0.12)]">
             <button
               onClick={() => setSurfaceType(surfaceType === 'protected' ? 'untreated' : 'protected')}
-              className="w-full py-3 px-4 bg-[#101214] hover:bg-[#D71920] text-[#FFFFFF] font-mono text-xs uppercase tracking-widest transition-colors border border-[rgba(255,255,255,0.12)] flex items-center justify-center gap-2"
+              className="w-full py-3 px-4 bg-[#000000] hover:bg-[#E10600] text-[#FFFFFF] font-mono text-xs uppercase tracking-widest transition-colors border border-[rgba(255,255,255,0.12)] flex items-center justify-center gap-2"
             >
               Toggle Substrate Chemistry ↔
             </button>

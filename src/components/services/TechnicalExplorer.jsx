@@ -17,8 +17,8 @@ export default function TechnicalExplorer() {
               onClick={() => setActiveId(item.id)}
               className={`font-mono text-[10px] tracking-widest uppercase px-5 py-3 border transition-all cursor-pointer ${
                 isActive 
-                  ? 'border-[#D71920] text-white bg-[#D71920] font-bold' 
-                  : 'border-[rgba(0,0,0,0.15)] text-[#555A60] hover:border-[rgba(0,0,0,0.4)] hover:text-[#101214]'
+                  ? 'border-[#E10600] text-white bg-[#E10600] font-bold' 
+                  : 'border-[rgba(0,0,0,0.15)] text-[#555A60] hover:border-[rgba(0,0,0,0.4)] hover:text-[#000000]'
               }`}
             >
               {item.label}
@@ -30,16 +30,16 @@ export default function TechnicalExplorer() {
       {/* Detail Screen */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-[#FFFFFF] border border-[rgba(0,0,0,0.12)] p-8 md:p-12 shadow-sm">
         <div className="lg:col-span-6 space-y-4">
-          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#D71920] font-medium">
+          <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#E10600] font-medium">
             {activeItem.category}
           </div>
-          <h3 className="font-display text-3xl md:text-4xl text-[#101214] font-bold uppercase leading-tight tracking-tight">
+          <h3 className="font-display text-3xl md:text-4xl text-[#000000] font-bold uppercase leading-tight tracking-tight">
             {activeItem.title}
           </h3>
           <p className="font-body text-sm text-[#555A60] leading-relaxed font-normal">
             {activeItem.description}
           </p>
-          <div className="pt-4 border-t border-[rgba(0,0,0,0.08)] font-mono text-[11px] text-[#D71920] font-medium">
+          <div className="pt-4 border-t border-[rgba(0,0,0,0.08)] font-mono text-[11px] text-[#E10600] font-medium">
             SPECIFICATION: {activeItem.spec}
           </div>
         </div>

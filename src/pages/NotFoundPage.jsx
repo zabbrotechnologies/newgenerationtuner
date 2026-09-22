@@ -4,11 +4,11 @@ import { ArrowUpRight } from 'lucide-react';
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-[70vh] flex items-center justify-center py-24 bg-[#101214] text-center">
+    <div className="min-h-[70vh] flex items-center justify-center py-24 bg-[#000000] text-center">
       <div className="container max-w-lg space-y-6">
-        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#181B1E] border border-[rgba(255,255,255,0.12)]">
-          <span className="w-2 h-2 bg-[#D71920]"></span>
-          <span className="font-mono text-[10px] text-[#D71920] tracking-[0.2em] uppercase font-bold">
+        <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#080808] border border-[rgba(255,255,255,0.12)]">
+          <span className="w-2 h-2 bg-[#E10600]"></span>
+          <span className="font-mono text-[10px] text-[#E10600] tracking-[0.2em] uppercase font-bold">
             404 — ROUTE UNKNOWN
           </span>
         </div>

@@ -21,7 +21,7 @@ export default function BeforeAfterSlider({
   return (
     <div className="w-full">
       <div 
-        className={`relative w-full ${aspectRatio} overflow-hidden select-none cursor-ew-resize border border-[rgba(255,255,255,0.12)] bg-[#101214] group`}
+        className={`relative w-full ${aspectRatio} overflow-hidden select-none cursor-ew-resize border border-[rgba(255,255,255,0.12)] bg-[#000000] group`}
         onMouseMove={handleMove}
         onTouchMove={handleMove}
       >
@@ -33,7 +33,7 @@ export default function BeforeAfterSlider({
             className="w-full h-full object-cover filter brightness-[0.4] saturate-[0.4] contrast-125"
           />
           <div className="absolute bottom-6 left-6 z-10">
-            <span className="bg-[#101214]/95 px-3.5 py-1.5 border border-[rgba(255,255,255,0.12)] font-mono text-[10px] tracking-widest text-[#8D9398] uppercase">
+            <span className="bg-[#000000]/95 px-3.5 py-1.5 border border-[rgba(255,255,255,0.12)] font-mono text-[10px] tracking-widest text-[#8D9398] uppercase">
               {beforeLabel}
             </span>
           </div>
@@ -50,8 +50,8 @@ export default function BeforeAfterSlider({
             className="w-full h-full object-cover filter brightness-[0.88] saturate-[1.1] contrast-105"
           />
           <div className="absolute bottom-6 right-6 z-10">
-            <span className="bg-[#101214]/95 px-3.5 py-1.5 border border-[#D71920] font-mono text-[10px] tracking-widest text-[#FFFFFF] uppercase">
-              <span className="text-[#D71920] mr-1.5">●</span>
+            <span className="bg-[#000000]/95 px-3.5 py-1.5 border border-[#E10600] font-mono text-[10px] tracking-widest text-[#FFFFFF] uppercase">
+              <span className="text-[#E10600] mr-1.5">●</span>
               {afterLabel}
             </span>
           </div>
@@ -59,10 +59,10 @@ export default function BeforeAfterSlider({
 
         {/* Minimal Engineered Divider Line & Handle */}
         <div 
-          className="absolute top-0 bottom-0 w-[2px] bg-[#D71920] z-20 pointer-events-none"
+          className="absolute top-0 bottom-0 w-[2px] bg-[#E10600] z-20 pointer-events-none"
           style={{ left: `${sliderPos}%` }}
         >
-          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-none bg-[#D71920] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-2xl">
+          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-none bg-[#E10600] text-white flex items-center justify-center font-mono text-[10px] font-bold shadow-2xl">
             ↔
           </div>
         </div>

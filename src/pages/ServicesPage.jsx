@@ -20,10 +20,10 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div className="space-y-0 text-[#F2F1ED] selection:bg-[#D71920] selection:text-[#FFFFFF]">
+    <div className="space-y-0 text-[#FAFAFA] selection:bg-[#E10600] selection:text-[#FFFFFF]">
       
       {/* ── 01. HERO SECTION (DARK GRAPHITE) ───────────────────── */}
-      <section className="relative min-h-[90vh] flex items-center py-28 overflow-hidden bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+      <section className="relative min-h-[90vh] flex items-center py-28 overflow-hidden bg-[#000000] border-b border-[rgba(255,255,255,0.12)]">
         <div 
           className="absolute inset-0 z-0 overflow-hidden"
           style={{ transform: `translateY(${Math.min(scrollY * 0.35, 200)}px)` }}
@@ -36,8 +36,8 @@ export default function ServicesPage() {
             alt="Automotive performance detailing atelier car wash in progress"
             className="w-full h-full object-cover brightness-[0.65] contrast-[1.15] scale-110 animate-hero-float"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#101214]/90 via-[#101214]/50 to-[#101214]/80"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-[#101214]/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/90 via-[#000000]/50 to-[#000000]/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/70"></div>
         </div>
 
         <div 
@@ -46,8 +46,8 @@ export default function ServicesPage() {
         >
           <div className="max-w-4xl space-y-8">
             
-            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#181B1E]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md shadow-2xl transition-transform hover:-translate-y-0.5">
-              <span className="w-2 h-2 bg-[#D71920] animate-pulse"></span>
+            <div className="inline-flex items-center gap-2.5 px-3 py-1 bg-[#080808]/90 border border-[rgba(255,255,255,0.12)] backdrop-blur-md shadow-2xl transition-transform hover:-translate-y-0.5">
+              <span className="w-2 h-2 bg-[#E10600] animate-pulse"></span>
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
                 DISCIPLINES &amp; SYSTEMS / NEW GENERATION TUNERS
               </span>
@@ -55,7 +55,7 @@ export default function ServicesPage() {
 
             <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF] drop-shadow-lg">
               THE FINISH<br />
-              <span className="text-[#D71920]">IS ONLY THE</span><br />
+              <span className="text-[#E10600]">IS ONLY THE</span><br />
               BEGINNING.
             </h1>
 
@@ -77,15 +77,15 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 02. EDITORIAL SERVICE DIRECTORY (LIGHT SECTION) ─────── */}
-      <section id="service-index-sec" className="py-24 bg-[#F2F1ED] text-[#101214] border-b border-[rgba(0,0,0,0.12)]">
+      <section id="service-index-sec" className="py-24 bg-[#FAFAFA] text-[#000000] border-b border-[rgba(0,0,0,0.12)]">
         <div className="container">
           <div className="flex justify-between items-end pb-6 mb-12 border-b border-[rgba(0,0,0,0.12)]">
             <div>
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] mb-2 font-medium">
-                <span className="w-8 h-[2px] bg-[#D71920]"></span>
+              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] mb-2 font-medium">
+                <span className="w-8 h-[2px] bg-[#E10600]"></span>
                 <span>DISCIPLINES DIRECTORY</span>
               </div>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#101214] tracking-tight uppercase">
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#000000] tracking-tight uppercase">
                 DISCIPLINES &amp; SYSTEMS
               </h2>
             </div>
@@ -99,16 +99,16 @@ export default function ServicesPage() {
                 href={`#${svc.id}`}
                 className="grid grid-cols-1 md:grid-cols-12 gap-6 py-8 items-center group transition-colors hover:bg-black/[0.02]"
               >
-                <div className="md:col-span-1 font-mono text-xs tracking-widest text-[#8D9398] group-hover:text-[#D71920] font-medium">
+                <div className="md:col-span-1 font-mono text-xs tracking-widest text-[#8D9398] group-hover:text-[#E10600] font-medium">
                   {svc.number}
                 </div>
-                <div className="md:col-span-5 font-display text-2xl md:text-3xl text-[#101214] font-bold uppercase group-hover:text-[#D71920] transition-colors">
+                <div className="md:col-span-5 font-display text-2xl md:text-3xl text-[#000000] font-bold uppercase group-hover:text-[#E10600] transition-colors">
                   {svc.title}
                 </div>
                 <div className="md:col-span-5 font-body text-xs text-[#555A60] leading-relaxed font-normal">
                   {svc.summary}
                 </div>
-                <div className="md:col-span-1 text-right font-display text-lg text-[#8D9398] group-hover:text-[#D71920] group-hover:translate-x-1 transition-all">
+                <div className="md:col-span-1 text-right font-display text-lg text-[#8D9398] group-hover:text-[#E10600] group-hover:translate-x-1 transition-all">
                   ↗
                 </div>
               </a>
@@ -120,7 +120,7 @@ export default function ServicesPage() {
       {/* ── 03. ART-DIRECTED INDIVIDUAL SERVICE CHAPTERS ───────── */}
       
       {/* CHAPTER 01: PAINT CORRECTION (DARK GRAPHITE) */}
-      <section id="paint-correction" className="py-28 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+      <section id="paint-correction" className="py-28 bg-[#000000] border-b border-[rgba(255,255,255,0.12)]">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-6">
@@ -134,7 +134,7 @@ export default function ServicesPage() {
             </div>
 
             <div className="lg:col-span-6 space-y-6">
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#D71920] block font-medium">
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#E10600] block font-medium">
                 CHAPTER 01 — RESTORATION &amp; OPTICAL LEVELLING
               </span>
               <h2 className="font-display text-4xl sm:text-5xl text-[#FFFFFF] font-bold uppercase tracking-tight">
@@ -144,8 +144,8 @@ export default function ServicesPage() {
                 Paint correction is the controlled, microscopic leveling of the clear coat to eliminate swirl marks, etching, micro-scratches, and severe oxidation. We utilize dual-action and rotary polishers with diminishing abrasives to unlock pure optical clarity.
               </p>
 
-              <div className="bg-[#181B1E] border border-[rgba(255,255,255,0.12)] p-6 space-y-4">
-                <div className="font-mono text-[9px] uppercase tracking-widest text-[#D71920] border-b border-[rgba(255,255,255,0.08)] pb-2 font-medium">
+              <div className="bg-[#080808] border border-[rgba(255,255,255,0.12)] p-6 space-y-4">
+                <div className="font-mono text-[9px] uppercase tracking-widest text-[#E10600] border-b border-[rgba(255,255,255,0.08)] pb-2 font-medium">
                   TECHNICAL SPECIFICATION
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#8D9398] font-body">
@@ -167,15 +167,15 @@ export default function ServicesPage() {
       </section>
 
       {/* CHAPTER 02: CERAMIC PROTECTION (LIGHT SECTION) */}
-      <section id="ceramic-protection" className="py-28 bg-[#F2F1ED] text-[#101214] border-b border-[rgba(0,0,0,0.12)]">
+      <section id="ceramic-protection" className="py-28 bg-[#FAFAFA] text-[#000000] border-b border-[rgba(0,0,0,0.12)]">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
             
             <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#D71920] block font-medium">
+              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#E10600] block font-medium">
                 CHAPTER 02 — MOLECULAR COVALENT SHIELD
               </span>
-              <h2 className="font-display text-4xl sm:text-5xl text-[#101214] font-bold uppercase tracking-tight">
+              <h2 className="font-display text-4xl sm:text-5xl text-[#000000] font-bold uppercase tracking-tight">
                 CERAMIC PROTECTION
               </h2>
               <p className="font-body text-sm text-[#555A60] leading-relaxed font-normal">
@@ -183,7 +183,7 @@ export default function ServicesPage() {
               </p>
 
               <div className="bg-[#FFFFFF] border border-[rgba(0,0,0,0.12)] p-6 space-y-4">
-                <div className="font-mono text-[9px] uppercase tracking-widest text-[#D71920] border-b border-[rgba(0,0,0,0.08)] pb-2 font-medium">
+                <div className="font-mono text-[9px] uppercase tracking-widest text-[#E10600] border-b border-[rgba(0,0,0,0.08)] pb-2 font-medium">
                   PERFORMANCE ATTRIBUTES
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-[#555A60] font-body">
@@ -216,10 +216,10 @@ export default function ServicesPage() {
       </section>
 
       {/* CHAPTER 03: PAINT PROTECTION FILM (DARK GRAPHITE FULL WIDTH) */}
-      <section id="ppf" className="py-28 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+      <section id="ppf" className="py-28 bg-[#000000] border-b border-[rgba(255,255,255,0.12)]">
         <div className="container">
           <div className="max-w-3xl space-y-4 mb-12">
-            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#D71920] font-medium">
+            <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#E10600] font-medium">
               CHAPTER 03 — PHYSICAL HIGH-VELOCITY ARMOUR
             </span>
             <h2 className="font-display text-4xl sm:text-5xl text-[#FFFFFF] font-bold uppercase tracking-tight">
@@ -236,10 +236,10 @@ export default function ServicesPage() {
               alt="PPF installation on exotic supercar" 
               className="w-full h-full object-cover filter brightness-[0.6] group-hover:scale-105 transition-transform duration-700"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#101214]/95 via-transparent to-transparent flex items-end p-8 md:p-14">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-transparent to-transparent flex items-end p-8 md:p-14">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end w-full gap-6">
                 <div>
-                  <div className="font-mono text-[10px] tracking-widest text-[#D71920] uppercase font-medium">COVERAGE OPTIONS</div>
+                  <div className="font-mono text-[10px] tracking-widest text-[#E10600] uppercase font-medium">COVERAGE OPTIONS</div>
                   <div className="font-display text-2xl md:text-3xl text-[#FFFFFF] font-bold mt-1 uppercase">
                     Full Front Track Pack · Full Body Gloss · Stealth Satin
                   </div>
@@ -254,22 +254,22 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 04. WATER BEADING INTERACTION (DARK GRAPHITE) ──────── */}
-      <section className="py-28 bg-[#181B1E] border-b border-[rgba(255,255,255,0.12)]">
+      <section className="py-28 bg-[#080808] border-b border-[rgba(255,255,255,0.12)]">
         <div className="container">
           <WaterBeading />
         </div>
       </section>
 
       {/* ── 05. BEFORE / AFTER (LIGHT SECTION) ─────────────────── */}
-      <section className="py-28 bg-[#F2F1ED] text-[#101214] border-b border-[rgba(0,0,0,0.12)]">
+      <section className="py-28 bg-[#FAFAFA] text-[#000000] border-b border-[rgba(0,0,0,0.12)]">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <div className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
-              <span className="w-6 h-[2px] bg-[#D71920]"></span>
+            <div className="inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] font-medium">
+              <span className="w-6 h-[2px] bg-[#E10600]"></span>
               <span>OPTICAL TRANSFORMATION</span>
-              <span className="w-6 h-[2px] bg-[#D71920]"></span>
+              <span className="w-6 h-[2px] bg-[#E10600]"></span>
             </div>
-            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#101214] uppercase tracking-tight">
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-[#000000] uppercase tracking-tight">
               SEE THE DIFFERENCE.
             </h2>
             <p className="font-body text-sm text-[#555A60] font-normal">
@@ -282,18 +282,18 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 06. MATERIAL SCIENCE EXPLORER (DARK CARBON) ────────── */}
-      <section className="py-28 bg-[#101214] border-b border-[rgba(255,255,255,0.12)]">
+      <section className="py-28 bg-[#000000] border-b border-[rgba(255,255,255,0.12)]">
         <div className="container">
           <MaterialExplorer />
         </div>
       </section>
 
       {/* ── 07. PROCESS TIMELINE (DARK GRAPHITE) ───────────────── */}
-      <section className="py-28 bg-[#181B1E] border-b border-[rgba(255,255,255,0.12)]">
+      <section className="py-28 bg-[#080808] border-b border-[rgba(255,255,255,0.12)]">
         <div className="container">
           <div className="max-w-3xl space-y-3 mb-16">
-            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
-              <span className="w-8 h-[2px] bg-[#D71920]"></span>
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] font-medium">
+              <span className="w-8 h-[2px] bg-[#E10600]"></span>
               <span>OPERATING STANDARD</span>
             </div>
             <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#FFFFFF] uppercase tracking-tight">
@@ -306,8 +306,8 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {PROCESS_TIMELINE.map(pt => (
-              <div key={pt.step} className="bg-[#101214] border border-[rgba(255,255,255,0.12)] p-8 space-y-4">
-                <span className="font-mono text-xs text-[#D71920] tracking-widest font-medium">{pt.step} · STAGE</span>
+              <div key={pt.step} className="bg-[#000000] border border-[rgba(255,255,255,0.12)] p-8 space-y-4">
+                <span className="font-mono text-xs text-[#E10600] tracking-widest font-medium">{pt.step} · STAGE</span>
                 <h3 className="font-display text-2xl font-bold text-[#FFFFFF] uppercase tracking-tight">{pt.title}</h3>
                 <p className="font-body text-xs text-[#8D9398] leading-relaxed font-normal">{pt.summary}</p>
                 <div className="pt-3 border-t border-[rgba(255,255,255,0.08)] text-[11px] text-[#8D9398] font-body">
@@ -320,14 +320,14 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 08. TECHNICAL MATERIALS / LABORATORY (LIGHT SECTION) ─ */}
-      <section className="py-28 bg-[#F2F1ED] text-[#101214] border-b border-[rgba(0,0,0,0.12)]">
+      <section className="py-28 bg-[#FAFAFA] text-[#000000] border-b border-[rgba(0,0,0,0.12)]">
         <div className="container space-y-12">
           <div className="max-w-2xl space-y-2">
-            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
-              <span className="w-8 h-[2px] bg-[#D71920]"></span>
+            <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] font-medium">
+              <span className="w-8 h-[2px] bg-[#E10600]"></span>
               <span>TECHNICAL INVENTORY</span>
             </div>
-            <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#101214] uppercase tracking-tight">
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#000000] uppercase tracking-tight">
               LABORATORY GRADE CHEMISTRY &amp; TOOLS
             </h2>
           </div>
@@ -337,25 +337,25 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 09. 5-STEP VEHICLE ASSESSMENT WIZARD (DARK GRAPHITE) ─ */}
-      <section id="assessment-section" className="py-28 bg-[#101214]">
+      <section id="assessment-section" className="py-28 bg-[#000000]">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
             
             <div className="lg:col-span-5 space-y-6">
-              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] font-medium">
-                <span className="w-8 h-[2px] bg-[#D71920]"></span>
+              <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] font-medium">
+                <span className="w-8 h-[2px] bg-[#E10600]"></span>
                 <span>DIRECT ATELIER BLUEPRINT</span>
               </div>
               <h2 className="font-display text-4xl sm:text-5xl font-bold text-[#FFFFFF] leading-[1.02] uppercase tracking-tight">
                 YOUR VEHICLE<br />
-                <span className="text-[#D71920]">DESERVES MORE</span><br />
+                <span className="text-[#E10600]">DESERVES MORE</span><br />
                 THAN A WASH.
               </h2>
               <p className="font-body text-sm text-[#8D9398] leading-relaxed font-normal">
                 Tell us what you drive, what you want to improve, and what level of surface protection you need. Our master technicians will craft a tailored detailing blueprint.
               </p>
               <div className="pt-6 border-t border-[rgba(255,255,255,0.12)] font-body text-xs text-[#8D9398] space-y-2">
-                <div>PRIMARY HOTLINE: <a href="tel:+919159944902" className="font-display text-base text-[#FFFFFF] hover:text-[#D71920] font-bold">+91 91599 44902</a></div>
+                <div>PRIMARY HOTLINE: <a href="tel:+919159944902" className="font-display text-base text-[#FFFFFF] hover:text-[#E10600] font-bold">+91 91599 44902</a></div>
                 <div>STUDIO HOURS: MON – SAT · 09:30 AM – 08:30 PM</div>
               </div>
             </div>

@@ -75,7 +75,7 @@ export default function Navbar() {
       {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#D71920] focus:text-white focus:font-mono focus:text-xs focus:uppercase focus:font-bold focus:shadow-2xl focus:outline-none"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:px-4 focus:py-2 focus:bg-[#E10600] focus:text-white focus:font-mono focus:text-xs focus:uppercase focus:font-bold focus:shadow-2xl focus:outline-none"
       >
         Skip to Main Content
       </a>
@@ -87,35 +87,35 @@ export default function Navbar() {
         }`}
       >
         {/* Engineered Telemetry Top Rail */}
-        <div className={`hidden md:block bg-[#101214] border-b border-[rgba(255,255,255,0.08)] transition-all duration-300 ${
+        <div className={`hidden md:block bg-[#000000] border-b border-[rgba(255,255,255,0.08)] transition-all duration-300 ${
           isScrolled ? 'py-0 h-0 overflow-hidden opacity-0 border-none' : 'py-1.5 opacity-100'
         } text-[10px] font-mono text-[#8D9398] tracking-[0.2em] uppercase font-medium`}>
           <div className="container flex justify-between items-center">
             <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-[#F2F1ED]">
-                <span className="w-1.5 h-1.5 bg-[#D71920]"></span>
+              <span className="flex items-center gap-2 text-[#FAFAFA]">
+                <span className="w-1.5 h-1.5 bg-[#E10600]"></span>
                 NEW GENERATION TUNER'S · COMPLETE AUTO DIAGNOSTICS SOLUTIONS
               </span>
               <span className="text-[#8D9398]">EST. 2014</span>
             </div>
             <div className="flex items-center gap-6">
               <span>DINDIGUL STUDIO · MON–SAT: 09:30–20:30</span>
-              <a href={`tel:${studioCompany.phones.primary}`} className="text-[#F2F1ED] hover:text-[#D71920] transition-colors font-medium">
+              <a href={`tel:${studioCompany.phones.primary}`} className="text-[#FAFAFA] hover:text-[#E10600] transition-colors font-medium">
                 DIRECT DESK: {studioCompany.phones.primary}
               </a>
             </div>
           </div>
         </div>
 
-        {/* Main Liquid White Glass Navbar */}
-        <header className={`transition-all duration-300 navbar-liquid-white ${
-          isScrolled ? 'py-2.5 shadow-xl border-b border-black/[0.08]' : 'py-4 border-b border-white/[0.1]'
+        {/* Main Redesigned Glass Navbar */}
+        <header className={`transition-all duration-300 ${
+          isScrolled ? 'navbar-solid py-2.5' : 'navbar-glass py-4'
         }`}>
           <div className="container flex justify-between items-center relative z-10">
             
             {/* Brand Logo with exact aerodynamic car graphic */}
-            <Link to="/" className="flex items-center group py-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920]" aria-label="New Generation Tuner's Home">
-              <div className="h-9 sm:h-11 flex items-center text-[#101214] group-hover:text-[#D71920] transition-colors">
+            <Link to="/" className="flex items-center group py-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]" aria-label="New Generation Tuner's Home">
+              <div className="h-9 sm:h-11 flex items-center text-[#FFFFFF] group-hover:text-[#E10600] transition-colors">
                 <svg 
                   viewBox="0 0 500 160" 
                   className="h-9 sm:h-11 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
@@ -147,15 +147,15 @@ export default function Navbar() {
                     key={link.path}
                     to={link.path}
                     aria-current={isActive ? 'page' : undefined}
-                    className={`relative py-1 font-body font-semibold text-[13px] tracking-wider transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920] ${
+                    className={`relative py-1 font-body font-semibold text-[13px] tracking-wider transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600] ${
                       isActive 
-                        ? 'text-[#101214] font-bold' 
-                        : 'text-[#555A60] hover:text-[#101214]'
+                        ? 'text-[#FFFFFF] font-bold' 
+                        : 'text-[#8D9398] hover:text-[#FFFFFF]'
                     }`}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#D71920] shadow-[0_1px_4px_rgba(215,25,32,0.4)]"></span>
+                      <span className="absolute bottom-0 left-0 w-full h-[2.5px] bg-[#E10600] shadow-[0_1px_4px_rgba(215,25,32,0.4)]"></span>
                     )}
                   </Link>
                 );
@@ -166,7 +166,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-4">
               <Link 
                 to="/contact" 
-                className="btn-red text-xs py-2.5 px-5 shadow-lg shadow-red-600/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920]"
+                className="btn-red text-xs py-2.5 px-5 shadow-lg shadow-red-600/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]"
               >
                 Book Assessment ↗
               </Link>
@@ -175,7 +175,7 @@ export default function Navbar() {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden text-[#101214] p-2 hover:text-[#D71920] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920]"
+              className="lg:hidden text-[#FFFFFF] p-2 hover:text-[#E10600] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#E10600]"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={mobileMenuOpen}
             >
@@ -203,7 +203,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   aria-current={isActive ? 'page' : undefined}
                   className={`font-display text-xl sm:text-2xl font-bold uppercase tracking-wide transition-colors flex items-center justify-between py-3 border-b border-[rgba(0,0,0,0.06)] ${
-                    isActive ? 'text-[#D71920]' : 'text-[#101214] hover:text-[#D71920]'
+                    isActive ? 'text-[#E10600]' : 'text-[#000000] hover:text-[#E10600]'
                   }`}
                 >
                   <span>{link.label}</span>
@@ -222,7 +222,7 @@ export default function Navbar() {
               Book an Assessment ↗
             </Link>
             <div className="text-center font-mono text-xs text-[#555A60] font-medium">
-              STUDIO DESK: <a href={`tel:${studioCompany.phones.primary}`} className="text-[#101214] font-bold hover:text-[#D71920]">{studioCompany.phones.primary}</a>
+              STUDIO DESK: <a href={`tel:${studioCompany.phones.primary}`} className="text-[#000000] font-bold hover:text-[#E10600]">{studioCompany.phones.primary}</a>
             </div>
           </div>
         </div>

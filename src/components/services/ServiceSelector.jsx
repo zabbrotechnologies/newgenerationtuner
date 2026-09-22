@@ -57,9 +57,9 @@ export default function ServiceSelector() {
   const activeOption = OPTIONS.find(o => o.id === selectedId) || OPTIONS[0];
 
   return (
-    <div className="bg-[#181B1E] border border-[rgba(255,255,255,0.12)] p-6 sm:p-12">
-      <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] mb-2 font-medium">
-        <span className="w-6 h-[2px] bg-[#D71920]"></span>
+    <div className="bg-[#080808] border border-[rgba(255,255,255,0.12)] p-6 sm:p-12">
+      <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] mb-2 font-medium">
+        <span className="w-6 h-[2px] bg-[#E10600]"></span>
         <span>INITIAL DIAGNOSTIC SELECTOR</span>
       </div>
 
@@ -80,13 +80,13 @@ export default function ServiceSelector() {
               onClick={() => setSelectedId(opt.id)}
               className={`p-5 text-left border transition-all cursor-pointer ${
                 isSelected 
-                  ? 'bg-[#101214] border-[#D71920] text-[#FFFFFF]' 
-                  : 'bg-[#101214]/60 border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
+                  ? 'bg-[#000000] border-[#E10600] text-[#FFFFFF]' 
+                  : 'bg-[#000000]/60 border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
               }`}
             >
               <div className="flex justify-between items-center mb-2">
-                <span className="font-mono text-[11px] text-[#D71920] font-medium">{opt.number}</span>
-                {isSelected && <span className="font-mono text-[9px] bg-[#D71920] text-white px-2 py-0.5 font-medium">SELECTED</span>}
+                <span className="font-mono text-[11px] text-[#E10600] font-medium">{opt.number}</span>
+                {isSelected && <span className="font-mono text-[9px] bg-[#E10600] text-white px-2 py-0.5 font-medium">SELECTED</span>}
               </div>
               <div className="font-display text-lg font-bold mb-1.5 tracking-tight text-[#FFFFFF]">
                 {opt.title}
@@ -102,7 +102,7 @@ export default function ServiceSelector() {
       {/* Recommendation Output */}
       <div className="pt-8 border-t border-[rgba(255,255,255,0.12)] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
         <div>
-          <div className="font-mono text-[10px] tracking-widest uppercase text-[#D71920] mb-1 font-medium">
+          <div className="font-mono text-[10px] tracking-widest uppercase text-[#E10600] mb-1 font-medium">
             ENGINEERED TREATMENT RECOMMENDATION
           </div>
           <div className="font-display text-2xl sm:text-3xl text-[#FFFFFF] font-bold tracking-tight mb-2">

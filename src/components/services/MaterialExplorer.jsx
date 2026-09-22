@@ -84,8 +84,8 @@ export default function MaterialExplorer() {
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-6 border-b border-[rgba(255,255,255,0.12)]">
         <div>
-          <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#D71920] mb-2 font-bold">
-            <span className="w-6 h-[2px] bg-[#D71920]"></span>
+          <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.2em] text-[#E10600] mb-2 font-bold">
+            <span className="w-6 h-[2px] bg-[#E10600]"></span>
             <span>SUBSTRATE ENGINEERING &amp; MATERIALS</span>
           </div>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-[#FFFFFF] tracking-tight">
@@ -105,8 +105,8 @@ export default function MaterialExplorer() {
             onClick={() => setSelectedMaterial(mat.id)}
             className={`text-left p-4 transition-all border ${
               selectedMaterial === mat.id
-                ? 'bg-[#181B1E] border-[#D71920] text-[#FFFFFF]'
-                : 'bg-[#101214] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
+                ? 'bg-[#080808] border-[#E10600] text-[#FFFFFF]'
+                : 'bg-[#000000] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
             }`}
           >
             <div className="font-mono text-[10px] text-[#8D9398]">{mat.number}</div>
@@ -116,10 +116,10 @@ export default function MaterialExplorer() {
       </div>
 
       {/* Active Material Showcase Card */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#181B1E] border border-[rgba(255,255,255,0.12)] p-6 md:p-10">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 bg-[#080808] border border-[rgba(255,255,255,0.12)] p-6 md:p-10">
         
         {/* Left Macro Media (col-span-6) */}
-        <div className="lg:col-span-6 relative aspect-[4/3] overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#101214]">
+        <div className="lg:col-span-6 relative aspect-[4/3] overflow-hidden border border-[rgba(255,255,255,0.12)] bg-[#000000]">
           <div className="absolute inset-0 skeleton-shimmer"></div>
           <img
             src={current.media}
@@ -128,10 +128,10 @@ export default function MaterialExplorer() {
             onLoad={(e) => e.currentTarget.classList.remove('opacity-0')}
             className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.15] opacity-0 transition-opacity duration-500 relative z-10"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#101214] via-transparent to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-transparent z-10 pointer-events-none"></div>
           
-          <div className="absolute bottom-4 left-4 right-4 bg-[#101214]/95 p-4 border border-[rgba(255,255,255,0.12)] z-20">
-            <div className="font-mono text-[9px] text-[#D71920] uppercase tracking-widest font-bold">
+          <div className="absolute bottom-4 left-4 right-4 bg-[#000000]/95 p-4 border border-[rgba(255,255,255,0.12)] z-20">
+            <div className="font-mono text-[9px] text-[#E10600] uppercase tracking-widest font-bold">
               ATELIER PROTOCOL
             </div>
             <div className="font-display text-sm md:text-base font-bold text-[#FFFFFF] mt-1">
@@ -143,7 +143,7 @@ export default function MaterialExplorer() {
         {/* Right Information & Telemetry (col-span-6) */}
         <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
           <div className="space-y-4">
-            <div className="flex items-center gap-2 font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-bold">
+            <div className="flex items-center gap-2 font-mono text-[10px] text-[#E10600] uppercase tracking-widest font-bold">
               <span>{current.number} · SUBSTRATE ARCHITECTURE</span>
             </div>
 
@@ -162,7 +162,7 @@ export default function MaterialExplorer() {
             {/* Technical Specs List */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-4 border-t border-[rgba(255,255,255,0.12)]">
               {current.specs.map((spec, i) => (
-                <div key={i} className="bg-[#101214] p-3 border border-[rgba(255,255,255,0.08)]">
+                <div key={i} className="bg-[#000000] p-3 border border-[rgba(255,255,255,0.08)]">
                   <div className="font-mono text-[9px] text-[#8D9398] uppercase">{spec.label}</div>
                   <div className="font-mono text-xs text-[#FFFFFF] font-bold mt-1">{spec.value}</div>
                 </div>
@@ -172,7 +172,7 @@ export default function MaterialExplorer() {
 
           <div className="pt-4 border-t border-[rgba(255,255,255,0.12)] flex items-center justify-between text-xs font-mono text-[#8D9398]">
             <span>ENGINEERED AROUND THE VEHICLE</span>
-            <span className="text-[#D71920] font-bold">ZERO GENERIC PACKAGES</span>
+            <span className="text-[#E10600] font-bold">ZERO GENERIC PACKAGES</span>
           </div>
         </div>
 

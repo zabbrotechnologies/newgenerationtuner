@@ -2,13 +2,13 @@
 
 :root {
   /* PERFORMANCE BRAND PALETTE */
-  --graphite: #101214;
-  --carbon: #181B1E;
-  --carbon-subtle: #22262B;
-  --warm-white: #F2F1ED;
+  --graphite: #000000;
+  --carbon: #080808;
+  --carbon-subtle: #111111;
+  --warm-white: #FAFAFA;
   --pure-white: #FFFFFF;
-  --performance-red: #D71920;
-  --red-dark: #8F1015;
+  --performance-red: #E10600;
+  --red-dark: #B30500;
   --metallic: #8D9398;
   --soft-grey: #C7C9C8;
   --border-dark: rgba(255, 255, 255, 0.12);
@@ -19,7 +19,7 @@
   --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
   
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -209,43 +209,21 @@ body {
   border-color: var(--border-light);
 }
 
-/* ── LIQUID WHITE GLASS NAVBAR SYSTEM ───────────────────────── */
-.navbar-liquid-white {
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+/* ── REDESIGNED PREMIUM NAVBAR SYSTEM ───────────────────────── */
+.navbar-glass {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
 }
 
-.navbar-liquid-white::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -20%;
-  width: 140%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.95), rgba(242, 241, 237, 0.4) 60%, transparent 80%);
-  pointer-events: none;
-  z-index: -1;
-  animation: liquidShimmer 12s ease-in-out infinite alternate;
-}
-
-@keyframes liquidShimmer {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-8px) scale(1.02);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(4px) scale(0.98);
-    opacity: 0.85;
-  }
+.navbar-solid {
+  background: var(--graphite);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  position: relative;
 }
 
 /* ── CINEMATIC PARALLAX & FLOATING HERO ANIMATIONS ─────────── */
@@ -322,12 +300,12 @@ body {
 
 /* Card Subtle Lift */
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), border-color 0.4s var(--ease);
 }
 
 .hover-lift:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.5);
 }
 
 

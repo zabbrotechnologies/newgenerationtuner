@@ -24,7 +24,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#101214] text-[#F2F1ED] font-sans selection:bg-[#D71920] selection:text-[#FFFFFF] flex flex-col justify-between">
+      <div className="min-h-screen bg-[#000000] text-[#FAFAFA] font-sans selection:bg-[#E10600] selection:text-[#FFFFFF] flex flex-col justify-between">
         <Navbar />
         <main id="main-content" className="flex-grow focus:outline-none pt-[72px] md:pt-[104px]" tabIndex={-1}>
           <Routes>

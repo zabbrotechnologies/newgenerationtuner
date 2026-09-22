@@ -122,11 +122,11 @@ export default function MultiStepAssessment() {
   };
 
   return (
-    <div className="bg-[#181B1E] border border-[rgba(255,255,255,0.12)] p-6 md:p-10 shadow-2xl relative">
+    <div className="bg-[#080808] border border-[rgba(255,255,255,0.12)] p-6 md:p-10 shadow-2xl relative">
       {/* Step Indicator Header */}
       <div className="flex justify-between items-center border-b border-[rgba(255,255,255,0.12)] pb-6 mb-8">
         <div>
-          <div className="font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-medium">
+          <div className="font-mono text-[10px] text-[#E10600] uppercase tracking-widest font-medium">
             DIAGNOSTIC ASSESSMENT PROTOCOL
           </div>
           <div className="font-display text-2xl text-[#FFFFFF] font-bold mt-1">
@@ -140,7 +140,7 @@ export default function MultiStepAssessment() {
             <div
               key={s}
               className={`h-1.5 w-8 transition-all ${
-                s <= step ? 'bg-[#D71920]' : 'bg-white/10'
+                s <= step ? 'bg-[#E10600]' : 'bg-white/10'
               }`}
             />
           ))}
@@ -150,10 +150,10 @@ export default function MultiStepAssessment() {
       {/* Success State */}
       {status.success ? (
         <div className="text-center py-12 space-y-6">
-          <div className="w-16 h-16 bg-[#D71920]/20 border border-[#D71920] text-[#D71920] flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 bg-[#E10600]/20 border border-[#E10600] text-[#E10600] flex items-center justify-center mx-auto">
             <CheckCircle2 size={32} />
           </div>
-          <div className="font-mono text-xs text-[#D71920] uppercase tracking-widest font-medium">
+          <div className="font-mono text-xs text-[#E10600] uppercase tracking-widest font-medium">
             BOOKING GENERATED · REF #{status.refId}
           </div>
           <h3 className="font-display text-3xl sm:text-4xl text-[#FFFFFF] font-bold tracking-tight">
@@ -204,7 +204,7 @@ export default function MultiStepAssessment() {
                     placeholder="e.g. 2024"
                     value={formData.vehicleYear}
                     onChange={(e) => setFormData({ ...formData, vehicleYear: e.target.value })}
-                    className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
+                    className="w-full bg-[#000000] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#E10600] outline-none font-normal"
                   />
                 </div>
                 <div>
@@ -215,7 +215,7 @@ export default function MultiStepAssessment() {
                     placeholder="e.g. Porsche / BMW"
                     value={formData.vehicleMake}
                     onChange={(e) => setFormData({ ...formData, vehicleMake: e.target.value })}
-                    className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
+                    className="w-full bg-[#000000] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#E10600] outline-none font-normal"
                   />
                 </div>
                 <div>
@@ -226,7 +226,7 @@ export default function MultiStepAssessment() {
                     placeholder="e.g. 911 GT3 / M4"
                     value={formData.vehicleModel}
                     onChange={(e) => setFormData({ ...formData, vehicleModel: e.target.value })}
-                    className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
+                    className="w-full bg-[#000000] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#E10600] outline-none font-normal"
                   />
                 </div>
               </div>
@@ -241,11 +241,11 @@ export default function MultiStepAssessment() {
                       onClick={() => setFormData({ ...formData, vehicleType: vt.id })}
                       className={`text-left p-3.5 border transition-all flex items-center gap-3 ${
                         formData.vehicleType === vt.id
-                          ? 'bg-[#D71920]/15 border-[#D71920] text-[#FFFFFF]'
-                          : 'bg-[#101214] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
+                          ? 'bg-[#E10600]/15 border-[#E10600] text-[#FFFFFF]'
+                          : 'bg-[#000000] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
                       }`}
                     >
-                      <span className="font-mono text-[11px] text-[#D71920] font-medium">{vt.num}</span>
+                      <span className="font-mono text-[11px] text-[#E10600] font-medium">{vt.num}</span>
                       <span className="font-body text-xs font-medium">{vt.label}</span>
                     </button>
                   ))}
@@ -282,15 +282,15 @@ export default function MultiStepAssessment() {
                     onClick={() => setFormData({ ...formData, primaryGoal: g.id })}
                     className={`w-full text-left p-4 border transition-all flex items-center justify-between ${
                       formData.primaryGoal === g.id
-                        ? 'bg-[#D71920]/15 border-[#D71920] text-[#FFFFFF]'
-                        : 'bg-[#101214] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
+                        ? 'bg-[#E10600]/15 border-[#E10600] text-[#FFFFFF]'
+                        : 'bg-[#000000] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-[11px] text-[#D71920] font-medium">{g.num}</span>
+                      <span className="font-mono text-[11px] text-[#E10600] font-medium">{g.num}</span>
                       <span className="font-body text-xs font-medium">{g.label}</span>
                     </div>
-                    <span className="text-[#D71920] font-display font-semibold">→</span>
+                    <span className="text-[#E10600] font-display font-semibold">→</span>
                   </button>
                 ))}
               </div>
@@ -324,15 +324,15 @@ export default function MultiStepAssessment() {
                     onClick={() => setFormData({ ...formData, condition: c.id })}
                     className={`w-full text-left p-4 border transition-all flex items-center justify-between ${
                       formData.condition === c.id
-                        ? 'bg-[#D71920]/15 border-[#D71920] text-[#FFFFFF]'
-                        : 'bg-[#101214] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
+                        ? 'bg-[#E10600]/15 border-[#E10600] text-[#FFFFFF]'
+                        : 'bg-[#000000] border-[rgba(255,255,255,0.08)] text-[#8D9398] hover:border-[rgba(255,255,255,0.2)]'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="font-mono text-[11px] text-[#D71920] font-medium">{c.num}</span>
+                      <span className="font-mono text-[11px] text-[#E10600] font-medium">{c.num}</span>
                       <span className="font-body text-xs font-medium">{c.label}</span>
                     </div>
-                    <span className="font-mono text-[10px] text-[#D71920] font-medium">ACTIVE</span>
+                    <span className="font-mono text-[10px] text-[#E10600] font-medium">ACTIVE</span>
                   </button>
                 ))}
               </div>
@@ -346,7 +346,7 @@ export default function MultiStepAssessment() {
                   placeholder="Describe visible swirl marks, rock chips, preferred booking dates, or custom requests..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] p-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
+                  className="w-full bg-[#000000] border border-[rgba(255,255,255,0.12)] p-3 font-body text-sm text-[#FFFFFF] focus:border-[#E10600] outline-none font-normal"
                 />
               </div>
 
@@ -380,7 +380,7 @@ export default function MultiStepAssessment() {
                     placeholder="e.g. Marcus Vance"
                     value={formData.clientName}
                     onChange={(e) => setFormData({ ...formData, clientName: e.target.value })}
-                    className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
+                    className="w-full bg-[#000000] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#E10600] outline-none font-normal"
                   />
                 </div>
                 <div>
@@ -391,7 +391,7 @@ export default function MultiStepAssessment() {
                     placeholder="+91 91599 44902"
                     value={formData.clientPhone}
                     onChange={(e) => setFormData({ ...formData, clientPhone: e.target.value })}
-                    className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
+                    className="w-full bg-[#000000] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#E10600] outline-none font-normal"
                   />
                 </div>
                 <div>
@@ -401,12 +401,12 @@ export default function MultiStepAssessment() {
                     placeholder="client@domain.com"
                     value={formData.clientEmail}
                     onChange={(e) => setFormData({ ...formData, clientEmail: e.target.value })}
-                    className="w-full bg-[#101214] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#D71920] outline-none font-normal"
+                    className="w-full bg-[#000000] border border-[rgba(255,255,255,0.12)] px-4 py-3 font-body text-sm text-[#FFFFFF] focus:border-[#E10600] outline-none font-normal"
                   />
                 </div>
               </div>
 
-              <div className="p-3.5 bg-[#101214] border border-[rgba(255,255,255,0.08)] flex items-center gap-3">
+              <div className="p-3.5 bg-[#000000] border border-[rgba(255,255,255,0.08)] flex items-center gap-3">
                 <MessageSquare className="text-[#25D366] shrink-0" size={18} />
                 <span className="font-body text-xs text-[#8D9398]">
                   Submitting will instantly open WhatsApp pre-filled with all your vehicle details.
