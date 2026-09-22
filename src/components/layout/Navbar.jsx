@@ -79,33 +79,6 @@ export default function Navbar() {
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        {/* Sleek Top Telemetry Bar */}
-        <div className={`hidden md:block bg-[#050505]/95 border-b border-white/[0.06] transition-all duration-300 ${
-          isScrolled ? 'py-0 h-0 overflow-hidden opacity-0 border-none' : 'py-2 opacity-100'
-        } text-[11px] font-mono text-[#8E8E93] tracking-widest uppercase`}>
-          <div className="container flex justify-between items-center">
-            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-2 text-[#E5E5EA]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-pulse"></span>
-                NEW GENERATION TUNER'S · AUTOMOTIVE DETAILING ATELIER
-              </span>
-              <span className="text-[#636366]">•</span>
-              <span className="text-[#8E8E93]">EST. 2014</span>
-            </div>
-            <div className="flex items-center gap-6">
-              <span className="flex items-center gap-1.5">
-                <Clock size={12} className="text-[#8E8E93]" />
-                MON–SAT: 09:30–20:30
-              </span>
-              <span className="text-[#636366]">•</span>
-              <a href={`tel:${studioCompany.phones.primary}`} className="text-[#F5F5F7] hover:text-[#D71920] transition-colors flex items-center gap-1.5 font-medium">
-                <Phone size={12} className="text-[#D71920]" />
-                {studioCompany.phones.primary}
-              </a>
-            </div>
-          </div>
-        </div>
-
         {/* Main Navbar with Dark Glassmorphism */}
         <header className={`transition-all duration-300 ${
           isScrolled ? 'py-3 navbar-dark-glass shadow-2xl' : 'py-5 bg-gradient-to-b from-[#050505]/90 via-[#050505]/60 to-transparent backdrop-blur-md border-b border-white/[0.04]'
