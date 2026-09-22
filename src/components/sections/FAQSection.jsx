@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle, Shield, Sparkles } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function FAQSection() {
   const [openIdx, setOpenIdx] = useState(0);
@@ -32,11 +33,17 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
+    <section className="py-20 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
       <div className="container">
         
         {/* Section Header */}
-        <div className="max-w-2xl mx-auto text-center mb-16 space-y-3">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto text-center mb-12 sm:mb-16 space-y-3"
+        >
           <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
             <HelpCircle size={14} />
             <span>CLARITY &amp; PROTOCOLS</span>
@@ -47,16 +54,20 @@ export default function FAQSection() {
           <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed font-normal">
             Everything you need to know about our automotive detailing methodology, paint correction science, and surface protection warranties.
           </p>
-        </div>
+        </motion.div>
 
         {/* FAQ Accordion */}
         <div className="max-w-3xl mx-auto space-y-3">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
             return (
-              <div 
+              <motion.div 
                 key={idx}
-                className="bg-[#0E0E10] border border-white/[0.08] rounded transition-all duration-300 overflow-hidden"
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="bg-[#0E0E10] border border-white/[0.08] rounded-xl transition-all duration-300 overflow-hidden shadow-md"
               >
                 <button
                   onClick={() => setOpenIdx(isOpen ? -1 : idx)}
@@ -71,18 +82,34 @@ export default function FAQSection() {
                   </div>
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-sm font-body text-[#AEAEB2] leading-relaxed border-t border-white/[0.04]">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 sm:px-6 pb-6 pt-1 text-xs sm:text-sm font-body text-[#AEAEB2] leading-relaxed border-t border-white/[0.04]">
+                        {faq.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Still Have Questions Box */}
-        <div className="max-w-3xl mx-auto mt-10 p-6 bg-[#141417] border border-white/[0.08] rounded flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto mt-10 p-6 bg-[#141417] border border-white/[0.08] rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xl"
+        >
           <div className="space-y-1 text-center sm:text-left">
             <h4 className="font-display text-base font-semibold text-[#FFFFFF]">Have specific questions about your vehicle's paint?</h4>
             <p className="text-xs text-[#8E8E93]">Talk directly with our studio technicians for a panel thickness audit.</p>
@@ -90,7 +117,7 @@ export default function FAQSection() {
           <a href="#assessment-section" className="btn-red text-xs py-2.5 px-6 whitespace-nowrap">
             Ask Our Atelier
           </a>
-        </div>
+        </motion.div>
 
       </div>
     </section>

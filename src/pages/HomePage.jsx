@@ -7,17 +7,15 @@ import {
   ChevronRight, 
   Eye, 
   Gauge, 
-  Flame, 
-  Sun, 
   CheckCircle2, 
   Phone, 
   Clock, 
   MapPin, 
   Layers,
   Wrench,
-  Zap,
-  Play
+  Zap
 } from 'lucide-react';
+import { motion } from 'framer-motion';
 import HeroSection from '../components/sections/HeroSection.jsx';
 import FAQSection from '../components/sections/FAQSection.jsx';
 import TestimonialSection from '../components/sections/TestimonialSection.jsx';
@@ -31,83 +29,114 @@ import {
   TECHNICAL_LAB_ITEMS 
 } from '../data/index.js';
 
+// Framer Motion Animation Variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] }
+  }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1
+    }
+  }
+};
+
 export default function HomePage() {
   return (
-    <div id="main-content" className="bg-[#050505] text-[#F5F5F7] selection:bg-[#D71920] selection:text-[#FFFFFF]">
+    <div id="main-content" className="bg-[#050505] text-[#F5F5F7] selection:bg-[#D71920] selection:text-[#FFFFFF] overflow-hidden">
       
-      {/* ── 01. NAVIGATION is handled by Navbar.jsx globally ── */}
+      {/* ── 01. NAVIGATION (Navbar.jsx) ── */}
 
-      {/* ── 02. HERO SECTION (CINEMATIC VIDEO + BLACK GLASS PANEL) ── */}
+      {/* ── 02. HERO SECTION (VIDEO + GLASS OVERLAY) ── */}
       <HeroSection />
 
-      {/* ── 03. TRUST / VALUE STRIP ────────────────────────────── */}
-      <section id="trust-strip" className="bg-[#0A0B0D] border-b border-white/[0.08] py-8 sm:py-10 relative">
+      {/* ── 03. TRUST / VALUE STRIP ── */}
+      <section id="trust-strip" className="bg-[#0A0B0D] border-b border-white/[0.08] py-8 sm:py-12 relative">
         <div className="container">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]">
-            
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-30px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 divide-y md:divide-y-0 md:divide-x divide-white/[0.08]"
+          >
             {/* Stat 01 */}
-            <div className="pt-4 md:pt-0 md:px-4 first:pt-0 first:px-0 space-y-1">
+            <motion.div variants={fadeInUp} className="pt-4 md:pt-0 md:px-4 first:pt-0 first:px-0 space-y-1">
               <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
                 ESTABLISHED 2014
               </div>
-              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+              <div className="font-display text-lg sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
                 10+ Years Atelier Care
               </div>
               <div className="font-body text-xs text-[#8E8E93]">
                 Dedicated to bespoke vehicle restoration
               </div>
-            </div>
+            </motion.div>
 
             {/* Stat 02 */}
-            <div className="pt-4 md:pt-0 md:px-4 space-y-1">
+            <motion.div variants={fadeInUp} className="pt-4 md:pt-0 md:px-4 space-y-1">
               <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
                 NANO-CERAMIC
               </div>
-              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+              <div className="font-display text-lg sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
                 9H+ SiO₂ Covalent Matrix
               </div>
               <div className="font-body text-xs text-[#8E8E93]">
                 110°+ hydrophobic roll-off angle
               </div>
-            </div>
+            </motion.div>
 
             {/* Stat 03 */}
-            <div className="pt-4 md:pt-0 md:px-4 space-y-1">
+            <motion.div variants={fadeInUp} className="pt-4 md:pt-0 md:px-4 space-y-1">
               <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
                 SURFACE INTEGRITY
               </div>
-              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+              <div className="font-display text-lg sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
                 0.1μm Ultrasonic Precision
               </div>
               <div className="font-body text-xs text-[#8E8E93]">
                 Non-destructive clear coat diagnostics
               </div>
-            </div>
+            </motion.div>
 
             {/* Stat 04 */}
-            <div className="pt-4 md:pt-0 md:px-4 space-y-1">
+            <motion.div variants={fadeInUp} className="pt-4 md:pt-0 md:px-4 space-y-1">
               <div className="font-mono text-xs text-[#D71920] font-semibold tracking-wider uppercase">
                 PHYSICAL ARMOUR
               </div>
-              <div className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
+              <div className="font-display text-lg sm:text-2xl font-bold text-[#FFFFFF] tracking-tight">
                 Self-Healing TPU Film
               </div>
               <div className="font-body text-xs text-[#8E8E93]">
                 Computer-cut wrapped edge coverage
               </div>
-            </div>
-
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* ── 04. COMPLETE AUTOMOTIVE DETAILING SOLUTIONS (SERVICES) ── */}
-      <section id="services-section" className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
+      <section id="services-section" className="py-20 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
         <div className="container">
           
           {/* Header */}
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-8 mb-16 border-b border-white/[0.08]">
-            <div className="space-y-3">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-8 mb-12 sm:mb-16 border-b border-white/[0.08]"
+          >
+            <div className="space-y-2.5">
               <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
                 <span className="w-2 h-2 rounded-full bg-[#D71920]"></span>
                 <span>DETAILING DISCIPLINES</span>
@@ -121,45 +150,49 @@ export default function HomePage() {
               <span>View All 06 Disciplines</span>
               <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
-          </div>
+          </motion.div>
 
           {/* Services Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          >
             {studioServices.map((svc) => (
-              <div
+              <motion.div
                 key={svc.id}
-                className="bg-[#0E0E10] border border-white/[0.08] hover:border-white/[0.2] transition-all duration-300 rounded overflow-hidden flex flex-col justify-between group hover-lift"
+                variants={fadeInUp}
+                className="bg-[#0E0E10] border border-white/[0.08] hover:border-white/[0.22] transition-all duration-300 rounded-xl overflow-hidden flex flex-col justify-between group hover-lift shadow-lg"
               >
                 <div>
-                  {/* Service Image with Subtle Dark Filter */}
                   <div className="aspect-[16/10] overflow-hidden relative bg-[#141417]">
                     <img
                       src={svc.image}
                       alt={svc.title}
+                      loading="lazy"
                       className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1] group-hover:scale-105 group-hover:brightness-[0.9] transition-all duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] via-transparent to-transparent"></div>
                     
-                    {/* Top Number Badge */}
-                    <div className="absolute top-4 left-4 font-mono text-[11px] text-[#FFFFFF] bg-[#050505]/80 px-2.5 py-1 border border-white/[0.1] backdrop-blur-md">
+                    <div className="absolute top-3.5 left-3.5 font-mono text-[11px] text-[#FFFFFF] bg-[#050505]/80 px-2.5 py-1 border border-white/[0.1] backdrop-blur-md rounded">
                       {svc.number}
                     </div>
 
-                    <div className="absolute top-4 right-4 font-mono text-[10px] text-[#D71920] bg-[#050505]/80 px-2.5 py-1 border border-white/[0.1] backdrop-blur-md uppercase tracking-wider">
+                    <div className="absolute top-3.5 right-3.5 font-mono text-[10px] text-[#D71920] bg-[#050505]/80 px-2.5 py-1 border border-white/[0.1] backdrop-blur-md uppercase tracking-wider rounded">
                       {svc.category}
                     </div>
                   </div>
 
-                  {/* Body Content */}
-                  <div className="p-6 sm:p-7 space-y-4">
-                    <h3 className="font-display text-2xl font-bold text-[#FFFFFF] uppercase tracking-tight group-hover:text-[#D71920] transition-colors">
+                  <div className="p-6 sm:p-7 space-y-3.5">
+                    <h3 className="font-display text-xl sm:text-2xl font-bold text-[#FFFFFF] uppercase tracking-tight group-hover:text-[#D71920] transition-colors">
                       {svc.title}
                     </h3>
                     <p className="font-body text-xs sm:text-sm text-[#8E8E93] leading-relaxed font-normal">
                       {svc.summary}
                     </p>
 
-                    {/* Highlights */}
                     <div className="pt-3 border-t border-white/[0.06] space-y-1.5">
                       {svc.process.slice(0, 3).map((p, pIdx) => (
                         <div key={pIdx} className="flex items-center gap-2 text-xs font-body text-[#AEAEB2]">
@@ -171,7 +204,6 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                {/* Card Footer Link */}
                 <div className="p-6 sm:p-7 pt-0">
                   <Link
                     to="/services"
@@ -181,44 +213,53 @@ export default function HomePage() {
                     <ArrowUpRight size={14} />
                   </Link>
                 </div>
-
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* ── 05. ABOUT / WHY NGT ("MORE THAN JUST DETAILING") ─────── */}
-      <section className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
+      {/* ── 05. ABOUT / WHY NGT ("MORE THAN JUST DETAILING") ── */}
+      <section className="py-20 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
             
-            {/* Visual Column */}
-            <div className="lg:col-span-5 relative">
-              <div className="aspect-[4/5] rounded overflow-hidden border border-white/[0.1] relative group">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-5 relative"
+            >
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/[0.1] relative group shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80" 
                   alt="Craftsmanship and multi-spectrum inspection" 
+                  loading="lazy"
                   className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.15] group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0B0D] via-transparent to-transparent"></div>
                 
-                {/* Floating Stat Overlay */}
-                <div className="absolute bottom-6 left-6 right-6 p-5 glass-panel-dark rounded border border-white/[0.1]">
+                <div className="absolute bottom-5 left-5 right-5 p-4 sm:p-5 glass-panel-dark rounded-xl border border-white/[0.1]">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="font-mono text-[10px] text-[#D71920] uppercase tracking-widest font-semibold">TOLERANCE SPEC</div>
-                      <div className="font-display text-xl font-bold text-[#FFFFFF]">0.1 MICRON AUDIT</div>
+                      <div className="font-display text-lg sm:text-xl font-bold text-[#FFFFFF]">0.1 MICRON AUDIT</div>
                     </div>
                     <Gauge size={24} className="text-[#D71920]" />
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            {/* Editorial Content */}
-            <div className="lg:col-span-7 space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7 space-y-6"
+            >
               <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
                 <span className="w-8 h-[2px] bg-[#D71920]"></span>
                 <span>ATELIER PHILOSOPHY</span>
@@ -235,9 +276,9 @@ export default function HomePage() {
                 Standard car washes create microscopic scratch networks, holograms, and buffer trails that ruin your clear coat's optical depth. At New Generation Tuner's, we treat every vehicle panel as a precision optical surface.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-white/[0.08]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-4 border-t border-white/[0.08]">
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-[#FFFFFF] font-display text-lg font-bold">
+                  <div className="flex items-center gap-2 text-[#FFFFFF] font-display text-base sm:text-lg font-bold">
                     <Eye size={18} className="text-[#D71920]" />
                     <span>High-CRI Inspection</span>
                   </div>
@@ -247,7 +288,7 @@ export default function HomePage() {
                 </div>
 
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2 text-[#FFFFFF] font-display text-lg font-bold">
+                  <div className="flex items-center gap-2 text-[#FFFFFF] font-display text-base sm:text-lg font-bold">
                     <Layers size={18} className="text-[#D71920]" />
                     <span>Subsurface Levelling</span>
                   </div>
@@ -257,24 +298,30 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <div className="pt-4">
+              <div className="pt-2">
                 <Link to="/about" className="btn-ghost-dark text-xs py-3 px-6">
                   <span>Learn About Our Studio</span>
                   <ChevronRight size={14} />
                 </Link>
               </div>
 
-            </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 06. DETAILING PROCESS (01 TO 06 NUMBERED STEPS) ────── */}
-      <section className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
+      {/* ── 06. DETAILING PROCESS (01 TO 06 NUMBERED STEPS) ── */}
+      <section className="py-20 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
         <div className="container">
           
-          <div className="max-w-3xl mx-auto text-center mb-16 space-y-3">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 space-y-3"
+          >
             <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
               <Wrench size={14} />
               <span>THE 6-STEP PROTOCOL</span>
@@ -285,13 +332,20 @@ export default function HomePage() {
             <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed font-normal">
               A systematic, lab-grade execution pipeline guaranteeing permanent optical clarity and long-term surface defense.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {PROCESS_TIMELINE.map((item) => (
-              <div 
+              <motion.div 
                 key={item.step}
-                className="bg-[#0E0E10] border border-white/[0.08] p-7 rounded hover:border-[#D71920]/40 transition-all duration-300 relative group flex flex-col justify-between"
+                variants={fadeInUp}
+                className="bg-[#0E0E10] border border-white/[0.08] p-6 sm:p-7 rounded-xl hover:border-[#D71920]/40 transition-all duration-300 relative group flex flex-col justify-between shadow-lg"
               >
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
@@ -299,7 +353,7 @@ export default function HomePage() {
                     <span className="font-mono text-[10px] tracking-widest text-[#8E8E93] uppercase">PHASE {item.step}</span>
                   </div>
 
-                  <h3 className="font-display text-xl font-bold text-[#FFFFFF] uppercase tracking-tight group-hover:text-[#D71920] transition-colors">
+                  <h3 className="font-display text-lg sm:text-xl font-bold text-[#FFFFFF] uppercase tracking-tight group-hover:text-[#D71920] transition-colors">
                     {item.title}
                   </h3>
 
@@ -311,43 +365,32 @@ export default function HomePage() {
                 <div className="pt-4 mt-4 border-t border-white/[0.06] font-mono text-[11px] text-[#8E8E93]">
                   {item.detail}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* ── 07. REAL RESULTS (BEFORE & AFTER SLIDER) ─────────────── */}
-      <section className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
+      {/* ── 07. REAL RESULTS & OPTICAL PROOF (TRANSFORMATION SLIDER SECTION) ── */}
+      <section className="py-20 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
         <div className="container">
-          
-          <div className="max-w-2xl mx-auto text-center mb-16 space-y-3">
-            <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
-              <Sparkles size={14} />
-              <span>REAL RESULTS &amp; OPTICAL PROOF</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFFFFF] tracking-tight uppercase">
-              SEE THE TRANSFORMATION
-            </h2>
-            <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed font-normal">
-              High-magnification defect levelling. Drag the interactive divider to compare swirl-damaged clear coat against our 2-stage corrected specular finish.
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto">
-            <BeforeAfterSlider />
-          </div>
-
+          <BeforeAfterSlider />
         </div>
       </section>
 
-      {/* ── 08. GALLERY / OUR WORK (PORTFOLIO GRID) ─────────────── */}
-      <section className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
+      {/* ── 08. GALLERY / OUR WORK (PORTFOLIO GRID) ── */}
+      <section className="py-20 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
         <div className="container">
           
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-8 mb-16 border-b border-white/[0.08]">
-            <div className="space-y-3">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 pb-8 mb-12 sm:mb-16 border-b border-white/[0.08]"
+          >
+            <div className="space-y-2.5">
               <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
                 <span className="w-2 h-2 rounded-full bg-[#D71920]"></span>
                 <span>RECENT ATELIER COMMISSIONS</span>
@@ -361,23 +404,31 @@ export default function HomePage() {
               <span>Explore Complete Gallery</span>
               <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          >
             {studioGallery.map((item) => (
-              <div 
+              <motion.div 
                 key={item.id}
-                className="bg-[#0E0E10] border border-white/[0.08] rounded overflow-hidden group hover-lift"
+                variants={fadeInUp}
+                className="bg-[#0E0E10] border border-white/[0.08] rounded-xl overflow-hidden group hover-lift shadow-xl"
               >
                 <div className="aspect-[16/10] overflow-hidden relative">
                   <img 
                     src={item.image} 
                     alt={item.title}
+                    loading="lazy"
                     className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.1] group-hover:scale-105 group-hover:brightness-[0.95] transition-all duration-500" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] via-transparent to-transparent"></div>
                   
-                  <div className="absolute top-4 right-4 bg-[#050505]/80 px-3 py-1 font-mono text-[10px] text-[#D71920] border border-white/[0.1] uppercase tracking-wider backdrop-blur-md">
+                  <div className="absolute top-4 right-4 bg-[#050505]/80 px-3 py-1 font-mono text-[10px] text-[#D71920] border border-white/[0.1] uppercase tracking-wider backdrop-blur-md rounded">
                     {item.category}
                   </div>
                 </div>
@@ -398,27 +449,32 @@ export default function HomePage() {
 
                   <div className="pt-4 border-t border-white/[0.06] flex flex-wrap gap-2">
                     {item.metrics.map((metric, mIdx) => (
-                      <span key={mIdx} className="font-mono text-[10px] text-[#AEAEB2] bg-white/[0.04] px-2.5 py-1 border border-white/[0.06] rounded-sm">
+                      <span key={mIdx} className="font-mono text-[10px] text-[#AEAEB2] bg-white/[0.04] px-2.5 py-1 border border-white/[0.06] rounded">
                         {metric}
                       </span>
                     ))}
                   </div>
                 </div>
-
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* ── 09. SHOWREEL / THE STUDIO EXPERIENCE ────────────────── */}
-      <section className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative overflow-hidden">
+      {/* ── 09. SHOWREEL / THE STUDIO EXPERIENCE ── */}
+      <section className="py-20 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative overflow-hidden">
         <div className="container">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            <div className="lg:col-span-5 space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-5 space-y-6"
+            >
               <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
                 <span className="w-8 h-[2px] bg-[#D71920]"></span>
                 <span>STUDIO SHOWREEL</span>
@@ -447,10 +503,16 @@ export default function HomePage() {
                   <span>SHORT-WAVE IR INFRARED CERAMIC BAKING</span>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="lg:col-span-7">
-              <div className="aspect-[16/9] rounded overflow-hidden border border-white/[0.12] bg-[#000000] relative shadow-2xl group">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7"
+            >
+              <div className="aspect-[16/9] rounded-2xl overflow-hidden border border-white/[0.12] bg-[#000000] relative shadow-2xl group">
                 <video
                   autoPlay
                   loop
@@ -464,30 +526,36 @@ export default function HomePage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/60 via-transparent to-transparent pointer-events-none"></div>
                 
                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center pointer-events-none">
-                  <div className="font-mono text-[10px] text-[#FFFFFF] bg-[#050505]/80 px-3 py-1 border border-white/[0.1] backdrop-blur-md">
+                  <div className="font-mono text-[10px] text-[#FFFFFF] bg-[#050505]/80 px-3 py-1 border border-white/[0.1] backdrop-blur-md rounded">
                     ATELIER LIVE FEED · STUDIO BAY 01
                   </div>
-                  <div className="font-mono text-[10px] text-[#D71920] bg-[#050505]/80 px-3 py-1 border border-white/[0.1] backdrop-blur-md flex items-center gap-1.5">
+                  <div className="font-mono text-[10px] text-[#D71920] bg-[#050505]/80 px-3 py-1 border border-white/[0.1] backdrop-blur-md flex items-center gap-1.5 rounded">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#D71920] animate-ping"></span>
                     ACTIVE DETAILING
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
         </div>
       </section>
 
-      {/* ── 10. TESTIMONIALS (CLIENT REVIEWS) ───────────────────── */}
+      {/* ── 10. TESTIMONIALS (CLIENT REVIEWS) ── */}
       <TestimonialSection />
 
       {/* ── 11. DETAILING STANDARDS & TECHNOLOGY (TECHNICAL LAB) ── */}
-      <section className="py-24 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
+      <section className="py-20 md:py-32 bg-[#050505] border-b border-white/[0.08] relative">
         <div className="container">
           
-          <div className="max-w-3xl mx-auto text-center mb-16 space-y-3">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 space-y-3"
+          >
             <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
               <Zap size={14} />
               <span>TECHNICAL LAB STANDARDS</span>
@@ -498,22 +566,30 @@ export default function HomePage() {
             <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed font-normal">
               State-of-the-art diagnostic instruments, German dual-action polishers, and pure silicon dioxide chemistry.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerContainer}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
             {TECHNICAL_LAB_ITEMS.map((item) => (
-              <div 
+              <motion.div 
                 key={item.id}
-                className="bg-[#0E0E10] border border-white/[0.08] rounded overflow-hidden group hover-lift flex flex-col justify-between"
+                variants={fadeInUp}
+                className="bg-[#0E0E10] border border-white/[0.08] rounded-xl overflow-hidden group hover-lift flex flex-col justify-between shadow-lg"
               >
                 <div>
                   <div className="aspect-[16/9] overflow-hidden relative">
                     <img 
                       src={item.image} 
                       alt={item.title} 
+                      loading="lazy"
                       className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1] group-hover:scale-105 transition-all duration-500"
                     />
-                    <div className="absolute top-3 left-3 font-mono text-[10px] text-[#FFFFFF] bg-[#050505]/80 px-2.5 py-0.5 border border-white/[0.1] backdrop-blur-md">
+                    <div className="absolute top-3 left-3 font-mono text-[10px] text-[#FFFFFF] bg-[#050505]/80 px-2.5 py-0.5 border border-white/[0.1] backdrop-blur-md rounded">
                       {item.label}
                     </div>
                   </div>
@@ -533,23 +609,29 @@ export default function HomePage() {
                     {item.spec}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
-      {/* ── 12. FAQ ACCORDION ───────────────────────────────────── */}
+      {/* ── 12. FAQ ACCORDION ── */}
       <FAQSection />
 
-      {/* ── 13. STUDIO DIRECT / CONSULTATION ASSESSMENT ─────────── */}
-      <section id="assessment-section" className="py-24 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
+      {/* ── 13. STUDIO DIRECT / CONSULTATION ASSESSMENT ── */}
+      <section id="assessment-section" className="py-20 md:py-32 bg-[#0A0B0D] border-b border-white/[0.08] relative">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
             {/* Left Info Column */}
-            <div className="lg:col-span-5 space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-5 space-y-6 sm:space-y-8"
+            >
               <div className="space-y-4">
                 <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
                   <span className="w-8 h-[2px] bg-[#D71920]"></span>
@@ -569,7 +651,7 @@ export default function HomePage() {
               </div>
 
               {/* Direct Studio Coordinates */}
-              <div className="p-6 bg-[#121316] border border-white/[0.08] rounded space-y-4">
+              <div className="p-6 bg-[#121316] border border-white/[0.08] rounded-xl space-y-4 shadow-xl">
                 <div>
                   <span className="font-mono text-[10px] tracking-wider uppercase text-[#636366] block mb-1">DIRECT DESK</span>
                   <a href={`tel:${studioCompany.phones.primary}`} className="font-display text-2xl font-bold text-[#FFFFFF] hover:text-[#D71920] transition-colors flex items-center gap-2">
@@ -588,25 +670,34 @@ export default function HomePage() {
                   <span>{studioCompany.hours}</span>
                 </div>
               </div>
-
-            </div>
+            </motion.div>
 
             {/* Right Interactive Form Column */}
-            <div className="lg:col-span-7">
+            <motion.div 
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-7"
+            >
               <MultiStepAssessment />
-            </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 14. FINAL BOOKING CTA ("YOUR CAR DESERVES MORE") ─────── */}
-      <section className="py-24 md:py-28 bg-[#050505] relative overflow-hidden">
-        {/* Subtle Ambient Radial Glow */}
+      {/* ── 14. FINAL BOOKING CTA ── */}
+      <section className="py-20 md:py-28 bg-[#050505] relative overflow-hidden">
         <div className="absolute inset-0 bg-radial-gradient from-[#D71920]/10 via-transparent to-transparent pointer-events-none"></div>
 
-        <div className="container relative z-10 text-center max-w-4xl mx-auto space-y-8">
-          
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="container relative z-10 text-center max-w-4xl mx-auto space-y-6 sm:space-y-8"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
             <Sparkles size={14} className="text-[#D71920]" />
             <span className="font-mono text-[10px] sm:text-xs tracking-widest uppercase text-[#F5F5F7]">
@@ -614,12 +705,12 @@ export default function HomePage() {
             </span>
           </div>
 
-          <h2 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-[#FFFFFF] leading-[1.05]">
+          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-[#FFFFFF] leading-[1.08]">
             YOUR CAR DESERVES MORE<br />
             <span className="text-[#D71920]">THAN A QUICK WASH.</span>
           </h2>
 
-          <p className="font-body text-base sm:text-lg text-[#AEAEB2] max-w-2xl mx-auto leading-relaxed">
+          <p className="font-body text-sm sm:text-base lg:text-lg text-[#AEAEB2] max-w-2xl mx-auto leading-relaxed">
             Reserve your studio appointment today. Experience mirror reflection paint correction, permanent 9H+ SiO₂ ceramic coatings, and stealth self-healing PPF.
           </p>
 
@@ -643,14 +734,14 @@ export default function HomePage() {
             </a>
           </div>
 
-          <div className="pt-8 text-xs font-mono text-[#636366]">
+          <div className="pt-6 text-xs font-mono text-[#636366]">
             {studioCompany.promise}
           </div>
 
-        </div>
+        </motion.div>
       </section>
 
-      {/* ── 15. FOOTER is rendered globally in App.jsx ── */}
+      {/* ── 15. FOOTER (Footer.jsx) ── */}
 
     </div>
   );
