@@ -52,7 +52,7 @@ export default function ServicesPage() {
     <div className="text-[#FAFAFA] selection:bg-[#E10600] selection:text-[#FFFFFF]">
 
       {/* ── 01. HERO ── */}
-      <section className="relative min-h-[85vh] flex items-center py-24 overflow-hidden bg-[#000000] border-b border-white/[0.1]">
+      <section className="relative min-h-[75vh] sm:min-h-[85vh] flex items-center pt-20 sm:pt-28 pb-12 sm:pb-20 overflow-hidden bg-[#000000] border-b border-white/[0.1]">
         <div
           className="absolute inset-0 z-0 overflow-hidden"
           style={{ transform: `translateY(${Math.min(scrollY * 0.3, 180)}px)` }}
@@ -73,32 +73,48 @@ export default function ServicesPage() {
           className="container relative z-10"
           style={{ transform: `translateY(${Math.min(-scrollY * 0.1, 0)}px)` }}
         >
-          <div className="max-w-4xl space-y-7">
-            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-[#080808]/90 border border-white/[0.12] backdrop-blur-md rounded">
-              <span className="w-2 h-2 bg-[#E10600] rounded-full animate-pulse" />
-              <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
-                OUR SERVICES / NEW GENERATION TUNERS
-              </span>
-            </div>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="max-w-4xl space-y-4 sm:space-y-6"
+          >
+            <motion.div variants={fadeInUp} className="inline-flex">
+              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 bg-[#080808]/90 border border-white/[0.12] backdrop-blur-md rounded">
+                <span className="w-2 h-2 bg-[#E10600] rounded-full animate-pulse" />
+                <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-[#FFFFFF] font-medium">
+                  OUR SERVICES / NEW GENERATION TUNERS
+                </span>
+              </div>
+            </motion.div>
 
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] uppercase text-[#FFFFFF]">
+            <motion.h1
+              variants={fadeInUp}
+              className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.02] sm:leading-[0.95] uppercase text-[#FFFFFF]"
+            >
               OUR<br />
               <span className="text-[#E10600]">SERVICES.</span>
-            </h1>
+            </motion.h1>
 
-            <p className="font-body text-[#8D9398] text-base md:text-lg max-w-2xl leading-relaxed">
+            <motion.p
+              variants={fadeInUp}
+              className="font-body text-[#8D9398] text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed"
+            >
               Engineered for the finish. Every service is a precision discipline — surgical, scientific, and permanent.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <a href="#service-directory" className="btn-red text-sm py-3.5 px-7 shadow-xl shadow-red-950/30">
+            <motion.div
+              variants={fadeInUp}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 sm:pt-2"
+            >
+              <a href="#service-directory" className="btn-red text-xs sm:text-sm py-3 sm:py-3.5 px-6 sm:px-7 shadow-xl shadow-red-950/30 justify-center">
                 Explore Services ↓
               </a>
-              <a href="#assessment-section" className="btn-ghost-dark text-sm py-3.5 px-7 backdrop-blur-sm">
+              <a href="#assessment-section" className="btn-ghost-dark text-xs sm:text-sm py-3 sm:py-3.5 px-6 sm:px-7 backdrop-blur-sm justify-center">
                 Book a Consultation ↗
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

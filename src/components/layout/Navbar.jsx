@@ -158,12 +158,12 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 top-[60px] z-40 bg-[#050505]/98 backdrop-blur-3xl border-t border-white/[0.08] flex flex-col justify-between p-6 sm:p-8 lg:hidden shadow-2xl overflow-y-auto"
+          className="fixed inset-0 top-[56px] sm:top-[60px] z-40 bg-[#050505]/98 backdrop-blur-3xl border-t border-white/[0.08] flex flex-col justify-between p-5 sm:p-8 lg:hidden shadow-2xl overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Drawer"
         >
-          <nav className="flex flex-col gap-1 pt-2" aria-label="Mobile Navigation Links">
+          <nav className="flex flex-col gap-0.5 pt-1 sm:pt-2" aria-label="Mobile Navigation Links">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -172,36 +172,36 @@ export default function Navbar() {
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`font-display text-2xl sm:text-3xl font-semibold tracking-tight transition-colors flex items-center justify-between py-4 border-b border-white/[0.06] ${
+                  className={`font-display text-xl sm:text-3xl font-semibold tracking-tight transition-colors flex items-center justify-between py-3.5 sm:py-4 border-b border-white/[0.06] ${
                     isActive ? 'text-[#D71920]' : 'text-[#F5F5F7] hover:text-[#D71920]'
                   }`}
                 >
                   <span>{link.label}</span>
-                  <ArrowUpRight size={18} className="text-[#636366]" />
+                  <ArrowUpRight size={16} className="text-[#636366]" />
                 </Link>
               );
             })}
           </nav>
 
-          <div className="pt-8 border-t border-white/[0.08] space-y-4">
+          <div className="pt-6 sm:pt-8 border-t border-white/[0.08] space-y-3 sm:space-y-4 pb-6">
             <Link
               to="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="btn-red w-full justify-center py-4 text-sm font-semibold"
+              className="btn-red w-full justify-center py-3.5 sm:py-4 text-xs sm:text-sm font-semibold"
             >
               <span>Book Now</span>
               <ArrowUpRight size={16} />
             </Link>
 
-            <div className="p-4 bg-[#0E0E10] border border-white/[0.06] rounded space-y-2">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-[#8E8E93]">Studio Line</div>
+            <div className="p-3.5 sm:p-4 bg-[#0E0E10] border border-white/[0.06] rounded space-y-1.5 sm:space-y-2">
+              <div className="font-mono text-[9px] sm:text-[10px] uppercase tracking-widest text-[#8E8E93]">Studio Line</div>
               <a
                 href={`tel:${studioCompany.phones.primary}`}
-                className="font-display text-base font-semibold text-[#FFFFFF] block hover:text-[#D71920]"
+                className="font-display text-sm sm:text-base font-semibold text-[#FFFFFF] block hover:text-[#D71920]"
               >
                 {studioCompany.phones.primary}
               </a>
-              <div className="text-xs text-[#8E8E93] leading-relaxed pt-1">
+              <div className="text-[11px] sm:text-xs text-[#8E8E93] leading-relaxed">
                 {studioCompany.hours}
               </div>
             </div>

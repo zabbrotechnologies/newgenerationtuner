@@ -94,7 +94,7 @@ export default function ContactPage() {
     <div className="bg-[#000000] text-[#FAFAFA] selection:bg-[#D71920] selection:text-[#FFFFFF]">
 
       {/* ── 01. PAGE HERO ── */}
-      <section className="relative min-h-[80vh] flex items-center py-24 md:py-32 overflow-hidden bg-[#000000] border-b border-white/[0.08]">
+      <section className="relative min-h-[75vh] sm:min-h-[80vh] flex items-center pt-20 sm:pt-28 pb-12 sm:pb-20 overflow-hidden bg-[#000000] border-b border-white/[0.08]">
         <div
           className="absolute inset-0 z-0 overflow-hidden"
           style={{ transform: `translateY(${Math.min(scrollY * 0.3, 180)}px)` }}
@@ -117,20 +117,20 @@ export default function ContactPage() {
           style={{ transform: `translateY(${Math.min(-scrollY * 0.1, 0)}px)` }}
         >
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl space-y-5"
+            className="max-w-3xl space-y-4 sm:space-y-5"
           >
-            <div className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-widest text-[#D71920]">
-              <span className="w-8 h-[2px] bg-[#D71920]" />
+            <div className="flex items-center gap-2.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-widest text-[#D71920]">
+              <span className="w-6 sm:w-8 h-[2px] bg-[#D71920]" />
               <span>BOOKING & CONSULTATION</span>
             </div>
-            <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-bold uppercase tracking-tight text-[#FFFFFF] leading-[0.95]">
+            <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold uppercase tracking-tight text-[#FFFFFF] leading-[1.05] sm:leading-[0.95]">
               BOOK YOUR<br />
               <span className="text-[#D71920]">APPOINTMENT.</span>
             </h1>
-            <p className="font-body text-sm sm:text-base text-[#8E8E93] leading-relaxed max-w-xl">
+            <p className="font-body text-xs sm:text-sm md:text-base text-[#8E8E93] leading-relaxed max-w-xl">
               Tell us about your vehicle and goals. Our technicians will reach out within 24 hours to build your tailored detailing protocol.
             </p>
           </motion.div>
