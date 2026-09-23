@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Phone, Clock, MapPin } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { studioCompany } from '../../data/index.js';
 
 export default function Navbar() {
@@ -13,10 +13,8 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
       setIsScrolled(currentScrollY > 30);
 
-      // Hide / Reveal behavior
       if (currentScrollY < 60) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current + 12 && currentScrollY > 100) {
@@ -39,11 +37,8 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.key === 'Escape' && mobileMenuOpen) {
-        setMobileMenuOpen(false);
-      }
+      if (e.key === 'Escape' && mobileMenuOpen) setMobileMenuOpen(false);
     };
-
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
@@ -57,12 +52,11 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: "Home", path: "/" },
-    { label: "Services", path: "/services" },
-    { label: "Our Work", path: "/gallery" },
-    { label: "Reviews", path: "/reviews" },
-    { label: "Studio", path: "/about" },
-    { label: "Contact", path: "/contact" }
+    { label: 'Home',     path: '/' },
+    { label: 'Services', path: '/services' },
+    { label: 'Our Work', path: '/gallery' },
+    { label: 'About',    path: '/about' },
+    { label: 'Contact',  path: '/contact' },
   ];
 
   return (
@@ -74,26 +68,29 @@ export default function Navbar() {
         Skip to Main Content
       </a>
 
-      <div 
+      <div
         className={`fixed top-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out ${
           isVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        {/* Main Navbar with Dark Glassmorphism */}
-        <header className={`transition-all duration-300 ${
-          isScrolled ? 'py-3 navbar-dark-glass shadow-2xl' : 'py-5 bg-gradient-to-b from-[#050505]/90 via-[#050505]/60 to-transparent backdrop-blur-md border-b border-white/[0.04]'
-        }`}>
+        <header
+          className={`transition-all duration-300 ${
+            isScrolled
+              ? 'py-3 navbar-dark-glass shadow-2xl'
+              : 'py-4 bg-gradient-to-b from-[#050505]/95 via-[#050505]/70 to-transparent backdrop-blur-md border-b border-white/[0.05]'
+          }`}
+        >
           <div className="container flex justify-between items-center">
-            
+
             {/* Brand Logo */}
-            <Link 
-              to="/" 
-              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920]" 
+            <Link
+              to="/"
+              className="flex items-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920]"
               aria-label="New Generation Tuner's Home"
             >
               <div className="h-8 sm:h-9 flex items-center text-[#FFFFFF] group-hover:text-[#D71920] transition-colors">
-                <svg 
-                  viewBox="0 0 500 160" 
+                <svg
+                  viewBox="0 0 500 160"
                   className="h-8 sm:h-9 w-auto transition-transform duration-300 group-hover:scale-[1.02]"
                   fill="currentColor"
                   aria-hidden="true"
@@ -104,14 +101,14 @@ export default function Navbar() {
                     NEW GENERATION TUNER'S
                   </text>
                   <text x="250" y="128" fontFamily="'Inter', sans-serif" fontWeight="600" fontSize="11" letterSpacing="4.2" textAnchor="middle" opacity="0.8">
-                    Automotive Detailing & Protection
+                    Automotive Detailing &amp; Protection
                   </text>
                 </svg>
               </div>
             </Link>
 
-            {/* Center Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-8" aria-label="Main Desktop Navigation">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center gap-7" aria-label="Main Desktop Navigation">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path;
                 return (
@@ -120,27 +117,27 @@ export default function Navbar() {
                     to={link.path}
                     aria-current={isActive ? 'page' : undefined}
                     className={`relative py-1 font-body text-[13px] font-medium tracking-wide transition-all ${
-                      isActive 
-                        ? 'text-[#FFFFFF] font-semibold' 
+                      isActive
+                        ? 'text-[#FFFFFF] font-semibold'
                         : 'text-[#AEAEB2] hover:text-[#FFFFFF]'
                     }`}
                   >
                     {link.label}
                     {isActive && (
-                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D71920]"></span>
+                      <span className="absolute bottom-0 left-0 w-full h-[2px] bg-[#D71920]" />
                     )}
                   </Link>
                 );
               })}
             </nav>
 
-            {/* Right Action Button */}
-            <div className="hidden lg:flex items-center gap-4">
-              <Link 
-                to="/contact" 
-                className="btn-red text-xs py-2.5 px-5 group"
+            {/* Right: BOOK NOW CTA */}
+            <div className="hidden lg:flex items-center">
+              <Link
+                to="/contact"
+                className="btn-red text-xs py-2.5 px-6 group"
               >
-                <span>Book Assessment</span>
+                <span>Book Now</span>
                 <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
@@ -149,7 +146,7 @@ export default function Navbar() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden text-[#F5F5F7] p-2 hover:text-[#D71920] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D71920]"
-              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -158,15 +155,15 @@ export default function Navbar() {
         </header>
       </div>
 
-      {/* Mobile Drawer Modal */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 top-[60px] z-40 bg-[#050505]/98 backdrop-blur-3xl border-t border-white/[0.08] flex flex-col justify-between p-6 sm:p-8 lg:hidden shadow-2xl overflow-y-auto"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile Navigation Drawer"
         >
-          <nav className="flex flex-col gap-2 pt-2" aria-label="Mobile Navigation Links">
+          <nav className="flex flex-col gap-1 pt-2" aria-label="Mobile Navigation Links">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -175,7 +172,7 @@ export default function Navbar() {
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   aria-current={isActive ? 'page' : undefined}
-                  className={`font-display text-xl sm:text-2xl font-semibold tracking-tight transition-colors flex items-center justify-between py-3.5 border-b border-white/[0.06] ${
+                  className={`font-display text-2xl sm:text-3xl font-semibold tracking-tight transition-colors flex items-center justify-between py-4 border-b border-white/[0.06] ${
                     isActive ? 'text-[#D71920]' : 'text-[#F5F5F7] hover:text-[#D71920]'
                   }`}
                 >
@@ -187,22 +184,25 @@ export default function Navbar() {
           </nav>
 
           <div className="pt-8 border-t border-white/[0.08] space-y-4">
-            <Link 
-              to="/contact" 
+            <Link
+              to="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="btn-red w-full justify-center py-3.5 text-sm font-semibold"
+              className="btn-red w-full justify-center py-4 text-sm font-semibold"
             >
-              <span>Book an Assessment</span>
+              <span>Book Now</span>
               <ArrowUpRight size={16} />
             </Link>
-            
+
             <div className="p-4 bg-[#0E0E10] border border-white/[0.06] rounded space-y-2">
               <div className="font-mono text-[10px] uppercase tracking-widest text-[#8E8E93]">Studio Line</div>
-              <a href={`tel:${studioCompany.phones.primary}`} className="font-display text-base font-semibold text-[#FFFFFF] block hover:text-[#D71920]">
+              <a
+                href={`tel:${studioCompany.phones.primary}`}
+                className="font-display text-base font-semibold text-[#FFFFFF] block hover:text-[#D71920]"
+              >
                 {studioCompany.phones.primary}
               </a>
               <div className="text-xs text-[#8E8E93] leading-relaxed pt-1">
-                {studioCompany.address}
+                {studioCompany.hours}
               </div>
             </div>
           </div>
