@@ -17,7 +17,7 @@ export default function HeroSection() {
           playsInline
           preload="auto"
           onLoadedData={() => setVideoLoaded(true)}
-          className={`w-full h-full object-cover filter brightness-[0.78] contrast-[1.1] transition-opacity duration-700 ${
+          className={`w-full h-full object-cover filter brightness-[0.92] contrast-[1.05] transition-opacity duration-700 ${
             videoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           style={{ backgroundColor: '#050505' }}
@@ -26,12 +26,12 @@ export default function HeroSection() {
         </video>
       </div>
 
-      {/* ── 2. CINEMATIC GRADIENT COVER (SERVICES HERO STYLE, ZERO GLASSMORPHISM BLUR) ── */}
+      {/* ── 2. CINEMATIC GRADIENT COVER (LIGHTWEIGHT, CLEAR VISIBILITY) ── */}
       <div className="absolute inset-0 z-10 pointer-events-none">
-        {/* Left directional gradient for sharp text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/60 to-[#050505]/30"></div>
+        {/* Left directional gradient for sharp text contrast without washing out video */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/75 via-[#050505]/35 to-transparent"></div>
         {/* Top and bottom subtle vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-[#050505]/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/70 via-transparent to-[#050505]/30"></div>
       </div>
 
       {/* ── 3. HERO CONTENT (MINIMAL TOP GAP, COMPACT SPACING) ── */}

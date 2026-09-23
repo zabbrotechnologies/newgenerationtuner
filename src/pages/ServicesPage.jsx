@@ -58,12 +58,12 @@ export default function ServicesPage() {
           style={{ transform: `translateY(${Math.min(scrollY * 0.3, 180)}px)` }}
         >
           <img
-            src="https://media.istockphoto.com/id/2231774821/photo/asian-male-automotive-technician-who-inspects-repairs-and-maintains-all-vehicle-systems.jpg?s=1024x1024&w=is&k=20&c=2nVbQ_HaJug2BnsHg9bimGXrgzMzu3lvXijIn8oRxbA="
+            src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=2000&q=85&auto=format&fit=crop"
             alt="Automotive technician inspecting vehicle systems in studio bay"
-            className="w-full h-full object-cover brightness-[0.55] contrast-[1.15] scale-110"
+            className="w-full h-full object-cover brightness-[0.80] contrast-[1.10] scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/95 via-[#000000]/55 to-[#000000]/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/75 via-[#000000]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/70 via-transparent to-[#000000]/30" />
         </div>
 
         <div

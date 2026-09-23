@@ -102,10 +102,10 @@ export default function ContactPage() {
           <img
             src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=2000&q=85&auto=format&fit=crop"
             alt="Automotive detailing atelier studio bay"
-            className="w-full h-full object-cover brightness-[0.55] contrast-[1.15] scale-110"
+            className="w-full h-full object-cover brightness-[0.82] contrast-[1.10] scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/95 via-[#000000]/60 to-[#000000]/80" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/75 via-[#000000]/35 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/70 via-transparent to-[#000000]/30" />
         </div>
 
         <div
