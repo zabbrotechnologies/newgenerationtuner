@@ -58,8 +58,11 @@ export default function ServicesPage() {
           style={{ transform: `translateY(${Math.min(scrollY * 0.3, 180)}px)` }}
         >
           <img
-            src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=2000&q=85&auto=format&fit=crop"
-            alt="Automotive technician inspecting vehicle systems in studio bay"
+            src="/images/services-hero-electrical.jpg"
+            onError={(e) => {
+              e.currentTarget.src = "https://plus.unsplash.com/premium_photo-1658527217852-a4fba95fcd66?w=2000&q=85&auto=format&fit=crop";
+            }}
+            alt="Automotive technician performing vehicle electrical diagnostics and system testing"
             className="w-full h-full object-cover brightness-[0.68] contrast-[1.10] scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/83 via-[#000000]/48 to-[#000000]/15" />
