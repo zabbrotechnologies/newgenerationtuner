@@ -47,6 +47,16 @@ export default function BeforeAfterSlider() {
     }
   ];
 
+  // Preload all transformation images on mount for instant switching
+  useEffect(() => {
+    slides.forEach((s) => {
+      const imgBefore = new Image();
+      imgBefore.src = s.before;
+      const imgAfter = new Image();
+      imgAfter.src = s.after;
+    });
+  }, []);
+
   const handleMove = useCallback((clientX) => {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
@@ -55,11 +65,47 @@ export default function BeforeAfterSlider() {
     setSliderPos(percentage);
   }, []);
 
-  const handleMouseMove = (e) => {
+  // Global mouse & touch listeners when dragging
+  useEffect(() => {
+    const handleGlobalMouseMove = (e) => {
+      if (isDragging) {
+        handleMove(e.clientX);
+      }
+    };
+
+    const handleGlobalTouchMove = (e) => {
+      if (isDragging && e.touches && e.touches[0]) {
+        handleMove(e.touches[0].clientX);
+      }
+    };
+
+    const handleGlobalMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      window.addEventListener('mousemove', handleGlobalMouseMove);
+      window.addEventListener('mouseup', handleGlobalMouseUp);
+      window.addEventListener('touchmove', handleGlobalTouchMove);
+      window.addEventListener('touchend', handleGlobalMouseUp);
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleGlobalMouseMove);
+      window.removeEventListener('mouseup', handleGlobalMouseUp);
+      window.removeEventListener('touchmove', handleGlobalTouchMove);
+      window.removeEventListener('touchend', handleGlobalMouseUp);
+    };
+  }, [isDragging, handleMove]);
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    setIsDragging(true);
     handleMove(e.clientX);
   };
 
-  const handleTouchMove = (e) => {
+  const handleTouchStart = (e) => {
+    setIsDragging(true);
     if (e.touches && e.touches[0]) {
       handleMove(e.touches[0].clientX);
     }
@@ -211,24 +257,28 @@ export default function BeforeAfterSlider() {
           </div>
         </div>
 
-        {/* The Draggable Interactive Before/After Frame */}
+        {/* The Click & Drag Interactive Before/After Frame */}
         <div 
+          key={slide.id}
           ref={containerRef}
-          onMouseMove={handleMouseMove}
-          onTouchMove={handleTouchMove}
-          className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-2xl overflow-hidden select-none cursor-ew-resize border border-white/[0.12] bg-[#0A0B0D] shadow-2xl group"
+          onMouseDown={handleMouseDown}
+          onTouchStart={handleTouchStart}
+          className={`relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-2xl overflow-hidden select-none border border-white/[0.12] bg-[#0A0B0D] shadow-2xl ${
+            isDragging ? 'cursor-grabbing' : 'cursor-grab'
+          }`}
         >
           {/* Base Layer: After Image (Full Width Underneath) */}
           <div className="absolute inset-0">
             <img 
               src={slide.after} 
               alt={`${slide.title} After Detailing`}
-              className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.05]"
+              draggable="false"
+              className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.05] pointer-events-none select-none"
             />
             
             {/* After Floating Badge (Top Right) */}
-            <div className="absolute top-4 right-4 z-10">
-              <span className="bg-[#050505]/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/[0.12] font-display text-xs font-semibold text-white tracking-wide shadow-md">
+            <div className="absolute top-4 right-4 z-10 pointer-events-none">
+              <span className="bg-[#050505]/85 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/[0.12] font-display text-xs font-semibold text-white tracking-wide shadow-md">
                 {slide.afterLabel}
               </span>
             </div>
@@ -242,23 +292,23 @@ export default function BeforeAfterSlider() {
             <img 
               src={slide.before} 
               alt={`${slide.title} Before Detailing`}
-              className="w-full h-full object-cover filter brightness-[0.88] contrast-[1.05]"
+              draggable="false"
+              className="w-full h-full object-cover filter brightness-[0.88] contrast-[1.05] pointer-events-none select-none"
             />
             
             {/* Before Floating Badge (Top Left) */}
-            <div className="absolute top-4 left-4 z-10">
-              <span className="bg-[#050505]/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/[0.12] font-display text-xs font-semibold text-[#8E8E93] tracking-wide shadow-md">
+            <div className="absolute top-4 left-4 z-10 pointer-events-none">
+              <span className="bg-[#050505]/85 backdrop-blur-md px-3.5 py-1 rounded-full border border-white/[0.12] font-display text-xs font-semibold text-[#8E8E93] tracking-wide shadow-md">
                 {slide.beforeLabel}
               </span>
             </div>
           </div>
 
-          {/* Divider Line */}
+          {/* Divider Line & Circular Drag Handle */}
           <div 
             className="absolute top-0 bottom-0 w-[2px] bg-white z-20 pointer-events-none shadow-[0_0_10px_rgba(0,0,0,0.5)]"
             style={{ left: `${sliderPos}%` }}
           >
-            {/* Central Round Slider Handle */}
             <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs shadow-2xl border-2 border-black/10">
               <span className="tracking-tighter select-none">‹ ›</span>
             </div>
@@ -284,7 +334,7 @@ export default function BeforeAfterSlider() {
           </div>
 
           <span className="tracking-wider uppercase text-[10px]">
-            DRAG HANDLE TO COMPARE RESULT
+            CLICK &amp; DRAG TO COMPARE
           </span>
         </div>
 
