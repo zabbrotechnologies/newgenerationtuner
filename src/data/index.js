@@ -77,7 +77,7 @@ export const TECHNICAL_LAB_ITEMS = [
     title: "Multi-Spectrum High-CRI Inspection Arrays",
     description: "Standard fluorescent tubes conceal over 70% of micro-scratches. Our inspection bays employ daylight-calibrated 96+ CRI arrays spanning 2700K to 6500K color temperatures to expose defects in true solar fidelity.",
     spec: "VARIABLE SPECTRUM 2700K–6500K · CRI 96+ · ANTI-GLARE",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=80&auto=format&fit=crop"
   },
   {
     id: "polishing",
@@ -86,7 +86,7 @@ export const TECHNICAL_LAB_ITEMS = [
     title: "Precision Random Orbital & Rotary Systems",
     description: "Rupes BigFoot dual-action and Flex rotary polishers generate oscillating orbits to eliminate paint defects without introducing rotary friction burn or clear coat thinning.",
     spec: "15MM & 21MM ORBITAL THROWS · BALANCED COUNTERWEIGHT MOTORS",
-    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1000&q=80&auto=format&fit=crop"
   },
   {
     id: "chemistry",
@@ -95,7 +95,7 @@ export const TECHNICAL_LAB_ITEMS = [
     title: "Pure Silicon Dioxide (SiO₂) Nanostructures",
     description: "Inorganic covalent bonding creates a solid crystalline lattice over the clear coat, delivering permanent chemical defense against pH2-pH12 compounds, road salts, and UV degradation.",
     spec: "9H PENCIL HARDNESS · 110°+ WATER CONTACT ANGLE · COVALENT BOND",
-    image: "https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1000&q=80&auto=format&fit=crop"
   },
   {
     id: "gauges",
@@ -104,7 +104,7 @@ export const TECHNICAL_LAB_ITEMS = [
     title: "PosiTector 200 Ultrasonic Clear Coat Measurement",
     description: "Digital non-destructive measurement down to 0.1 micron precision across steel, aluminium, and composite carbon panels to verify clear coat integrity before compounding.",
     spec: "0.1μM TOLERANCE · DUAL-MODE EDDY CURRENT & ULTRASONIC",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000&q=80&auto=format&fit=crop"
   },
   {
     id: "curing",
@@ -113,6 +113,6 @@ export const TECHNICAL_LAB_ITEMS = [
     title: "Short-Wave Infrared Baking Stations",
     description: "IR heat lamps bake ceramic coatings from the inside out, ensuring instantaneous cross-linking crystallization and maximum hardness before the vehicle leaves the studio.",
     spec: "SHORT-WAVE IR EMITTER · 60°C CONTROLLED THERMAL SOAK",
-    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1000&q=80"
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1000&q=80&auto=format&fit=crop"
   }
 ];

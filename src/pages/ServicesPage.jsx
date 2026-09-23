@@ -205,7 +205,7 @@ export default function ServicesPage() {
             >
               <div className="aspect-[4/5] overflow-hidden border border-white/[0.12] rounded-xl group">
                 <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+                  src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1200&q=80&auto=format&fit=crop"
                   alt="Paint correction multi-stage machine levelling"
                   className="w-full h-full object-cover filter brightness-[0.7] contrast-[1.1] group-hover:scale-105 transition-transform duration-700"
                 />
@@ -306,7 +306,7 @@ export default function ServicesPage() {
             >
               <div className="aspect-[4/5] overflow-hidden border border-white/[0.1] rounded-xl group">
                 <img
-                  src="https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1200&q=80"
+                  src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&q=80&auto=format&fit=crop"
                   alt="Ceramic coating water beading on paintwork"
                   className="w-full h-full object-cover filter brightness-[0.8] contrast-[1.1] group-hover:scale-105 transition-transform duration-700"
                 />
@@ -339,7 +339,7 @@ export default function ServicesPage() {
           </div>
           <div className="relative aspect-[16/9] md:aspect-[21/9] overflow-hidden border border-white/[0.12] rounded-xl group">
             <img
-              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=85"
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1800&q=85&auto=format&fit=crop"
               alt="PPF installation on high-performance vehicle"
               className="w-full h-full object-cover filter brightness-[0.6] group-hover:scale-105 transition-transform duration-700"
             />
@@ -386,7 +386,7 @@ export default function ServicesPage() {
             >
               <div className="aspect-[4/5] overflow-hidden border border-white/[0.1] rounded-xl group">
                 <img
-                  src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1200&q=80"
+                  src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1200&q=80&auto=format&fit=crop"
                   alt="Premium interior detailing and leather restoration"
                   className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1] group-hover:scale-105 transition-transform duration-700"
                 />

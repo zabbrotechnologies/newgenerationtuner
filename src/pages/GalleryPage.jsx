@@ -6,11 +6,11 @@ import BeforeAfterSlider from '../components/media/BeforeAfterSlider.jsx';
 import { studioGallery, studioCompany } from '../data/index.js';
 
 const FILTERS = [
-  { id: 'all',            label: 'All' },
-  { id: 'Paint Correction', label: 'Paint Correction' },
-  { id: 'PPF & Ceramic',   label: 'Ceramic & PPF' },
-  { id: 'Custom Armour',   label: 'Interior' },
-  { id: 'PPF & Performance', label: 'Full Detail' },
+  { id: 'all',               label: 'All Work' },
+  { id: 'Paint Correction',   label: 'Paint Correction' },
+  { id: 'PPF & Ceramic',      label: 'Ceramic & PPF' },
+  { id: 'Custom Armour',      label: 'Custom Armour & Interior' },
+  { id: 'PPF & Performance', label: 'PPF & Performance' },
 ];
 
 const fadeInUp = {

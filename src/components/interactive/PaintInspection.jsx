@@ -120,12 +120,12 @@ export default function PaintInspection() {
             <img
               src={
                 mode === 'inspect'
-                  ? 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1600&q=80'
+                  ? 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1600&q=80&auto=format&fit=crop'
                   : mode === 'correct'
-                  ? 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80'
+                  ? 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop'
                   : mode === 'refine'
-                  ? 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80'
-                  : 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1600&q=80'
+                  ? 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1600&q=80&auto=format&fit=crop'
+                  : 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1600&q=80&auto=format&fit=crop'
               }
               alt="Automotive Paint Substrate"
               className="w-full h-full object-cover filter brightness-[0.7] contrast-[1.2]"

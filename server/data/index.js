@@ -27,7 +27,7 @@ export const studioServices = [
       measurement: "PosiTector 200 Ultrasonic Gauge",
       timeframe: "1 to 3 Studio Days"
     },
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80"
+    image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1200&q=80&auto=format&fit=crop"
   },
   {
     id: "ceramic-protection",
@@ -55,7 +55,7 @@ export const studioServices = [
       durability: "3-Year, 5-Year & Lifetime Tiers",
       curing: "60°C Infrared Thermal Soak"
     },
-    image: "https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1200&q=80"
+    image: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&q=80&auto=format&fit=crop"
   },
   {
     id: "ppf",
@@ -82,7 +82,7 @@ export const studioServices = [
       warranty: "Up to 10-Year Manufacturer Warranty",
       finish: "Ultra-High Gloss or Satin Matte"
     },
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80"
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80&auto=format&fit=crop"
   },
   {
     id: "interior-restoration",
@@ -109,7 +109,7 @@ export const studioServices = [
       ozone: "10,000mg/h Ozone Air Purifier",
       finish: "Non-greasy OEM Factory Matte"
     },
-    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1200&q=80"
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1200&q=80&auto=format&fit=crop"
   },
   {
     id: "decontamination-jewelling",
@@ -134,7 +134,7 @@ export const studioServices = [
       clay: "Ultra-fine synthetic polymer clay",
       polish: "Ultra-high gloss finishing glaze"
     },
-    image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1200&q=80"
+    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80&auto=format&fit=crop"
   },
   {
     id: "maintenance-programs",
@@ -159,7 +159,7 @@ export const studioServices = [
       wash: "pH-neutral lubricating snow foam",
       drying: "Heated filtered air blower (zero towel friction)"
     },
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1200&q=80"
+    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=1200&q=80&auto=format&fit=crop"
   }
 ];
 
@@ -170,7 +170,7 @@ export const studioGallery = [
     service: "Full Body PPF + 5-Year Ceramic Coating",
     category: "PPF & Ceramic",
     description: "Complete track package protection with wrapped edges on Guards Red finish.",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80&auto=format&fit=crop",
     metrics: ["150μm TPU Coverage", "110° Water Angle", "100% Swirl-Free"]
   },
   {
@@ -179,7 +179,7 @@ export const studioGallery = [
     service: "Two-Stage Paint Correction + Ceramic",
     category: "Paint Correction",
     description: "Restoration of Black Sapphire Metallic paintwork after severe dealer wash damage.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1200&q=80&auto=format&fit=crop",
     metrics: ["92% Defect Removal", "PosiTector Measured", "9H Surface Shield"]
   },
   {
@@ -188,7 +188,7 @@ export const studioGallery = [
     service: "Full Stealth PPF + Interior Restoration",
     category: "Custom Armour",
     description: "Matte conversion from gloss Obsidian Black with complete ceramic leather treatment.",
-    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop",
     metrics: ["Full Satin Transform", "Hydrophobic Leather", "Ozone Sterilized"]
   },
   {
@@ -197,8 +197,26 @@ export const studioGallery = [
     service: "Front Track Pack PPF + Stage 1 Remap",
     category: "PPF & Performance",
     description: "High-speed gravel defense combined with precision ECU torque optimization.",
-    image: "https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80&auto=format&fit=crop",
     metrics: ["Track Protection", "Dyno Calibrated", "Zero Razor Edge Cuts"]
+  },
+  {
+    id: "proj-5",
+    title: "Range Rover Sport HSE",
+    service: "Interior Extraction & Matte Leather Restoration",
+    category: "Custom Armour",
+    description: "Deep hot-water extraction and OEM matte lanolin nourishment on Windsor perforated leather.",
+    image: "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1200&q=80&auto=format&fit=crop",
+    metrics: ["170°C Vapor Cleanse", "Zero Grease Shine", "Ozone Purified"]
+  },
+  {
+    id: "proj-6",
+    title: "Porsche Macan GTS",
+    service: "Decontamination Jewelling + 3-Year Ceramic",
+    category: "Paint Correction",
+    description: "Chemical iron fallout purged followed by fine single-stage jewelling pass and covalent SiO₂ shield.",
+    image: "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80&auto=format&fit=crop",
+    metrics: ["Iron Fallout Purged", "Specular Refinement", "3-Year Warranty"]
   }
 ];
 

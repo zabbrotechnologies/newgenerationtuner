@@ -180,7 +180,7 @@ export default function HomePage() {
             >
               <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/[0.1] relative group shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80"
+                  src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=900&q=80&auto=format&fit=crop"
                   alt="Paint correction machine levelling clear coat"
                   loading="lazy"
                   className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.15] group-hover:scale-105 transition-transform duration-700"

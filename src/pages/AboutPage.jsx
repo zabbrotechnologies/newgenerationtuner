@@ -56,8 +56,8 @@ export default function AboutPage() {
             >
               <div className="aspect-[4/5] rounded-2xl overflow-hidden border border-white/[0.1] relative group shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80"
-                  alt="New Generation Tuner's master technician"
+                  src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1000&q=80&auto=format&fit=crop"
+                  alt="New Generation Tuner's master technician inspecting vehicle clear coat"
                   loading="lazy"
                   className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.15] group-hover:scale-105 transition-transform duration-700"
                 />

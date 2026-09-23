@@ -16,7 +16,7 @@ export default function MaterialExplorer() {
         { label: 'Hardness', value: '2H – 4H Pencil Scale' },
         { label: 'Refractive Index', value: '1.49 – 1.52' }
       ],
-      media: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80',
+      media: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80&auto=format&fit=crop',
       treatment: 'Multi-stage rotary optical compounding & micro-finishing jewelling'
     },
     {
@@ -30,7 +30,7 @@ export default function MaterialExplorer() {
         { label: 'Contact Angle', value: '115° Superhydrophobic' },
         { label: 'Durability', value: '3 to 5 Years Matrix' }
       ],
-      media: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1200&q=80',
+      media: 'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?w=1200&q=80&auto=format&fit=crop',
       treatment: 'Twin-layer crosslinked quartz application in temperature-controlled curing bay'
     },
     {
@@ -44,7 +44,7 @@ export default function MaterialExplorer() {
         { label: 'Self-Healing Temp', value: '> 40°C / 104°F' },
         { label: 'Clarity', value: 'Zero Orange Peel Optical Film' }
       ],
-      media: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80',
+      media: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80&auto=format&fit=crop',
       treatment: 'Computer-plotted precision edge-wrapped digital pattern installation'
     },
     {
@@ -58,7 +58,7 @@ export default function MaterialExplorer() {
         { label: 'Protection Type', value: 'Fluoropolymer Matte Barrier' },
         { label: 'Finish', value: 'OEM Factory Matte (Zero Shine)' }
       ],
-      media: 'https://images.unsplash.com/photo-1563720223185-11003d516935?w=1200&q=80',
+      media: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=1200&q=80&auto=format&fit=crop',
       treatment: 'Steam sanitization, horsehair agitation, and ceramic leather encapsulation'
     },
     {
@@ -72,7 +72,7 @@ export default function MaterialExplorer() {
         { label: 'UV Resistance', value: 'Class A Resin Sealer' },
         { label: 'Finish', value: 'Specular Gloss Weave' }
       ],
-      media: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80',
+      media: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1200&q=80&auto=format&fit=crop',
       treatment: 'Precision pneumatic mini-polisher levelling and quartz sealant'
     }
   ];
