@@ -208,9 +208,9 @@ export default function ServicesPage() {
             >
               <div className="aspect-[4/5] overflow-hidden border border-white/[0.12] rounded-xl group">
                 <img
-                  src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1200&q=80&auto=format&fit=crop"
+                  src="/images/paint-correction-master.jpg"
                   alt="Paint correction multi-stage machine levelling"
-                  className="w-full h-full object-cover filter brightness-[0.7] contrast-[1.1] group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1] group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
             </motion.div>

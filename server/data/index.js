@@ -27,7 +27,7 @@ export const studioServices = [
       measurement: "PosiTector 200 Ultrasonic Gauge",
       timeframe: "1 to 3 Studio Days"
     },
-    image: "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=1200&q=80&auto=format&fit=crop"
+    image: "/images/paint-correction-master.jpg"
   },
   {
     id: "ceramic-protection",

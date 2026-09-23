@@ -95,7 +95,7 @@ export const TECHNICAL_LAB_ITEMS = [
     title: "Pure Silicon Dioxide (SiO₂) Nanostructures",
     description: "Inorganic covalent bonding creates a solid crystalline lattice over the clear coat, delivering permanent chemical defense against pH2-pH12 compounds, road salts, and UV degradation.",
     spec: "9H PENCIL HARDNESS · 110°+ WATER CONTACT ANGLE · COVALENT BOND",
-    image: "https://images.unsplash.com/photo-1619976215249-f59f22769b86?w=1000&q=80&auto=format&fit=crop"
+    image: "/images/ceramic-chemistry-lab.jpg"
   },
   {
     id: "gauges",
