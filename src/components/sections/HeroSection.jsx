@@ -26,12 +26,12 @@ export default function HeroSection() {
         </video>
       </div>
 
-      {/* ── 2. CINEMATIC GRADIENT COVER (LIGHTWEIGHT, CLEAR VISIBILITY) ── */}
+      {/* ── 2. CINEMATIC GRADIENT COVER (CALIBRATED VISIBILITY) ── */}
       <div className="absolute inset-0 z-10 pointer-events-none">
-        {/* Left directional gradient for sharp text contrast without washing out video */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/83 via-[#050505]/48 to-[#050505]/15"></div>
+        {/* Left directional gradient for sharp text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505]/88 via-[#050505]/58 to-[#050505]/22"></div>
         {/* Top and bottom subtle vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/75 via-transparent to-[#050505]/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-[#050505]/40"></div>
       </div>
 
       {/* ── 3. HERO CONTENT (MINIMAL TOP GAP, COMPACT SPACING) ── */}

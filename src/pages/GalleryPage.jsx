@@ -51,8 +51,8 @@ export default function GalleryPage() {
             alt="Porsche 911 GT finished in studio with mirror reflection"
             className="w-full h-full object-cover brightness-[0.70] contrast-[1.10] scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/83 via-[#000000]/48 to-[#000000]/15" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/75 via-transparent to-[#000000]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/88 via-[#000000]/58 to-[#000000]/22" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/80 via-transparent to-[#000000]/40" />
         </div>
 
         <div
