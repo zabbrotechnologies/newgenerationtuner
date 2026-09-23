@@ -60,10 +60,10 @@ export default function ServicesPage() {
           <img
             src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?w=2000&q=85&auto=format&fit=crop"
             alt="Automotive technician inspecting vehicle systems in studio bay"
-            className="w-full h-full object-cover brightness-[0.80] contrast-[1.10] scale-110"
+            className="w-full h-full object-cover brightness-[0.68] contrast-[1.10] scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/75 via-[#000000]/35 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/70 via-transparent to-[#000000]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/83 via-[#000000]/48 to-[#000000]/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/75 via-transparent to-[#000000]/30" />
         </div>
 
         <div

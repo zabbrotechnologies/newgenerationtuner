@@ -52,11 +52,11 @@ export default function Navbar() {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { label: 'Home',     path: '/' },
-    { label: 'Services', path: '/services' },
-    { label: 'Our Work', path: '/gallery' },
-    { label: 'About',    path: '/about' },
-    { label: 'Contact',  path: '/contact' },
+    { label: 'Home',       path: '/' },
+    { label: 'About Us',   path: '/about' },
+    { label: 'Services',   path: '/services' },
+    { label: 'Our Work',   path: '/gallery' },
+    { label: 'Contact Us', path: '/contact' },
   ];
 
   return (

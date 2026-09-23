@@ -100,12 +100,12 @@ export default function ContactPage() {
           style={{ transform: `translateY(${Math.min(scrollY * 0.3, 180)}px)` }}
         >
           <img
-            src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=2000&q=85&auto=format&fit=crop"
-            alt="Automotive detailing atelier studio bay"
-            className="w-full h-full object-cover brightness-[0.82] contrast-[1.10] scale-110"
+            src="https://images.unsplash.com/photo-1617788138017-80ad40651399?w=2000&q=85&auto=format&fit=crop"
+            alt="Deep black performance vehicle in studio detailing bay"
+            className="w-full h-full object-cover brightness-[0.70] contrast-[1.10] scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/75 via-[#000000]/35 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/70 via-transparent to-[#000000]/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/83 via-[#000000]/48 to-[#000000]/15" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000]/75 via-transparent to-[#000000]/30" />
         </div>
 
         <div
