@@ -58,8 +58,8 @@ export default function ServicesPage() {
           style={{ transform: `translateY(${Math.min(scrollY * 0.3, 180)}px)` }}
         >
           <img
-            src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?w=2070&q=85&auto=format&fit=crop"
-            alt="Automotive detailing service in progress"
+            src="https://media.istockphoto.com/id/2231774821/photo/asian-male-automotive-technician-who-inspects-repairs-and-maintains-all-vehicle-systems.jpg?s=1024x1024&w=is&k=20&c=2nVbQ_HaJug2BnsHg9bimGXrgzMzu3lvXijIn8oRxbA="
+            alt="Automotive technician inspecting vehicle systems in studio bay"
             className="w-full h-full object-cover brightness-[0.55] contrast-[1.15] scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/95 via-[#000000]/55 to-[#000000]/80" />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, ArrowUpRight, ChevronDown, ChevronUp } from 'lucide-react';
 import MultiStepAssessment from '../components/forms/MultiStepAssessment.jsx';
@@ -82,13 +82,36 @@ function FAQItem({ item }) {
 }
 
 export default function ContactPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className="bg-[#000000] text-[#FAFAFA] selection:bg-[#D71920] selection:text-[#FFFFFF]">
 
       {/* ── 01. PAGE HERO ── */}
-      <section className="py-24 md:py-32 bg-[#000000] border-b border-white/[0.08] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(215,25,32,0.07)_0%,transparent_60%)] pointer-events-none" />
-        <div className="container relative z-10">
+      <section className="relative min-h-[80vh] flex items-center py-24 md:py-32 overflow-hidden bg-[#000000] border-b border-white/[0.08]">
+        <div
+          className="absolute inset-0 z-0 overflow-hidden"
+          style={{ transform: `translateY(${Math.min(scrollY * 0.3, 180)}px)` }}
+        >
+          <img
+            src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=2000&q=85&auto=format&fit=crop"
+            alt="Automotive detailing atelier studio bay"
+            className="w-full h-full object-cover brightness-[0.55] contrast-[1.15] scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#000000]/95 via-[#000000]/60 to-[#000000]/80" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#000000] via-transparent to-[#000000]/60" />
+        </div>
+
+        <div
+          className="container relative z-10"
+          style={{ transform: `translateY(${Math.min(-scrollY * 0.1, 0)}px)` }}
+        >
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
